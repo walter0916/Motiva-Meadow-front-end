@@ -14,6 +14,17 @@ async function getAllProfiles() {
   }
 }
 
+async function getProfileById(profileId) {
+  try {
+    const res = await fetch(`${BASE_URL}/${profileId}`, {
+      headers: { 'Authorization': `Bearer ${tokenService.getToken()}` },
+    })
+    return await res.json()
+  } catch (error) {
+    throw new Error(error)
+  }
+}
+
 async function addPhoto(photoData) {
   try {
     const photoFormData = new FormData()
@@ -32,4 +43,4 @@ async function addPhoto(photoData) {
   }
 }
 
-export { getAllProfiles, addPhoto }
+export { getAllProfiles, getProfileById , addPhoto }
