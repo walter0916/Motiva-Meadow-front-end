@@ -5,7 +5,7 @@ import { Routes, Route, useNavigate } from 'react-router-dom'
 // pages
 import Signup from './pages/Signup/Signup'
 import Login from './pages/Login/Login'
-import Landing from './pages/Landing/Landing'
+import Dashboard from './pages/Dashboard/Dashboard'
 import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 
@@ -21,6 +21,7 @@ import './App.css'
 
 function App() {
   const [user, setUser] = useState(authService.getUser())
+  const [profile, setProfile] = useState({})
   const navigate = useNavigate()
 
   const handleLogout = () => {
@@ -37,7 +38,7 @@ function App() {
     <>
       <NavBar user={user} handleLogout={handleLogout} />
       <Routes>
-        <Route path="/" element={<Landing user={user} />} />
+        <Route path="/" element={<Dashboard user={user} />} />
         <Route
           path="/profiles"
           element={
