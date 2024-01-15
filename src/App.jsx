@@ -8,9 +8,10 @@ import Login from './pages/Login/Login'
 import Dashboard from './pages/Dashboard/Dashboard'
 import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
+import Calender from './pages/Calender/Calender'
 
 // components
-import NavBar from './components/NavBar/NavBar'
+import SideBar from './components/SideBar/SideBar'
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
 
 // services
@@ -45,7 +46,7 @@ function App() {
 
   return (
     <>
-      <NavBar user={user} profile={profile} handleLogout={handleLogout} />
+      <SideBar user={user} profile={profile} handleLogout={handleLogout} />
       <Routes>
         <Route path="/" element={<Dashboard user={user} />} />
         <Route
@@ -69,6 +70,14 @@ function App() {
           element={
             <ProtectedRoute user={user}>
               <ChangePassword handleAuthEvt={handleAuthEvt} />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/calender"
+          element={
+            <ProtectedRoute user={user}>
+              <Calender user={user} />
             </ProtectedRoute>
           }
         />
