@@ -6,3 +6,8 @@
 .link:visited {
   color:black
 }
+
+.sidebarContainer {
+  width: 16rem;
+  margin-right: 5px;
+}

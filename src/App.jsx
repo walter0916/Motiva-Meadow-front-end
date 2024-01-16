@@ -28,11 +28,13 @@ function App() {
 
   useEffect(() => {
     const fetchProfile = async () => {
-      const profileData = await profileService.getProfileById(user.profile)
-      setProfile(profileData)
+      if (user) {
+        const profileData = await profileService.getProfileById(user.profile)
+        setProfile(profileData)
+      }
     }
     fetchProfile()
-  }, [user.profile])
+  }, [user])
 
   const handleLogout = () => {
     authService.logout()
@@ -45,10 +47,17 @@ function App() {
   }
 
   return (
-    <>
+    <div className='app'>
       <SideBar user={user} profile={profile} handleLogout={handleLogout} />
       <Routes>
-        <Route path="/" element={<Dashboard user={user} />} />
+        <Route 
+        path="/" 
+        element={
+          <ProtectedRoute user={user}>
+            <Dashboard user={user} />
+          </ProtectedRoute>  
+          } 
+        />
         <Route
           path="/profiles"
           element={
@@ -82,7 +91,7 @@ function App() {
           }
         />
       </Routes>
-    </>
+    </div>
   )
 }
 
