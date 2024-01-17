@@ -3,18 +3,20 @@ import { useState } from 'react'
 import { Calendar, momentLocalizer } from 'react-big-calendar'
 import moment from 'moment'
 
+// services
+import * as eventService from '../../services/eventService'
+
 // css
 import 'react-big-calendar/lib/sass/styles.scss'
 
-const Calender = () => {
+const Calender = (props) => {
   const [event, setEvents] = useState({})
   const [formData, setFormData] = useState({
     title: '',
-    start: 0,
-    end: 0,
-    participants: [''],
+    start: '',
+    end: '',
+    participants: [],
     allDay: false,
-    color: ''
   })
   const localizer = momentLocalizer(moment)
 
@@ -42,6 +44,22 @@ const Calender = () => {
     setFormData({...formData, [evt.target.name]: evt.target.value })
   }
 
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    handleAddEvent(formData)
+    setFormData({
+      title: '',
+      start: '',
+      end: '',
+      participants: [],
+    })
+  }
+
+  const handleAddEvent = async (eventFormData) => {
+    const newEvent = await eventService.createEvent(props.user.profile, eventFormData)
+    console.log(newEvent)
+  }
+
   return (
     <div className='flex flex-col w-max' >
       <Calendar
@@ -59,7 +77,7 @@ const Calender = () => {
       />
       <div className="container mx-auto p-4">
         <div className="max-w-md mx-auto bg-white p-6 rounded-md shadow-md">
-          <form className="space-y-4">
+          <form className="space-y-4" onSubmit={handleSubmit}>
             <div className="mb-4">
               <label className="block text-gray-600 text-sm font-semibold mb-2">
                 Event Title:
