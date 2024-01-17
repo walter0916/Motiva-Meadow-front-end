@@ -196,7 +196,7 @@ const Calender = (props) => {
               </div>
               <button
                 type="submit"
-                className="bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700"
+                className="bg-sky-600 text-white py-2 px-4 rounded-md hover:bg-sky-700"
               >
                 Create Event
               </button>
