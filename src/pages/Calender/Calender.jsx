@@ -60,6 +60,7 @@ const Calender = (props) => {
   const handleAddEvent = async (eventFormData) => {
     const newEvent = await eventService.createEvent(props.user.profile, eventFormData)
     console.log(newEvent)
+    setEvents([...events, newEvent])
   }
 
   return (
