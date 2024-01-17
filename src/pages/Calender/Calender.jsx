@@ -8,7 +8,14 @@ import 'react-big-calendar/lib/sass/styles.scss'
 
 const Calender = () => {
   const [event, setEvents] = useState({})
-  const [allDay, setAllDay] = useState(false)
+  const [formData, setFormData] = useState({
+    title: '',
+    start: 0,
+    end: 0,
+    participants: [''],
+    allDay: false,
+    color: ''
+  })
   const localizer = momentLocalizer(moment)
 
   const events = [
@@ -16,19 +23,24 @@ const Calender = () => {
       start: moment().toDate(),
       end: moment().toDate(),
       title: "Some title",
-      friends: 'jeff'
     },
   ]
 
   const handleAllDayChange = (e) => {
-    setAllDay(e.target.checked)
+    const allDayChecked = e.target.checked
+    setFormData({
+      ...formData,
+      allDay: allDayChecked,
+    })
   }
   
   const handleSelectEvent = (event) => {
     setEvents(event)
-    console.log(event)
   }
 
+  const handleChange = (evt) => {
+    setFormData({...formData, [evt.target.name]: evt.target.value })
+  }
 
   return (
     <div className='flex flex-col w-max' >
@@ -56,31 +68,23 @@ const Calender = () => {
                 className="w-full px-3 py-2 border border-gray-300 rounded-md"
                 type="text"
                 name="title"
+                required
+                value={formData.title}
+                onChange={handleChange}
               />
-              </div>
-              <div className="mb-4">
-                <label className="block text-gray-600 text-sm font-semibold mb-2">
-                  Event Date:
-                </label>
-                <input
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md"
-                  type="date"
-                  name="date"
-                />
-              </div>
+            </div>
               <div className="mb-4">
                 <label className="flex items-center space-x-2 text-gray-600 text-sm font-semibold">
                 All Day:
                 <input
                   type="checkbox"
                   name="allDay"
-                  checked={allDay}
+                  checked={formData.allDay}
                   onChange={handleAllDayChange}
                   className="form-checkbox h-5 w-5 text-indigo-600"
                 />
                 </label>
               </div>
-              {!allDay && (
                 <div className="space-y-4">
                   <div className="mb-4">
                     <label className="block text-gray-600 text-sm font-semibold mb-2">
@@ -88,8 +92,11 @@ const Calender = () => {
                     </label>
                     <input
                       className="w-full px-3 py-2 border border-gray-300 rounded-md"
-                      type="time"
-                      name="startTime"
+                      type="datetime-local"
+                      name="start"
+                      value={formData.start}
+                      onChange={handleChange}
+                      required
                     />
                   </div>
                   <div className="mb-4">
@@ -98,12 +105,14 @@ const Calender = () => {
                     </label>
                     <input
                       className="w-full px-3 py-2 border border-gray-300 rounded-md"
-                      type="time"
-                      name="endTime"
+                      type="datetime-local"
+                      name="end"
+                      value={formData.end}
+                      onChange={handleChange}
+                      required
                     />
                   </div>
                 </div>
-              )}
               <div className="mb-4">
                 <label className="block text-gray-600 text-sm font-semibold mb-2">
                 Add Friends:
