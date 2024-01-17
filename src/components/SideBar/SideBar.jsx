@@ -6,7 +6,7 @@ import './SideBar.css'
 
 const SideBar = ({ user, profile , handleLogout }) => {
   return (
-    <div className='sidebarContainer'>
+    <div className='w-72'>
     <nav className='bg-gradient-to-l from-lime-400 to-lime-600 min-h-screen z-10 text-black w-64 fixed left-0 h-screen overflow-y-scroll '>
       {user ?
         <ul>
