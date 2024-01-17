@@ -9,6 +9,7 @@ import Dashboard from './pages/Dashboard/Dashboard'
 import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import Calender from './pages/Calender/Calender'
+import Tasks from './pages/Tasks/Tasks'
 
 // components
 import SideBar from './components/SideBar/SideBar'
@@ -87,6 +88,14 @@ function App() {
           element={
             <ProtectedRoute user={user}>
               <Calender user={user} />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/tasks"
+          element={
+            <ProtectedRoute user={user}>
+              <Tasks user={user} />
             </ProtectedRoute>
           }
         />
