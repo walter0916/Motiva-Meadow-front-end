@@ -1,5 +1,5 @@
 // npm service 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Calendar, momentLocalizer } from 'react-big-calendar'
 import moment from 'moment'
 
@@ -10,7 +10,8 @@ import * as eventService from '../../services/eventService'
 import 'react-big-calendar/lib/sass/styles.scss'
 
 const Calender = (props) => {
-  const [event, setEvents] = useState({})
+  const [events, setEvents] = useState([])
+  const [showEvent, setShowEvent] = useState({})
   const [formData, setFormData] = useState({
     title: '',
     start: '',
@@ -20,13 +21,14 @@ const Calender = (props) => {
   })
   const localizer = momentLocalizer(moment)
 
-  const events = [
-    {
-      start: moment().toDate(),
-      end: moment().toDate(),
-      title: "Some title",
-    },
-  ]
+  useEffect(() => {
+    const fetchEvents = async () => {
+      const data = await eventService.getUsersEvents(props.user.profile)
+      setEvents(data)
+    }
+    fetchEvents()
+  }, [props.user])
+
 
   const handleAllDayChange = (e) => {
     const allDayChecked = e.target.checked
@@ -37,7 +39,7 @@ const Calender = (props) => {
   }
   
   const handleSelectEvent = (event) => {
-    setEvents(event)
+    setShowEvent(event)
   }
 
   const handleChange = (evt) => {
@@ -70,10 +72,7 @@ const Calender = (props) => {
         defaultView='month'
         endAccessor="end"
         onSelectEvent={handleSelectEvent}
-        style={{ 
-              height: '80vh',
-              width: '70vw'
-              }}
+        style={{ height: '80vh', width: '70vw'}}
       />
       <div className="container mx-auto p-4">
         <div className="max-w-md mx-auto bg-white p-6 rounded-md shadow-md">
