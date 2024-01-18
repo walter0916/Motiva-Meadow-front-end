@@ -1,7 +1,8 @@
 // npm services
-import { useState } from "react";
+import { useState } from "react"
 
-const ToDoListForm = () => {
+
+const ToDoListForm = (props) => {
   const [formData, setFormData] = useState({
     title:'',
     deadline:''
@@ -13,11 +14,14 @@ const ToDoListForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    props.handleAddList(formData)
     setFormData({
       title: '',
       deadline: ''
     })
   }
+
+
 
   return (
     <div className='flex flex-col max-w-md mx-auto p-4 bg-white rounded-md shadow-md'>
