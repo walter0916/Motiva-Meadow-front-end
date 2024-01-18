@@ -17,6 +17,10 @@ const ToDoList = (props) => {
     return formattedDate
   }
 
+  const completeTask = ()=> {
+
+  }
+
 
   return (
     <div>
@@ -30,8 +34,8 @@ const ToDoList = (props) => {
             {props.toDoList.tasks.length ?
             (props.toDoList.tasks.map(task => 
               <div key={task._id} className="flex mb-4 items-center">
-                <p className={`${task.color}  w-full text-grey-darkest`}>{task.task}</p>
-                <button className="flex-no-shrink p-2 ml-4 mr-2 border-2 rounded hover:text-white text-green border-green hover:bg-green">Done</button>
+                <p className={`${task.color} ${task.completed ? ('completed') : ('notCompleted')} w-full text-grey-darkest`}>{task.task}</p>
+                <button className="flex-no-shrink p-2 ml-4 mr-2 border-2 rounded hover:text-white text-green border-green hover:bg-green" onClick={() => props.handleCompleteTask(task._id, props.toDoList._id)}>Done</button>
                 <button className="flex-no-shrink p-2 ml-2 border-2 rounded text-red border-red hover:text-white hover:bg-red">Remove</button>
               </div>)) : ('')
             }

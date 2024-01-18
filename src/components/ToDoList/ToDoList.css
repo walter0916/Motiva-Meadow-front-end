@@ -25,3 +25,7 @@
 .pink {
   background-color: pink;
 }
+
+.completed {
+  text-decoration: line-through;
+}

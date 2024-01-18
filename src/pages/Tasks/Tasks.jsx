@@ -37,11 +37,18 @@ const Tasks = (props) => {
     setLists(updatedLists)
   }
 
+  const handleCompleteTask = async (taskId, todoListId) => {
+    const formData = {
+      completed: true,
+    }
+    await taskService.updateTaskCompletion(taskId, todoListId, formData)
+  }
+
   return (
     <div className="w-3/4">
       Create To Do List
       <ToDoListForm user={props.user} handleAddList={handleAddList}/>
-      {lists.length ? (lists.map((toDoList) => <ToDoList key={toDoList._id} toDoList={toDoList} handleAddTask={handleAddTask}/> )) : ('Loading Lists') }
+      {lists.length ? (lists.map((toDoList) => <ToDoList key={toDoList._id} toDoList={toDoList} handleAddTask={handleAddTask} handleCompleteTask={handleCompleteTask}/> )) : ('Loading Lists') }
     </div>
   )
 }
