@@ -40,8 +40,8 @@ const Tasks = (props) => {
   return (
     <div className="w-3/4">
       Create To Do List
-      <ToDoListForm user={props.user} handleAddList={handleAddList} handleAddTask={handleAddTask}/>
-      {lists.length ? (lists.map((toDoList) => <ToDoList key={toDoList._id} toDoList={toDoList}/>)) : ('Loading Lists') }
+      <ToDoListForm user={props.user} handleAddList={handleAddList}/>
+      {lists.length ? (lists.map((toDoList) => <ToDoList key={toDoList._id} toDoList={toDoList} handleAddTask={handleAddTask}/> )) : ('Loading Lists') }
     </div>
   )
 }

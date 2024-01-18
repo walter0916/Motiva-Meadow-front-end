@@ -1,28 +1,44 @@
 // npm services 
 import { useState } from "react"
 
-const TaskForm = () => {
+const TaskForm = (props) => {
+  const [listId, setListId] = useState(props.listId)
   const [formData, setFormData] = useState({
     task: '',
     color: ''
   })
 
+  const handleChange = (evt) => {
+    setFormData({...formData, [evt.target.name]: evt.target.value })
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    props.handleAddTask(listId, formData)
+    setFormData({
+      task: '',
+      color: ''
+    })
+  }
+
+
   return (
     <>
-      <form className="flex mt-4">
+      <form className="flex mt-4" onSubmit={handleSubmit}>
         <input 
-          className="shadow appearance-none border rounded w-full py-2 px-3 mr-4 text-grey-darker" 
-          placeholder="Add Todo" 
+          className="shadow appearance-none border rounded w-full py-2 px-3 mr-4 text-grey-darker"
+          name="task" 
+          placeholder="Add Todo"
+          value={formData.task}
+          onChange={handleChange}
         />
-        <button 
-          className="flex-no-shrink p-2 border-2 rounded text-teal border-teal hover:text-white hover:bg-teal"
-          type='submit'
-        >
-          Add
-        </button>
         <select 
-          name="color" 
+          name="color"
+          value={formData.color}
+          onChange={handleChange}
+          required 
         >
+          <option value="color">color</option>
           <option value="white">white</option>
           <option value="blue">blue</option>
           <option value="green">green</option>
@@ -32,6 +48,12 @@ const TaskForm = () => {
           <option value="orange">orange</option>
           <option value="pink">pink</option>
         </select>
+        <button 
+          className="flex-no-shrink p-2 border-2 rounded text-teal border-teal hover:text-white hover:bg-teal"
+          type='submit'
+        >
+          Add
+        </button>
       </form>
     </>
   )
