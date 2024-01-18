@@ -46,8 +46,25 @@ async function addTask(listId, taskFormData) {
   }
 }
 
+async function updateTaskCompletion(taskId,todoListId, taskFormData) {
+  try {
+    const res = await fetch(`${BASE_URL}/${taskId}/${todoListId}/completion`, {
+      method: 'PUT',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(taskFormData)
+    })
+    return res.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 export {
   getUsersLists,
   createToDoList,
-  addTask
+  addTask,
+  updateTaskCompletion
 }
