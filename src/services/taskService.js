@@ -30,7 +30,24 @@ async function createToDoList(profileId, listFormData) {
   }
 }
 
+async function addTask(listId, taskFormData) {
+  try {
+    const res = await fetch(`${BASE_URL}/${listId}/tasks`, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(taskFormData)
+    })
+    return res.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 export {
   getUsersLists,
-  createToDoList
+  createToDoList,
+  addTask
 }
