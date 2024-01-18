@@ -24,35 +24,37 @@ const ToDoListForm = (props) => {
 
 
   return (
-    <div className='flex flex-col max-w-md mx-auto p-4 bg-white rounded-md shadow-md'>
-      <form onSubmit={handleSubmit}>
-        <label className="mb-4">
-          <span className="block text-gray-600 text-sm font-semibold mb-2">
+    <div className="max-w-md mx-auto p-6 bg-white rounded-md shadow-md">
+      <form onSubmit={handleSubmit} className="space-y-4">
+        <div>
+          <label className="block text-sm font-semibold text-gray-600 mb-2">
             List Title:
-          </span>
-          <input 
-            type="text" 
+          </label>
+          <input
+            type="text"
             name="title"
             value={formData.title}
-            onChange={handleChange} 
+            onChange={handleChange}
             className="w-full px-3 py-2 border border-gray-300 rounded-md"
           />
-        </label>
-        <label className="mb-4">
-          <span className="block text-gray-600 text-sm font-semibold mb-2">
+        </div>
+
+        <div>
+          <label className="block text-sm font-semibold text-gray-600 mb-2">
             Date:
-          </span>
-          <input 
-            type="date" 
+          </label>
+          <input
+            type="date"
             name="deadline"
             value={formData.deadline}
-            onChange={handleChange} 
+            onChange={handleChange}
             className="w-full px-3 py-2 border border-gray-300 rounded-md"
           />
-        </label>
-        <button 
-        type="submit"
-        className="bg-sky-600 text-white py-2 px-4 rounded-md hover:bg-sky-700"
+        </div>
+
+        <button
+          type="submit"
+          className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600"
         >
           Create
         </button>
