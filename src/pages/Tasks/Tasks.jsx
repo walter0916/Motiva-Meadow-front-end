@@ -6,6 +6,7 @@ import * as taskService from '../../services/taskService'
 
 // components 
 import ToDoListForm from "../../components/ToDoListForm/ToDoListForm"
+import ToDoList from '../../components/ToDoList/ToDoList'
 
 // css
 
@@ -22,12 +23,14 @@ const Tasks = (props) => {
 
   const handleAddList = async (listFormData) => {
     const newList = await taskService.createToDoList(props.user.profile, listFormData)
+    setLists(newList, ...lists) 
   }
 
   return (
     <div className="w-3/4">
       Create To Do List
       <ToDoListForm user={props.user} handleAddList={handleAddList}/>
+      {lists.length ? (lists.map((toDoList) => <ToDoList key={toDoList._id} toDoList={toDoList}/>)) : ('Loading Lists') }
     </div>
   )
 }
