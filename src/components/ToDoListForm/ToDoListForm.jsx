@@ -44,7 +44,7 @@ const ToDoListForm = (props) => {
             Date:
           </label>
           <input
-            type="date"
+            type="datetime-local"
             name="deadline"
             value={formData.deadline}
             onChange={handleChange}

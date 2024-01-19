@@ -25,7 +25,7 @@ const Tasks = (props) => {
 
   const handleAddList = async (listFormData) => {
     const newList = await taskService.createToDoList(props.user.profile, listFormData)
-    setLists(newList, ...lists) 
+    setLists((prevLists) => [...prevLists, newList]) 
   }
 
   const handleAddTask = async (listId, taskFormData) => {

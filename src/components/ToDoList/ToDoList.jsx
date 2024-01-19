@@ -13,8 +13,9 @@ const ToDoList = (props) => {
       day: 'numeric',
       month: 'short',
     }
-    const formattedDate = date.toLocaleDateString('en-US', options)
+    const formattedDate = new Intl.DateTimeFormat('en-US', options).format(date)
     return formattedDate
+
   }
 
   return (
@@ -31,7 +32,7 @@ const ToDoList = (props) => {
               <div key={task._id} className="flex mb-4 items-center">
                 <p className={`${task.color} ${task.completed ? ('completed') : ('notCompleted')} w-full text-grey-darkest`}>{task.task}</p>
                 { task.completed ? <button className="flex-no-shrink p-2 ml-4 mr-2 border-2 rounded hover:text-red-500 text-green border-green hover:bg-green" onClick={() => props.handleTaskCompletion(task._id, props.toDoList._id, true)}> unDone</button> :
-                <button className="flex-no-shrink p-2 ml-4 mr-2 border-2 rounded hover:text-red-500 text-green border-green hover:bg-green" onClick={() => props.handleTaskCompletion(task._id, props.toDoList._id, false)}>Done</button>}
+                <button className="flex-no-shrink p-2 ml-4 mr-2 border-2 rounded hover:text-green-500 text-green border-green hover:bg-green" onClick={() => props.handleTaskCompletion(task._id, props.toDoList._id, false)}>Done</button>}
                 <button className="flex-no-shrink p-2 ml-2 border-2 rounded text-red border-red hover:text-red-500 hover:bg-red" onClick={() => props.handleDeleteTask(task._id, props.toDoList._id)}>X</button>
               </div>)) : ('')
             }
