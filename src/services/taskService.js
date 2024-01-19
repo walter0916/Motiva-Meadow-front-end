@@ -62,9 +62,24 @@ async function updateTaskCompletion(taskId,todoListId, taskFormData) {
   }
 }
 
+async function deleteTask(taskId, todoListId) {
+  try {
+    const res = await fetch(`${BASE_URL}/${taskId}/${todoListId}/delete`, {
+      method: 'DELETE',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`
+      }
+    })
+    return res.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 export {
   getUsersLists,
   createToDoList,
   addTask,
-  updateTaskCompletion
+  updateTaskCompletion,
+  deleteTask
 }

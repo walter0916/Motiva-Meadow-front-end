@@ -35,11 +35,12 @@ const ToDoList = (props) => {
             (props.toDoList.tasks.map(task => 
               <div key={task._id} className="flex mb-4 items-center">
                 <p className={`${task.color} ${task.completed ? ('completed') : ('notCompleted')} w-full text-grey-darkest`}>{task.task}</p>
-                { task.completed ? <button className="flex-no-shrink p-2 ml-4 mr-2 border-2 rounded hover:text-white text-green border-green hover:bg-green" onClick={() => props.handleTaskCompletion(task._id, props.toDoList._id, true)}> unDone</button> :
-                <button className="flex-no-shrink p-2 ml-4 mr-2 border-2 rounded hover:text-white text-green border-green hover:bg-green" onClick={() => props.handleTaskCompletion(task._id, props.toDoList._id, false)}>Done</button>}
-                <button className="flex-no-shrink p-2 ml-2 border-2 rounded text-red border-red hover:text-white hover:bg-red">X</button>
+                { task.completed ? <button className="flex-no-shrink p-2 ml-4 mr-2 border-2 rounded hover:text-red-500 text-green border-green hover:bg-green" onClick={() => props.handleTaskCompletion(task._id, props.toDoList._id, true)}> unDone</button> :
+                <button className="flex-no-shrink p-2 ml-4 mr-2 border-2 rounded hover:text-red-500 text-green border-green hover:bg-green" onClick={() => props.handleTaskCompletion(task._id, props.toDoList._id, false)}>Done</button>}
+                <button className="flex-no-shrink p-2 ml-2 border-2 rounded text-red border-red hover:text-red-500 hover:bg-red">X</button>
               </div>)) : ('')
             }
+            <button className="flex-no-shrink p-2 ml-2 border-2 rounded text-red border-red hover:text-red-500 hover:bg-red">Archive</button>
           </div>  
         </div>
       </div>
