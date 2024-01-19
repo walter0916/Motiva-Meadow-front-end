@@ -10,6 +10,7 @@ import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import Calender from './pages/Calender/Calender'
 import Tasks from './pages/Tasks/Tasks'
+import Hobbies from './pages/Hobbies/Hobbies'
 
 // components
 import SideBar from './components/SideBar/SideBar'
@@ -96,6 +97,14 @@ function App() {
           element={
             <ProtectedRoute user={user}>
               <Tasks user={user} />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/hobbies"
+          element={
+            <ProtectedRoute user={user}>
+              <Hobbies user={user} />
             </ProtectedRoute>
           }
         />
