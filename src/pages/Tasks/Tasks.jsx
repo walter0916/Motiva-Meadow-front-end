@@ -72,6 +72,12 @@ const Tasks = (props) => {
     setShowForm(!showForm)
   }
 
+  const handleDeleteList = async (todoListId) => {
+    await taskService.deleteList(todoListId)
+    const updatedLists = lists.filter((list) => list._id !== todoListId)
+    setLists(updatedLists)
+  }
+
 
   return (
     <div className="w-3/4">
@@ -88,6 +94,7 @@ const Tasks = (props) => {
             handleAddTask={handleAddTask}
             handleTaskCompletion={handleTaskCompletion}
             handleDeleteTask={handleDeleteTask}
+            handleDeleteList={handleDeleteList}
           />
         ))
       ) : (

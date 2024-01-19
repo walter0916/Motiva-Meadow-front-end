@@ -40,7 +40,7 @@ const ToDoList = (props) => {
               </div>)) : ('')
             }
             <button className="flex-no-shrink p-2 ml-2 border-2 rounded text-red border-red hover:text-red-500 hover:bg-red">Archive</button>
-            <button className="flex-no-shrink p-2 ml-2 border-2 rounded text-red border-red hover:text-red-500 hover:bg-red"><FaTrash /></button>
+            <button className="flex-no-shrink p-2 ml-2 border-2 rounded text-red border-red hover:text-red-500 hover:bg-red" onClick={() => props.handleDeleteList(props.toDoList._id)}><FaTrash /></button>
           </div>  
         </div>
       </div>
