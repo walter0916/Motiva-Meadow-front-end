@@ -1,5 +1,6 @@
 // npm services 
 import { useState, useEffect } from 'react'
+import { FaPlus } from 'react-icons/fa'
 
 // services 
 import * as taskService from '../../services/taskService'
@@ -12,6 +13,7 @@ import ToDoList from '../../components/ToDoList/ToDoList'
 
 const Tasks = (props) => {
   const [lists, setLists] = useState({})
+  const [showForm, setShowForm] = useState(false)
 
   useEffect(() => {
     const fetchUsersLists = async () => {
@@ -66,11 +68,31 @@ const Tasks = (props) => {
     setLists(updatedLists)
   }
 
+  const handleToggleForm = () => {
+    setShowForm(!showForm)
+  }
+
+
   return (
     <div className="w-3/4">
-      Create To Do List
-      <ToDoListForm user={props.user} handleAddList={handleAddList}/>
-      {lists.length ? (lists.map((toDoList) => <ToDoList key={toDoList._id} toDoList={toDoList} handleAddTask={handleAddTask} handleTaskCompletion={handleTaskCompletion} handleDeleteTask={handleDeleteTask}/> )) : ('Loading Lists') }
+      <div className="flex items-center mb-4">
+        <h1 className="text-2xl font-bold mr-4">Task Lists</h1>
+        <FaPlus className="cursor-pointer text-2xl text-green" onClick={handleToggleForm} />
+      </div>
+      {showForm && <ToDoListForm user={props.user} handleAddList={handleAddList} />}
+      {lists.length ? (
+        lists.map((toDoList) => (
+          <ToDoList
+            key={toDoList._id}
+            toDoList={toDoList}
+            handleAddTask={handleAddTask}
+            handleTaskCompletion={handleTaskCompletion}
+            handleDeleteTask={handleDeleteTask}
+          />
+        ))
+      ) : (
+        'Loading Lists'
+      )}
     </div>
   )
 }
