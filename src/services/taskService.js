@@ -76,10 +76,25 @@ async function deleteTask(taskId, todoListId) {
   }
 }
 
+async function deleteList(todoListId) {
+  try {
+    const res = await fetch(`${BASE_URL}/${todoListId}/delete`, {
+      method: 'DELETE',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`
+      }
+    })
+    return res.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 export {
   getUsersLists,
   createToDoList,
   addTask,
   updateTaskCompletion,
-  deleteTask
+  deleteTask,
+  deleteList
 }

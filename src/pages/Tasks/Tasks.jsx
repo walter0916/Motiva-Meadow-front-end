@@ -77,7 +77,7 @@ const Tasks = (props) => {
     <div className="w-3/4">
       <div className="flex items-center mb-4">
         <h1 className="text-2xl font-bold mr-4">Task Lists</h1>
-        <FaPlus className="cursor-pointer text-2xl text-green" onClick={handleToggleForm} />
+        <FaPlus className="cursor-pointer text-2xl text-green-500" onClick={handleToggleForm} />
       </div>
       {showForm && <ToDoListForm user={props.user} handleAddList={handleAddList} />}
       {lists.length ? (

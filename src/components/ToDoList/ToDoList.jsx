@@ -1,3 +1,6 @@
+// npm services 
+import { FaTrash } from 'react-icons/fa'
+
 // components 
 import TaskForm from "../TaskForm/TaskForm"
 
@@ -37,6 +40,7 @@ const ToDoList = (props) => {
               </div>)) : ('')
             }
             <button className="flex-no-shrink p-2 ml-2 border-2 rounded text-red border-red hover:text-red-500 hover:bg-red">Archive</button>
+            <button className="flex-no-shrink p-2 ml-2 border-2 rounded text-red border-red hover:text-red-500 hover:bg-red"><FaTrash /></button>
           </div>  
         </div>
       </div>
