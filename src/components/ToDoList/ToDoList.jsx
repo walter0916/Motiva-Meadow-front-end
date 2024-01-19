@@ -17,11 +17,6 @@ const ToDoList = (props) => {
     return formattedDate
   }
 
-  const completeTask = ()=> {
-
-  }
-
-
   return (
     <div>
       <div className="h-100 w-full flex items-center justify-center bg-teal-lightest font-sans">
@@ -37,7 +32,7 @@ const ToDoList = (props) => {
                 <p className={`${task.color} ${task.completed ? ('completed') : ('notCompleted')} w-full text-grey-darkest`}>{task.task}</p>
                 { task.completed ? <button className="flex-no-shrink p-2 ml-4 mr-2 border-2 rounded hover:text-red-500 text-green border-green hover:bg-green" onClick={() => props.handleTaskCompletion(task._id, props.toDoList._id, true)}> unDone</button> :
                 <button className="flex-no-shrink p-2 ml-4 mr-2 border-2 rounded hover:text-red-500 text-green border-green hover:bg-green" onClick={() => props.handleTaskCompletion(task._id, props.toDoList._id, false)}>Done</button>}
-                <button className="flex-no-shrink p-2 ml-2 border-2 rounded text-red border-red hover:text-red-500 hover:bg-red">X</button>
+                <button className="flex-no-shrink p-2 ml-2 border-2 rounded text-red border-red hover:text-red-500 hover:bg-red" onClick={() => props.handleDeleteTask(task._id, props.toDoList._id)}>X</button>
               </div>)) : ('')
             }
             <button className="flex-no-shrink p-2 ml-2 border-2 rounded text-red border-red hover:text-red-500 hover:bg-red">Archive</button>
