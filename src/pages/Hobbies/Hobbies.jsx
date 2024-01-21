@@ -1,7 +1,10 @@
+// components 
+import HobbiesForm from "../../components/HobbiesForm/HobbiesForm"
+
 const Hobbies = () => {
   return (
-    <div>
-      
+    <div className="w-3/4">
+      <HobbiesForm />
     </div>
   )
 }
