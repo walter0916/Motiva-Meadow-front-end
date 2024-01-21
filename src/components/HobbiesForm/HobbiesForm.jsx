@@ -1,7 +1,7 @@
 // npm services 
 import { useState } from "react"
 
-const HobbiesForm = () => {
+const HobbiesForm = (props) => {
   const [formData,setFormData] = useState({
     title:'',
     type:'',
@@ -15,6 +15,7 @@ const HobbiesForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    props.handleAddHobby(formData)
     setFormData({
       title: '',
       type: '',
