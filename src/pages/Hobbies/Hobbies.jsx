@@ -8,13 +8,15 @@ import HobbiesForm from "../../components/HobbiesForm/HobbiesForm"
 import * as hobbyServices from '../../services/hobbyService'
 
 const Hobbies = (props) => {
-  const [hobbies, setHobby] = useState({})
+  const [hobbies, setHobbies] = useState({})
 
   useEffect(() => {
     const fetchHobbies = async () => {
-\
+      const data = await hobbyServices.getUsersHobbies(props.user.profile)
+      setHobbies(data)
     }
-  })
+    fetchHobbies()
+  }, [props.user])
 
 
   const handleAddHobby = async (hobbyFormData) => {
