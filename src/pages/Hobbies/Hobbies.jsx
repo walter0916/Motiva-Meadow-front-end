@@ -3,6 +3,7 @@ import { useState, useEffect } from "react"
 
 // components 
 import HobbiesForm from "../../components/HobbiesForm/HobbiesForm"
+import HobbiesTable from "../../components/HobbiesTable/HobbiesTable"
 
 // services
 import * as hobbyServices from '../../services/hobbyService'
@@ -26,6 +27,7 @@ const Hobbies = (props) => {
   return (
     <div className="w-3/4">
       <HobbiesForm handleAddHobby={handleAddHobby}/>
+      <HobbiesTable hobbies={hobbies} />
     </div>
   )
 }
