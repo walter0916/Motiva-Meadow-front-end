@@ -10,7 +10,7 @@ import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import Calender from './pages/Calender/Calender'
 import Tasks from './pages/Tasks/Tasks'
-import Hobbies from './pages/Hobbies/Hobbies'
+import Habits from './pages/Habits/Habits'
 
 // components
 import SideBar from './components/SideBar/SideBar'
@@ -101,10 +101,10 @@ function App() {
           }
         />
         <Route
-          path="/hobbies"
+          path="/habits"
           element={
             <ProtectedRoute user={user}>
-              <Hobbies user={user} />
+              <Habits user={user} />
             </ProtectedRoute>
           }
         />

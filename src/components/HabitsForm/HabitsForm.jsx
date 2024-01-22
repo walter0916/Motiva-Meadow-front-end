@@ -1,7 +1,7 @@
 // npm services 
 import { useState} from "react"
 
-const HobbiesForm = (props) => {
+const HabitsForm = (props) => {
   const [formData,setFormData] = useState({
     title:'',
     type:'',
@@ -15,7 +15,7 @@ const HobbiesForm = (props) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    props.handleAddHobby(formData)
+    props.handleAddHabit(formData)
     setFormData({
       title: '',
       type: '',
@@ -26,11 +26,11 @@ const HobbiesForm = (props) => {
 
   return (
     <div className="flex flex-col justify-center items-center max-w-md mx-auto mb-4 p-4 bg-white rounded-md shadow-md">
-      <h2 className="text-2xl font-semibold mb-4">Add A Hobby</h2>
+      <h2 className="text-2xl font-semibold mb-4">Add A Habit</h2>
       <form className="flex flex-col items-center space-y-4 w-full" onSubmit={handleSubmit}>
         <div className="mb-4 w-4/5">
           <label className="block text-gray-600 text-sm font-semibold mb-2">
-            Hobby Title:
+            Habit Title:
           </label>
           <input
             className="w-full mx-auto py-2 border border-gray-300 rounded-md"
@@ -43,7 +43,7 @@ const HobbiesForm = (props) => {
         </div>
         <div className="mb-4 w-4/5">
           <label className="block text-gray-600 text-sm font-semibold mb-2">
-            Type of Hobby:
+            Type of Habit:
           </label>
           <select
             className="w-full mx-auto py-2 border border-gray-300 rounded-md"
@@ -76,11 +76,11 @@ const HobbiesForm = (props) => {
           type="submit"
           className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600"
         >
-          Add Hobby
+          Add Habit
         </button>
       </form>
     </div>
   )
 }
 
-export default HobbiesForm
+export default HabitsForm

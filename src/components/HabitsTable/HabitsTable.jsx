@@ -1,7 +1,7 @@
 // components 
-import HobbyCheckInput from "../HobbyCheckInput/HobbyCheckInput"
+import HabitsCheckInput from "../HabitsCheckInput/HabitsCheckInput"
 
-const HobbiesTable = (props) => {
+const HabitsTable = (props) => {
   const daysOfWeek = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
 
   return (
@@ -9,7 +9,7 @@ const HobbiesTable = (props) => {
       <table className="w-full border-collapse border border-gray-300 bg-white shadow-md">
         <thead>
           <tr>
-            <th className="py-2 px-4 border border-gray-300 bg-blue-500 text-white">Hobby</th>
+            <th className="py-2 px-4 border border-gray-300 bg-blue-500 text-white">Habit</th>
             {daysOfWeek.map((day, index) => (
               <th key={index} className="py-2 px-1 border border-gray-300 bg-blue-500 text-white">
                 {day}
@@ -18,17 +18,17 @@ const HobbiesTable = (props) => {
           </tr>
         </thead>
         <tbody>
-          {props.hobbies.length ? (
-            props.hobbies.map((hobby) => (
-              <tr key={hobby._id}>
-                <td className="py-2 px-4 border border-gray-300 text-center">{hobby.title}</td>
+          {props.habits.length ? (
+            props.habits.map((habit) => (
+              <tr key={habit._id}>
+                <td className="py-2 px-4 border border-gray-300 text-center">{habit.title}</td>
                 {daysOfWeek.map((day, index) => (
-                  <HobbyCheckInput
+                  <HabitsCheckInput
                     key={index}
                     day={day}
-                    handleUpdateHobbyProgress={props.handleUpdateHobbyProgress}
-                    hobbyId={hobby._id}
-                    hobby={hobby}
+                    handleUpdateHobbyProgress={props.handleUpdateHabitProgress}
+                    hobbyId={habit._id}
+                    hobby={habit}
                   />
                 ))}
               </tr>
@@ -36,7 +36,7 @@ const HobbiesTable = (props) => {
           ) : (
             <tr>
               <td colSpan={8} className="py-2 px-4 border border-gray-300 text-center">
-                No hobbies found.
+                No habits found.
               </td>
             </tr>
           )}
@@ -46,4 +46,4 @@ const HobbiesTable = (props) => {
   )
 }
 
-export default HobbiesTable
+export default HabitsTable
