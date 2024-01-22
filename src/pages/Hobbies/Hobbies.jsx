@@ -21,11 +21,12 @@ const Hobbies = (props) => {
 
 
   const handleAddHobby = async (hobbyFormData) => {
-    const newHobbyService = await hobbyService.createHobby(props.user.profile, hobbyFormData)
+    const newHobby = await hobbyService.createHobby(props.user.profile, hobbyFormData)
+    setHobbies((prevHobbies) => [...prevHobbies, newHobby])
   }
 
   const handleUpdateHobbyProgress = async (hobbyId, hobbyFormData) => {
-    const updatedHobby = await hobbyService.updateHobbyProgress(hobbyId, hobbyFormData)
+    await hobbyService.updateHobbyProgress(hobbyId, hobbyFormData)
   }
 
   return (
