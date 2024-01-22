@@ -1,5 +1,5 @@
 // npm services 
-import { useState } from "react"
+import { useState} from "react"
 
 const HobbiesForm = (props) => {
   const [formData,setFormData] = useState({
@@ -25,15 +25,15 @@ const HobbiesForm = (props) => {
 
 
   return (
-    <div className="max-w-md mx-auto p-4 bg-white rounded-md shadow-md">
+    <div className="flex flex-col justify-center items-center max-w-md mx-auto mb-4 p-4 bg-white rounded-md shadow-md">
       <h2 className="text-2xl font-semibold mb-4">Add A Hobby</h2>
-      <form className="space-y-4" onSubmit={handleSubmit}>
-        <div className="mb-4">
+      <form className="flex flex-col items-center space-y-4 w-full" onSubmit={handleSubmit}>
+        <div className="mb-4 w-4/5">
           <label className="block text-gray-600 text-sm font-semibold mb-2">
             Hobby Title:
           </label>
           <input
-            className="w-full px-3 py-2 border border-gray-300 rounded-md"
+            className="w-full mx-auto py-2 border border-gray-300 rounded-md"
             type="text"
             name="title"
             value={formData.title}
@@ -41,12 +41,12 @@ const HobbiesForm = (props) => {
             onChange={handleChange}
           />
         </div>
-        <div className="mb-4">
+        <div className="mb-4 w-4/5">
           <label className="block text-gray-600 text-sm font-semibold mb-2">
             Type of Hobby:
           </label>
           <select
-            className="w-full px-3 py-2 border border-gray-300 rounded-md"
+            className="w-full mx-auto py-2 border border-gray-300 rounded-md"
             name="type"
             value={formData.type}
             required
@@ -58,12 +58,12 @@ const HobbiesForm = (props) => {
             <option value="interpersonal">Interpersonal</option>
           </select>
         </div>
-        <div className="mb-4">
+        <div className="mb-4 w-4/5">
           <label className="block text-gray-600 text-sm font-semibold mb-2">
             Weekly Goal:
           </label>
           <input
-            className="w-full px-3 py-2 border border-gray-300 rounded-md"
+            className="w-full mx-auto py-2 border border-gray-300 rounded-md"
             type="number"
             name="weeklyGoal"
             min={1}
