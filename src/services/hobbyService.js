@@ -30,7 +30,24 @@ async function createHobby(profileId, hobbyFormData) {
   }
 }
 
+async function updateHobbyProgress(hobbyId, hobbyFormData) {
+  try {
+    const res = await fetch(`${BASE_URL}/${hobbyId}/new`, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(hobbyFormData)
+    })
+    return res.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 export {
   getUsersHobbies,
   createHobby,
+  updateHobbyProgress
 }
