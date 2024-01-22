@@ -1,3 +1,6 @@
+// components 
+import HobbyCheckInput from "../HobbyCheckInput/HobbyCheckInput"
+
 const HobbiesTable = (props) => {
   const daysOfWeek = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
 
@@ -20,9 +23,7 @@ const HobbiesTable = (props) => {
               <tr key={hobby._id}>
                 <td className="py-2 px-4 border border-gray-300 text-center">{hobby.title}</td>
                 {daysOfWeek.map((day) => (
-                  <td key={day} className="py-2 px-1 border border-gray-300 text-center">
-                      <input type="checkbox" className="w-4 h-4 m-auto" />
-                  </td>
+                  <HobbyCheckInput key={day._id} day={day} />
                 ))}
               </tr>
             ))
