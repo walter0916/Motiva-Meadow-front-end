@@ -32,8 +32,8 @@ async function createHobby(profileId, hobbyFormData) {
 
 async function updateHobbyProgress(hobbyId, hobbyFormData) {
   try {
-    const res = await fetch(`${BASE_URL}/${hobbyId}/new`, {
-      method: 'POST',
+    const res = await fetch(`${BASE_URL}/${hobbyId}/updateHobbyProgress`, {
+      method: 'PUT',
       headers: {
         'Authorization': `Bearer ${tokenService.getToken()}`,
         'Content-Type': 'application/json'

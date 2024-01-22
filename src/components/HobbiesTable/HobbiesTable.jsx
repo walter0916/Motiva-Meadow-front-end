@@ -23,7 +23,13 @@ const HobbiesTable = (props) => {
               <tr key={hobby._id}>
                 <td className="py-2 px-4 border border-gray-300 text-center">{hobby.title}</td>
                 {daysOfWeek.map((day) => (
-                  <HobbyCheckInput key={day._id} day={day} />
+                  <HobbyCheckInput 
+                    key={day._id} 
+                    day={day} 
+                    handleUpdateHobbyProgress={props.handleUpdateHobbyProgress} 
+                    hobbyId={hobby._id} 
+                    hobby={hobby}
+                  />
                 ))}
               </tr>
             ))

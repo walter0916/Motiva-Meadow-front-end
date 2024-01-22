@@ -6,14 +6,14 @@ import HobbiesForm from "../../components/HobbiesForm/HobbiesForm"
 import HobbiesTable from "../../components/HobbiesTable/HobbiesTable"
 
 // services
-import * as hobbyServices from '../../services/hobbyService'
+import * as hobbyService from '../../services/hobbyService'
 
 const Hobbies = (props) => {
   const [hobbies, setHobbies] = useState({})
 
   useEffect(() => {
     const fetchHobbies = async () => {
-      const data = await hobbyServices.getUsersHobbies(props.user.profile)
+      const data = await hobbyService.getUsersHobbies(props.user.profile)
       setHobbies(data)
     }
     fetchHobbies()
@@ -21,13 +21,17 @@ const Hobbies = (props) => {
 
 
   const handleAddHobby = async (hobbyFormData) => {
-    const newHobbyService = await hobbyServices.createHobby(props.user.profile, hobbyFormData)
+    const newHobbyService = await hobbyService.createHobby(props.user.profile, hobbyFormData)
+  }
+
+  const handleUpdateHobbyProgress = async (hobbyId, hobbyFormData) => {
+    const updatedHobby = await hobbyService.updateHobbyProgress(hobbyId, hobbyFormData)
   }
 
   return (
     <div className="w-3/4">
       <HobbiesForm handleAddHobby={handleAddHobby}/>
-      <HobbiesTable hobbies={hobbies} />
+      <HobbiesTable hobbies={hobbies} handleUpdateHobbyProgress={handleUpdateHobbyProgress}/>
     </div>
   )
 }
