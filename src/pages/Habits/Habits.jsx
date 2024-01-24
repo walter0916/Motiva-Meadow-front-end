@@ -27,6 +27,10 @@ const Habits = (props) => {
     setHabits((prevHabits) => [...prevHabits, newHabit])
   }
 
+  const handleDeleteHabit = async (habitId) => {
+    const deletedHabit = await habitService.deleteHabit(habitId)
+  }
+
   const handleUpdateHabitProgress = async (habitId, habitFormData) => {
     await habitService.updateHabitProgress(habitId, habitFormData)
   }
@@ -42,7 +46,11 @@ const Habits = (props) => {
         <FaPlus className="cursor-pointer text-2xl text-green-500" onClick={handleToggleForm} />
       </div>
       {showForm && <HabitsForm handleAddHabit={handleAddHabit}/>}
-      <HabitsTable habits={habits} handleUpdateHabitProgress={handleUpdateHabitProgress}/>
+      <HabitsTable 
+        habits={habits} 
+        handleUpdateHabitProgress={handleUpdateHabitProgress}
+        handleDeleteHabit={handleDeleteHabit}
+      />
     </div>
   )
 }
