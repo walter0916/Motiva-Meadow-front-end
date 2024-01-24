@@ -28,7 +28,9 @@ const Habits = (props) => {
   }
 
   const handleDeleteHabit = async (habitId) => {
-    const deletedHabit = await habitService.deleteHabit(habitId)
+    await habitService.deleteHabit(habitId)
+    const updatedHabits = habits.filter((habit) => habit._id !== habitId)
+    setHabits(updatedHabits)
   }
 
   const handleUpdateHabitProgress = async (habitId, habitFormData) => {
