@@ -46,8 +46,23 @@ async function updateHabitProgress(habitId, habitFormData) {
   }
 }
 
+async function deleteHabit(habitId) {
+  try {
+    const res = await fetch(`${BASE_URL}/${habitId}/delete`, {
+      method: 'DELETE',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`
+      }
+    })
+    return res.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 export {
   getUsersHabits,
   createHabit,
-  updateHabitProgress
+  updateHabitProgress,
+  deleteHabit
 }
