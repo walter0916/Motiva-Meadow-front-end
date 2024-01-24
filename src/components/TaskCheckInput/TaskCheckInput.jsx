@@ -1,6 +1,9 @@
 // npm services 
 import { useState } from "react"
 
+// css
+import './TaskCheckInput.css'
+
 const TaskCheckInput = (props) => {
   const [isChecked, setChecked] = useState(props.task.completed)
 
