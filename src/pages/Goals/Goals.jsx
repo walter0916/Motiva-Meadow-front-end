@@ -1,5 +1,5 @@
 // npm services 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 // services 
 import * as goalService from '../../services/goalService'
@@ -8,7 +8,15 @@ import * as goalService from '../../services/goalService'
 import GoalsForm from "../../components/GoalsForm/GoalsForm"
 
 const Goals = (props) => {
+  const [goals, setGoals] = useState({})
 
+  useEffect(() => {
+    const fetchGoals = async () => {
+      const data = await goalService.getUsersGoals(props.user.profile)
+      setGoals(data)
+    }
+    fetchGoals()
+  }, [props.user])
 
   const handleAddGoal = async (goalFormData) => {
     const newGoal = await goalService.createGoal(props.user.profile, goalFormData)
@@ -16,7 +24,6 @@ const Goals = (props) => {
 
   return (
     <div className="w-3/4">
-      hi
       <GoalsForm handleAddGoal={handleAddGoal}/> 
     </div>
   )
