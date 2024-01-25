@@ -22,8 +22,13 @@ const HabitsTable = (props) => {
             props.habits.map((habit) => (
               <tr key={habit._id}>
                 <td className="py-2 px-4 border border-gray-300 text-center">
-                  {habit.title} 
-                  <button onClick={() => props.handleDeleteHabit(habit._id)}>x</button>
+                  <button
+                    className="left-0 text-red-500 cursor-pointer"
+                    onClick={() => props.handleDeleteHabit(habit._id)}
+                  >
+                    x
+                  </button>
+                  <span className="ml-8">{habit.title}</span>
                 </td>
                 {daysOfWeek.map((day, index) => (
                   <HabitsCheckInput

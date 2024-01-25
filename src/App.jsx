@@ -11,6 +11,7 @@ import ChangePassword from './pages/ChangePassword/ChangePassword'
 import Calender from './pages/Calender/Calender'
 import Tasks from './pages/Tasks/Tasks'
 import Habits from './pages/Habits/Habits'
+import Goals from './pages/Goals/Goals'
 
 // components
 import SideBar from './components/SideBar/SideBar'
@@ -105,6 +106,14 @@ function App() {
           element={
             <ProtectedRoute user={user}>
               <Habits user={user} />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/goals"
+          element={
+            <ProtectedRoute user={user}>
+              <Goals user={user} />
             </ProtectedRoute>
           }
         />
