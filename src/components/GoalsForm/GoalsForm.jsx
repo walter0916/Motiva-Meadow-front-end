@@ -1,7 +1,7 @@
 // npm services 
 import { useState } from "react"
 
-const GoalsForm = () => {
+const GoalsForm = (props) => {
   const [formData, setFormData] = useState({
     description: '',
     type: '',
@@ -14,6 +14,7 @@ const GoalsForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    props.handleAddGoal(formData)
     setFormData({
       description: '',
       type: '',
