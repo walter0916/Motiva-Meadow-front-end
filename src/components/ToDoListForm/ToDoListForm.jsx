@@ -38,7 +38,6 @@ const ToDoListForm = (props) => {
             className="w-full px-3 py-2 border border-gray-300 rounded-md"
           />
         </div>
-
         <div>
           <label className="block text-sm font-semibold text-gray-600 mb-2">
             Date:
