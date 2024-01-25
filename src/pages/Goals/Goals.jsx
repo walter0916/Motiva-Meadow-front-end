@@ -6,6 +6,7 @@ import * as goalService from '../../services/goalService'
 
 // components 
 import GoalsForm from "../../components/GoalsForm/GoalsForm"
+import GoalCard from "../../components/GoalCard/GoalCard"
 
 const Goals = (props) => {
   const [goals, setGoals] = useState({})
@@ -20,11 +21,21 @@ const Goals = (props) => {
 
   const handleAddGoal = async (goalFormData) => {
     const newGoal = await goalService.createGoal(props.user.profile, goalFormData)
+    setGoals((prevGoals) => [...prevGoals, newGoal])
   }
 
   return (
     <div className="w-3/4">
       <GoalsForm handleAddGoal={handleAddGoal}/> 
+      <div className="mt-8">
+        {goals.length > 0 ? (
+          goals.map((goal) => (
+            <GoalCard key={goal._id} goal={goal} />
+          ))
+        ) : (
+          <p>No goals found.</p>
+        )}
+      </div>
     </div>
   )
 }
