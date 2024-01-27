@@ -5,9 +5,11 @@ const GoalCard = (props) => {
   const daysLeft = moment(props.goal.dueDate).diff(moment(), 'days')
 
   return (
-    <div className="bg-white p-4 mb-4 rounded-md shadow-md">
-      <h2 className="text-xl font-semibold mb-2">{props.goal.description}</h2>
-      <p className="text-gray-600 mb-2">
+    <div className="bg-blue-100 p-4 mb-4 rounded-md shadow-md">
+      <h2 className="text-xl font-semibold mb-2 text-blue-800">
+        {props.goal.description}
+      </h2>
+      <p className={`mb-2 ${daysLeft > 7 ? 'text-green-600' : 'text-orange-600'}`}>
         {daysLeft > 0 ? `${daysLeft} days left` : "Due today"}
       </p>
       <p className="text-sm text-gray-500">
