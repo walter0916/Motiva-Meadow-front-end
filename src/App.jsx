@@ -13,6 +13,7 @@ import Tasks from './pages/Tasks/Tasks'
 import Habits from './pages/Habits/Habits'
 import Goals from './pages/Goals/Goals'
 import Friends from './pages/Friends/Friends'
+import ProfileSettings from './pages/ProfileSettings/ProfileSettings'
 
 // components
 import SideBar from './components/SideBar/SideBar'
@@ -123,6 +124,14 @@ function App() {
           element={
             <ProtectedRoute user={user}>
               <Friends user={user} />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/settings"
+          element={
+            <ProtectedRoute user={user}>
+              <ProfileSettings user={user} />
             </ProtectedRoute>
           }
         />
