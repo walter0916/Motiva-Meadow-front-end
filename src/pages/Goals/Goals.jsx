@@ -14,20 +14,24 @@ const Goals = (props) => {
   useEffect(() => {
     const fetchGoals = async () => {
       const data = await goalService.getUsersGoals(props.user.profile)
-      setGoals(data)
+      const sortedGoals = data.sort((a, b) => new Date(a.dueDate) - new Date(b.dueDate))
+      setGoals(sortedGoals)
     }
     fetchGoals()
   }, [props.user])
 
   const handleAddGoal = async (goalFormData) => {
     const newGoal = await goalService.createGoal(props.user.profile, goalFormData)
-    setGoals((prevGoals) => [...prevGoals, newGoal])
+    const updatedGoals = [...goals, newGoal]
+    const sortedGoals = updatedGoals.sort((a, b) => new Date(a.dueDate) - new Date(b.dueDate))
+    setGoals(sortedGoals)
   }
 
   const handleDeleteGoal = async (goalId) => {
     await goalService.deleteGoal(goalId)
     const filteredGoals = goals.filter(goal => goal._id !== goalId)
-    setGoals(filteredGoals)
+    const sortedGoals = filteredGoals.sort((a, b) => new Date(a.dueDate) - new Date(b.dueDate))
+    setGoals(sortedGoals)
   }
 
   const handleUpdateGoalCompletion = async (goalId, complete) => {
@@ -36,12 +40,32 @@ const Goals = (props) => {
     }
     await goalService.updateGoalCompletion(goalId, formData)
     const updatedGoals = await goalService.getUsersGoals(props.user.profile)
-    setGoals(updatedGoals)
+    const sortedGoals = updatedGoals.sort((a, b) => new Date(a.dueDate) - new Date(b.dueDate))
+    setGoals(sortedGoals)
+  }
+
+  const handleTypeChange = async (event) => {
+    const type = event.target.value
+    const goals = await goalService.getUsersGoals(props.user.profile)
+    if (type === 'all') {
+      const sortedGoals = goals.sort((a, b) => new Date(a.dueDate) - new Date(b.dueDate))
+      setGoals(sortedGoals)
+    } else {
+      const filteredGoals = goals.filter((goal) => goal.type === type)
+      const sortedGoals = filteredGoals.sort((a, b) => new Date(a.dueDate) - new Date(b.dueDate))
+      setGoals(sortedGoals)
+    }
   }
 
   return (
     <div className="w-3/4">
-      <GoalsForm handleAddGoal={handleAddGoal}/> 
+      <GoalsForm handleAddGoal={handleAddGoal}/>
+      <select name="type" id="type3" onChange={handleTypeChange}>
+        <option value="all">All Types</option>
+        <option value="work">Work</option>
+        <option value="personal">Personal</option>
+        <option value="interpersonal">Interpersonal</option>
+      </select>
       <div className="mt-8">
         {goals.length > 0 ? (
           goals.map((goal) => (
