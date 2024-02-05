@@ -16,8 +16,16 @@ const GoalCard = (props) => {
         Due Date: {moment(props.goal.dueDate).format("MMMM D, YYYY")}
       </p>
       <div>
-        <button onClick={() => props.handleDeleteGoal(props.goal._id)}>Delete</button> 
-        <button>Complete</button>
+        <button onClick={() => props.handleDeleteGoal(props.goal._id)}>Delete</button>
+        {!props.goal.completed ? 
+        <button onClick={() => props.handleUpdateGoalCompletion(props.goal._id, true)}>
+          Complete
+        </button> 
+        : 
+        <button onClick={() => props.handleUpdateGoalCompletion(props.goal._id, false)}>
+          unComplete
+        </button>
+        }
       </div>
     </div>
   )

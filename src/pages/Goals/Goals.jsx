@@ -30,7 +30,12 @@ const Goals = (props) => {
     setGoals(filteredGoals)
   }
 
-  
+  const handleUpdateGoalCompletion = async (goalId, complete) => {
+    const formData = {
+      completed : complete
+    }
+    const updatedGoal = await goalService.updateGoalCompletion(goalId, formData)
+  }
 
   return (
     <div className="w-3/4">
@@ -42,6 +47,7 @@ const Goals = (props) => {
               key={goal._id} 
               goal={goal}
               handleDeleteGoal={handleDeleteGoal}
+              handleUpdateGoalCompletion={handleUpdateGoalCompletion}
             />
           ))
         ) : (
