@@ -30,6 +30,8 @@ const Goals = (props) => {
     setGoals(filteredGoals)
   }
 
+  
+
   return (
     <div className="w-3/4">
       <GoalsForm handleAddGoal={handleAddGoal}/> 

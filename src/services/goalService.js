@@ -44,8 +44,25 @@ async function deleteGoal(goalId) {
   }
 }
 
+async function updateGoalCompletion(goalId, goalFormData) {
+  try {
+    const res = await fetch(`${BASE_URL}/${goalId}/updateCompletion`, {
+      method: 'PUT',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(goalFormData)
+    })
+    return res.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 export {
   getUsersGoals,
   createGoal,
-  deleteGoal
+  deleteGoal,
+  updateGoalCompletion
 }
