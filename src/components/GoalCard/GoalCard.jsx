@@ -15,6 +15,10 @@ const GoalCard = (props) => {
       <p className="text-sm text-gray-500">
         Due Date: {moment(props.goal.dueDate).format("MMMM D, YYYY")}
       </p>
+      <div>
+        <button>Delete</button> 
+        <button>Complete</button>
+      </div>
     </div>
   )
 }

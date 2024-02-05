@@ -30,7 +30,22 @@ async function createGoal(profileId, goalFormData) {
   }
 }
 
+async function deleteGoal(goalId) {
+  try {
+    const res = await fetch(`${BASE_URL}/${goalId}/delete`, {
+      method: 'DELETE',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`
+      }
+    })
+    return res.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 export {
   getUsersGoals,
   createGoal,
+  deleteGoal
 }
