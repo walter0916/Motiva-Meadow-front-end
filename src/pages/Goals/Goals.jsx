@@ -34,7 +34,9 @@ const Goals = (props) => {
     const formData = {
       completed : complete
     }
-    const updatedGoal = await goalService.updateGoalCompletion(goalId, formData)
+    await goalService.updateGoalCompletion(goalId, formData)
+    const updatedGoals = await goalService.getUsersGoals(props.user.profile)
+    setGoals(updatedGoals)
   }
 
   return (
