@@ -25,7 +25,9 @@ const Goals = (props) => {
   }
 
   const handleDeleteGoal = async (goalId) => {
-    const deleteGoal = await goalService.deleteGoal(goalId)
+    await goalService.deleteGoal(goalId)
+    const filteredGoals = goals.filter(goal => goal._id !== goalId)
+    setGoals(filteredGoals)
   }
 
   return (
