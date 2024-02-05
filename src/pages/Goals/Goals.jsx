@@ -24,13 +24,21 @@ const Goals = (props) => {
     setGoals((prevGoals) => [...prevGoals, newGoal])
   }
 
+  const handleDeleteGoal = async (goalId) => {
+    const deleteGoal = await goalService.deleteGoal(goalId)
+  }
+
   return (
     <div className="w-3/4">
       <GoalsForm handleAddGoal={handleAddGoal}/> 
       <div className="mt-8">
         {goals.length > 0 ? (
           goals.map((goal) => (
-            <GoalCard key={goal._id} goal={goal} />
+            <GoalCard 
+              key={goal._id} 
+              goal={goal}
+              handleDeleteGoal={handleDeleteGoal}
+            />
           ))
         ) : (
           <p>No goals found.</p>

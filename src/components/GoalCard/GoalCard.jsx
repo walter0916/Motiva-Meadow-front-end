@@ -16,7 +16,7 @@ const GoalCard = (props) => {
         Due Date: {moment(props.goal.dueDate).format("MMMM D, YYYY")}
       </p>
       <div>
-        <button>Delete</button> 
+        <button onClick={() => props.handleDeleteGoal(props.goal._id)}>Delete</button> 
         <button>Complete</button>
       </div>
     </div>
