@@ -7,10 +7,11 @@ import * as friendRequestService from '../../services/friendRequestService'
 
 const Friends = (props) => {
   const [searchTerm, setSearchTerm] = useState("")
-  const [foundUsers, setFoundUsers] = useState([])
-  const [profiles, setProfiles] = useState([])
-  const [sentRequests, setSentRequests] = useState([])
-  const [receivedRequests, setReceivedRequests] = useState([])
+  const [foundUsers, setFoundUsers] = useState({})
+  const [profiles, setProfiles] = useState({})
+  const [userProfile, setUserProfile] = useState({})
+  const [sentRequests, setSentRequests] = useState({})
+  const [receivedRequests, setReceivedRequests] = useState({})
   const [activeTab, setActiveTab] = useState('friends')
 
   useEffect(() => {
@@ -19,6 +20,8 @@ const Friends = (props) => {
       const requestsData = await friendRequestService.getUsersRequests(props.user.profile)
       const sentRequestsData = requestsData.filter(request => request.sender._id === props.user.profile)
       const receivedRequestsData = requestsData.filter(request => request.recipient._id === props.user.profile)
+      const userProfileData = await profileService.getProfileById(props.user.profile)
+      setUserProfile(userProfileData)
       setProfiles(profilesData)
       setSentRequests(sentRequestsData)
       setReceivedRequests(receivedRequestsData)
@@ -116,6 +119,19 @@ const Friends = (props) => {
               <p className="text-gray-800">No friends found</p>
             )}
           </div>
+          {userProfile.friends ? (
+            userProfile.friends.map(friend => 
+              <div key={friend.id} className="flex items-center mb-4">
+                <img
+                  src={friend.photo}
+                  alt=""
+                  className="w-8 h-8 object-cover rounded-full mr-2"
+                />
+                <span className="text-gray-800">{friend.name}</span>
+                </div> 
+              )) : (
+              <p className="text-gray-800">No friends found</p>
+            )}
         </div>
       )}
       {activeTab === 'sentRequests' && (
