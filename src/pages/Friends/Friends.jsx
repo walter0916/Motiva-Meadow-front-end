@@ -3,6 +3,7 @@ import { useState, useEffect } from "react"
 
 // services 
 import * as profileService from '../../services/profileService'
+import * as friendRequestService from '../../services/friendRequestService'
 
 const Friends = (props) => {
   const [searchTerm, setSearchTerm] = useState("")
@@ -24,7 +25,11 @@ const Friends = (props) => {
   }
 
   const handleSendFriendRequest = async (userId) => {
-    
+    const formData = {
+      sender: props.user.profile,
+      recipient: userId
+    }
+    const request = await friendRequestService.createRequest(formData)
   }
 
   return (
