@@ -3,6 +3,17 @@ import * as tokenService from './tokenService'
 
 const BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_URL}/api/friendRequests`
 
+async function getUsersRequests(profileId) {
+  try {
+    const res = await fetch(`${BASE_URL}/${profileId}`, {
+      headers: { 'Authorization': `Bearer ${tokenService.getToken()}` },
+    })
+    return await res.json()
+  } catch (error) {
+    throw new Error(error)
+  }
+}
+
 async function createRequest(requestFormData) {
   try {
     const res = await fetch(`${BASE_URL}/new`, {
@@ -20,5 +31,6 @@ async function createRequest(requestFormData) {
 }
 
 export {
-  createRequest
+  createRequest,
+  getUsersRequests
 }

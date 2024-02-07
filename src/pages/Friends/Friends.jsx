@@ -9,10 +9,13 @@ const Friends = (props) => {
   const [searchTerm, setSearchTerm] = useState("")
   const [foundUsers, setFoundUsers] = useState({})
   const [profiles, setProfiles] = useState({})
+  const [requests, setRequests] = useState({})
 
   useEffect(() => {
     const fetchProfiles = async () => {
       const data = await profileService.getAllProfiles()
+      const request = await friendRequestService.getUsersRequests(props.user.profile)
+      setRequests(request)
       setProfiles(data)
     }
     fetchProfiles()
