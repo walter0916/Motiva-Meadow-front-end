@@ -30,7 +30,39 @@ async function createRequest(requestFormData) {
   }
 }
 
+
+async function acceptRequest(requestId) {
+  try {
+    const res = await fetch(`${BASE_URL}/${requestId}/accept`, {
+      method: 'PUT',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`,
+        'Content-Type': 'application/json'
+      },
+    })
+    return res.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+async function deleteRequest(requestId) {
+  try {
+    const res = await fetch(`${BASE_URL}/${requestId}/delete`, {
+      method: 'DELETE',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`
+      }
+    })
+    return res.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 export {
   createRequest,
-  getUsersRequests
+  getUsersRequests,
+  acceptRequest,
+  deleteRequest,
 }
