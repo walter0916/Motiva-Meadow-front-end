@@ -43,4 +43,19 @@ async function addPhoto(photoData) {
   }
 }
 
-export { getAllProfiles, getProfileById , addPhoto }
+async function removeFriend(profileId, friendId) {
+  try {
+    const res = await fetch(`${BASE_URL}/${profileId}/${friendId}/remove`, {
+      method: 'PATCH',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`,
+        'Content-Type': 'application/json'
+      },
+    })
+    return res.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+export { getAllProfiles, getProfileById , addPhoto, removeFriend }

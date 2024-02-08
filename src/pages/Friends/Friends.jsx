@@ -43,6 +43,10 @@ const Friends = (props) => {
     const request = await friendRequestService.createRequest(formData)
   }
 
+  const  handleRemoveFriend = async (friendId) => {
+    const friend = await profileService.removeFriend(props.user.profile, friendId)
+  }
+
   const handleAcceptRequest = async (requestId) => {
     await friendRequestService.acceptRequest(requestId)
     const requestsData = await friendRequestService.getUsersRequests(props.user.profile)
@@ -121,13 +125,14 @@ const Friends = (props) => {
           </div>
           {userProfile.friends ? (
             userProfile.friends.map(friend => 
-              <div key={friend.id} className="flex items-center mb-4">
+              <div key={friend._id} className="flex items-center mb-4">
                 <img
                   src={friend.photo}
                   alt=""
                   className="w-8 h-8 object-cover rounded-full mr-2"
                 />
                 <span className="text-gray-800">{friend.name}</span>
+                <button onClick={() => handleRemoveFriend(friend._id)} >remove</button>
                 </div> 
               )) : (
               <p className="text-gray-800">No friends found</p>
