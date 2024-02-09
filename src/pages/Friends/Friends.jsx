@@ -3,6 +3,7 @@ import { useState, useEffect } from "react"
 
 // components 
 import FriendCard from "../../components/FriendCard/FriendCard"
+import FriendSearch from "../../components/FriendSearch/FriendSearch"
 
 // services 
 import * as profileService from '../../services/profileService'
@@ -34,7 +35,7 @@ const Friends = (props) => {
 
   const handleSearch = async () => {
     const name = searchTerm.toLowerCase()
-    const filteredProfiles = profiles.filter(profile => profile.name.toLowerCase().includes(name))
+    const filteredProfiles = profiles.filter(profile => profile.name.toLowerCase().includes(name) && !profile.name.toLowerCase().includes(userProfile.name.toLowerCase()))
     setFoundUsers(filteredProfiles)
   }
 
@@ -88,44 +89,13 @@ const Friends = (props) => {
       </nav>
       {activeTab === 'friends' && (
         <div className="mb-4">
-          <form>
-            <input
-              type="text"
-              placeholder="Search by name"
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="p-2 mr-2 rounded-md border border-gray-300 focus:outline-none focus:border-blue-500"
-            />
-            <button
-              type="button"
-              onClick={handleSearch}
-              className="bg-orange-500 p-2 rounded-md text-white focus:outline-none"
-            >
-              Search
-            </button>
-          </form>
-          <div>
-            {foundUsers.length > 0 ? (
-              foundUsers.map((user) => (
-                <div key={user.id} className="flex items-center mb-4">
-                  <img
-                    src={user.photo}
-                    alt=""
-                    className="w-8 h-8 object-cover rounded-full mr-2"
-                  />
-                  <span className="text-gray-800">{user.name}</span>
-                  <button
-                    onClick={() => handleSendFriendRequest(user._id)}
-                    className="bg-blue-500 p-2 ml-2 rounded-md text-white focus:outline-none"
-                  >
-                    Add Friend
-                  </button>
-                </div>
-              ))
-            ) : (
-              <p className="text-gray-800">No friends found</p>
-            )}
-          </div>
+          <FriendSearch  
+            handleSendFriendRequest={handleSendFriendRequest}
+            handleSearch={handleSearch}
+            foundUsers={foundUsers}
+            searchTerm={searchTerm}
+            setSearchTerm={setSearchTerm}
+          />
           {userProfile.friends ? (
             userProfile.friends.map(friend => 
               < FriendCard 
@@ -140,47 +110,15 @@ const Friends = (props) => {
       )}
       {activeTab === 'sentRequests' && (
         <div>
-          <p className="text-gray-800">Sent Friend Requests</p>
           <div className="mb-4">
-          <form>
-            <input
-              type="text"
-              placeholder="Search by name"
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="p-2 mr-2 rounded-md border border-gray-300 focus:outline-none focus:border-blue-500"
-            />
-            <button
-              type="button"
-              onClick={handleSearch}
-              className="bg-orange-500 p-2 rounded-md text-white focus:outline-none"
-            >
-              Search
-            </button>
-          </form>
-          <div>
-            {foundUsers.length > 0 ? (
-              foundUsers.map((user) => (
-                <div key={user.id} className="flex items-center mb-4">
-                  <img
-                    src={user.photo}
-                    alt=""
-                    className="w-8 h-8 object-cover rounded-full mr-2"
-                  />
-                  <span className="text-gray-800">{user.name}</span>
-                  <button
-                    onClick={() => handleSendFriendRequest(user._id)}
-                    className="bg-blue-500 p-2 ml-2 rounded-md text-white focus:outline-none"
-                  >
-                    Add Friend
-                  </button>
-                </div>
-              ))
-            ) : (
-              <p className="text-gray-800">No friends found</p>
-            )}
+          <FriendSearch  
+            handleSendFriendRequest={handleSendFriendRequest}
+            handleSearch={handleSearch}
+            foundUsers={foundUsers}
+            searchTerm={searchTerm}
+            setSearchTerm={setSearchTerm}
+          />
           </div>
-        </div>
           {sentRequests.length > 0 ? (
             sentRequests.map(request => (
             <div key={request._id} className="flex items-center mb-4">
@@ -199,7 +137,6 @@ const Friends = (props) => {
       )}
       {activeTab === 'receivedRequests' && (
         <div>
-          <p className="text-gray-800">Received Friend Requests</p>
           {receivedRequests.length > 0 ? (
             receivedRequests.map(request => (
               <div key={request._id} className="flex items-center mb-4">
