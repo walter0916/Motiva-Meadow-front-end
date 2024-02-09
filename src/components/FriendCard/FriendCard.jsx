@@ -1,4 +1,10 @@
+// npm services
+import { useState } from "react"
+
+
+
 const FriendCard = (props) => {
+  
   return (
     <div key={props.friend._id} className="friend-card bg-white rounded-lg shadow-md p-4 flex flex-col justify-between">
       <div className="friend-info text-center">
