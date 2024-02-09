@@ -1,6 +1,9 @@
 // npm services
 import { useState, useEffect } from "react"
 
+// components 
+import FriendCard from "../../components/FriendCard/FriendCard"
+
 // services 
 import * as profileService from '../../services/profileService'
 import * as friendRequestService from '../../services/friendRequestService'
@@ -125,15 +128,11 @@ const Friends = (props) => {
           </div>
           {userProfile.friends ? (
             userProfile.friends.map(friend => 
-              <div key={friend._id} className="flex items-center mb-4">
-                <img
-                  src={friend.photo}
-                  alt=""
-                  className="w-8 h-8 object-cover rounded-full mr-2"
-                />
-                <span className="text-gray-800">{friend.name}</span>
-                <button onClick={() => handleRemoveFriend(friend._id)} >remove</button>
-                </div> 
+              < FriendCard 
+                key={friend._id} 
+                friend={friend}
+                handleRemoveFriend={handleRemoveFriend} 
+              />
               )) : (
               <p className="text-gray-800">No friends found</p>
             )}
