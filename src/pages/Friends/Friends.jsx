@@ -8,6 +8,7 @@ import FriendSearch from "../../components/FriendSearch/FriendSearch"
 // services 
 import * as profileService from '../../services/profileService'
 import * as friendRequestService from '../../services/friendRequestService'
+import * as messageService from '../../services/messageService'
 
 const Friends = (props) => {
   const [searchTerm, setSearchTerm] = useState("")
@@ -45,6 +46,7 @@ const Friends = (props) => {
       recipient: userId
     }
     const request = await friendRequestService.createRequest(formData)
+    setSentRequests((prevRequests) => [...prevRequests, request])
   }
 
   const  handleRemoveFriend = async (friendId) => {
@@ -65,8 +67,12 @@ const Friends = (props) => {
     setReceivedRequests(receivedRequestsData)
   }
 
+  const handleAddMessage = async (recipientId, messageFormData) => {
+    await messageService.createMessage(props.user.profile, recipientId, messageFormData)
+  }
+
   return (
-    <div className="bg-white p-6 rounded-md shadow-md h-full w-3/4 flex flex-col content-center items-center">
+    <div className="bg-white p-6 rounded-md  h-full w-3/4 flex flex-col content-center items-center">
       <nav className="mb-4">
         <button
           className={`mr-4 ${activeTab === 'friends' ? 'font-bold' : ''}`}
@@ -101,7 +107,8 @@ const Friends = (props) => {
               < FriendCard 
                 key={friend._id} 
                 friend={friend}
-                handleRemoveFriend={handleRemoveFriend} 
+                handleRemoveFriend={handleRemoveFriend}
+                handleAddMessage={handleAddMessage} 
               />
               )) : (
               <p className="text-gray-800">No friends found</p>

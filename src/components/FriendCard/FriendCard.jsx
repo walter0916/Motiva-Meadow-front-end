@@ -34,6 +34,7 @@ const FriendCard = (props) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    props.handleAddMessage(props.friend._id, formData)
     setFormData({
       content: ''
     })
