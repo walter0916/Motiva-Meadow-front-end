@@ -30,9 +30,22 @@ async function createEvent(profileId, eventFormData) {
   }
 }
 
-
+async function deleteEvent(eventId) {
+  try {
+    const res = await fetch(`${BASE_URL}/${eventId}/delete`, {
+      method: 'DELETE',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`
+      }
+    })
+    return res.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
 
 export {
   getUsersEvents,
   createEvent,
+  deleteEvent
 }
