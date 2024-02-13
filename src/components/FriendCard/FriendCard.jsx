@@ -58,16 +58,16 @@ const FriendCard = (props) => {
           Send Message
         </button>
         {isMessageFormExpanded && (
-        <form className="message-form mt-4" onSubmit={handleSubmit}>
+        <form className="message-form mt-4 w-full" onSubmit={handleSubmit}>
           <input
             type="text"
             name="content"
             placeholder="Send Some Inspiration..."
             value={formData.content}
             onChange={handleChange}
-            className="border border-gray-300 rounded-md px-4 py-2 mb-2"
+            className="border border-gray-300 rounded-md py-2 mb-2 w-3/4"
           />
-          <button className="bg-blue-500 text-white px-4 py-2 rounded-md focus:outline-none">Send</button>
+          <button className="bg-blue-500 text-white py-2 rounded-md focus:outline-none w-1/5">Send</button>
         </form>
       )}
         <button
