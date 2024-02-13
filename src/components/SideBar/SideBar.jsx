@@ -5,6 +5,7 @@ import { NavLink } from 'react-router-dom'
 import './SideBar.css'
 
 const SideBar = ({ user, profile , handleLogout }) => {
+
   return (
     <div className='w-72'>
     <nav className='bg-gradient-to-l from-lime-400 to-lime-600 min-h-screen z-10 text-black w-64 fixed left-0 h-screen overflow-y-scroll '>
@@ -109,7 +110,7 @@ const SideBar = ({ user, profile , handleLogout }) => {
                 </svg>                    
               </div>
               <div className="flex flex-col">
-                <span className="text-lg font-bold leading-5 text-black">Settings</span>
+                <span className="text-lg font-bold leading-5 text-black" >Settings</span>
                 <span className="text-sm text-white/50 hidden md:block">Edit Profile and Change Password</span>
               </div>
             </NavLink>
