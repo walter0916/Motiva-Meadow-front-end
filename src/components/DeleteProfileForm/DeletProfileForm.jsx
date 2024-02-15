@@ -16,6 +16,7 @@ const DeleteProfileForm = (props) => {
 
   const handleDelete = () => {
     console.log("Profile deleted successfully!")
+    props.handleDeleteProfile()
   }
 
   return (

@@ -39,6 +39,10 @@ const ProfileSettings = (props) => {
     await profileService.editProfilePreferences(formData)
   }
 
+  const handleDeleteProfile = async () => {
+    await profileService.deleteProfile()
+  }
+
   return (
     <div className="max-w-md mx-auto mt-8">
     <div className="space-y-1">
@@ -247,6 +251,7 @@ const ProfileSettings = (props) => {
             <div className="px-4 py-5">
               {<DeleteProfileForm 
                   user={props.user}
+                  handleDeleteProfile={handleDeleteProfile}
               />}
             </div>
           )}
