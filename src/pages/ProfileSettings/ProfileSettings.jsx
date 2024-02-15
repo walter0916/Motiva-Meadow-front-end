@@ -1,4 +1,8 @@
+// npm services
 import { useState } from 'react'
+
+// components
+import ChangePassword from '../../components/ChangePassword/ChangePassword'
 
 const ProfileSettings = () => {
   const [expandedSetting, setExpandedSetting] = useState(null)
@@ -52,7 +56,7 @@ const ProfileSettings = () => {
           </div>
           {expandedSetting === 'changePassword' && (
             <div className="px-4 py-5">
-              {/* Form for changing password */}
+              {<ChangePassword />}
             </div>
           )}
         </div>
