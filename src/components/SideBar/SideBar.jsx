@@ -116,7 +116,6 @@ const SideBar = ({ user, profile , handleLogout }) => {
             </NavLink>
           </li>
           <li className='w-full px-2 inline-flex space-x-2 items-center border-b border-slate-700 py-3  hover:bg-white/20 transition ease-linear duration-150'><NavLink className='link' to="" onClick={handleLogout}>LOG OUT</NavLink ></li>
-          <li className='w-full px-2 inline-flex space-x-2 items-center border-b border-slate-700 py-3  hover:bg-white/20 transition ease-linear duration-150'><NavLink className='link' to="/auth/change-password">Change Password</NavLink></li>
         </ul>
       :
         <ul>

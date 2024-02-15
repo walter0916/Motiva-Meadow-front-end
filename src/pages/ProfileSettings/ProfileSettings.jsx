@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react'
 import ChangePassword from '../../components/ChangePassword/ChangePassword'
 import ProfileForm from '../../components/ProfileForm/ProfileForm'
 import PreferencesForm from '../../components/PreferencesForm/PreferencesForm'
+import DeleteProfileForm from '../../components/DeleteProfileForm/DeletProfileForm'
 
 // services
 import * as profileService from '../../services/profileService'
@@ -244,7 +245,9 @@ const ProfileSettings = (props) => {
           </div>
           {expandedSetting === 'deleteProfile' && (
             <div className="px-4 py-5">
-              {/* Form for deleting profile */}
+              {<DeleteProfileForm 
+                  user={props.user}
+              />}
             </div>
           )}
         </div>
