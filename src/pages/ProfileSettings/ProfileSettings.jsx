@@ -34,6 +34,10 @@ const ProfileSettings = (props) => {
     await profileService.editProfile(formData, photoData)
   }
 
+  const handleEditProfilePreferences = async (formData) => {
+    await profileService.editProfilePreferences(formData)
+  }
+
   return (
     <div className="max-w-md mx-auto mt-8">
     <div className="space-y-1">
@@ -186,6 +190,7 @@ const ProfileSettings = (props) => {
             <div className="px-4 py-5">
               {<PreferencesForm
                   userProfile={userProfile}
+                  handleEditProfilePreferences={handleEditProfilePreferences}
               />}
             </div>
           )}

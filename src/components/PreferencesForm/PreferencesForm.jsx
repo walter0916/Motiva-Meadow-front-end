@@ -2,8 +2,15 @@
 import { useState } from "react"
 
 const PreferencesForm = (props) => {
-  const initialFormData = props.userProfile.preferences
-    ? props.userProfile.preferences
+  const initialFormData = props.userProfile.preferences[0]
+    ? {
+      showEvents: props.userProfile.preferences[0].showEvents,
+      showToDoList: props.userProfile.preferences[0].showToDoList,
+      showGoals: props.userProfile.preferences[0].showGoals,
+      showQuotes: props.userProfile.preferences[0].showQuotes,
+      showHabitProgress: props.userProfile.preferences[0].showHabitProgress,
+      seeStats: props.userProfile.preferences[0].seeStats,
+    }
     : {
         showEvents: false,
         showToDoList: false,
@@ -19,8 +26,13 @@ const PreferencesForm = (props) => {
     setFormData({ ...formData, [e.target.name]: e.target.checked })
   }
 
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    props.handleEditProfilePreferences(formData)
+  }
+
   return (
-    <form className="max-w-md mx-auto mt-8 p-6 bg-white rounded-lg shadow-md">
+    <form className="max-w-md mx-auto mt-8 p-6 bg-white rounded-lg shadow-md" onSubmit={handleSubmit}>
       <div className="flex flex-col">
         <div className="mb-4">
           <label className="inline-flex items-center">
