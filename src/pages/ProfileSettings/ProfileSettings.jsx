@@ -1,11 +1,24 @@
 // npm services
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 // components
 import ChangePassword from '../../components/ChangePassword/ChangePassword'
+import ProfileForm from '../../components/ProfileForm/ProfileForm'
 
-const ProfileSettings = () => {
+// services
+import * as profileService from '../../services/profileService'
+
+const ProfileSettings = (props) => {
   const [expandedSetting, setExpandedSetting] = useState(null)
+  const [userProfile, setUserProfile] = useState({})
+
+  useEffect(() => {
+    const fetchUserProfile = async () => {
+      const data = await profileService.getProfileById(props.user.profile)
+      setUserProfile(data)
+    }
+    fetchUserProfile()
+  }, [props.user.profile])
 
   const handleToggleSetting = (setting) => {
     if (expandedSetting === setting) {
@@ -60,8 +73,6 @@ const ProfileSettings = () => {
             </div>
           )}
         </div>
-
-        {/* Edit Profile */}
         <div className="border-b border-gray-200">
           <div
             className="cursor-pointer px-4 py-5 flex items-center justify-between bg-blue-500 text-white"
@@ -111,7 +122,7 @@ const ProfileSettings = () => {
           </div>
           {expandedSetting === 'editProfile' && (
             <div className="px-4 py-5">
-              {/* Form for editing profile */}
+              {<ProfileForm userProfile={userProfile} />}
             </div>
           )}
         </div>
