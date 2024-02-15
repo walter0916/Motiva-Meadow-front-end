@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 // components
 import ChangePassword from '../../components/ChangePassword/ChangePassword'
 import ProfileForm from '../../components/ProfileForm/ProfileForm'
+import PreferencesForm from '../../components/PreferencesForm/PreferencesForm'
 
 // services
 import * as profileService from '../../services/profileService'
@@ -134,8 +135,6 @@ const ProfileSettings = (props) => {
             </div>
           )}
         </div>
-
-        {/* Change Preferences */}
         <div className="border-b border-gray-200">
           <div
             className="cursor-pointer px-4 py-5 flex items-center justify-between bg-sky-500 text-white"
@@ -185,12 +184,12 @@ const ProfileSettings = (props) => {
           </div>
           {expandedSetting === 'changePreferences' && (
             <div className="px-4 py-5">
-              {/* Form for changing preferences */}
+              {<PreferencesForm
+                  userProfile={userProfile}
+              />}
             </div>
           )}
         </div>
-
-        {/* Delete Profile */}
         <div className="border-b border-gray-200">
           <div
             className="cursor-pointer px-4 py-5 flex items-center justify-between bg-orange-500 text-white"
