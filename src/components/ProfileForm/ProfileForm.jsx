@@ -43,9 +43,8 @@ const ProfileForm = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    props.handleEditProfile(formData, photoData)
   }
-
-
 
 
   return (
