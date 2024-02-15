@@ -79,4 +79,21 @@ async function editProfile(formData, photoData) {
   }
 }
 
-export { getAllProfiles, getProfileById , addPhoto, removeFriend, editProfile }
+async function editProfilePreferences(formData) {
+  try {
+    const profileId = tokenService.getUserFromToken().profile
+    const res = await fetch(`${BASE_URL}/${profileId}/edit-preferences`, {
+      method: 'PUT',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    })
+    return res.json()
+  } catch (err) {
+    throw new Error(err)
+  }
+}
+
+export { getAllProfiles, getProfileById , addPhoto, removeFriend, editProfile, editProfilePreferences }
