@@ -96,4 +96,27 @@ async function editProfilePreferences(formData) {
   }
 }
 
-export { getAllProfiles, getProfileById , addPhoto, removeFriend, editProfile, editProfilePreferences }
+async function deleteProfile() {
+  try {
+    const profileId = tokenService.getUserFromToken().profile
+    const res = await fetch(`${BASE_URL}/${profileId}/delete`, {
+      method: 'DELETE',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`
+      }
+    })
+    return res.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+export { 
+  getAllProfiles, 
+  getProfileById , 
+  addPhoto, 
+  removeFriend, 
+  editProfile, 
+  editProfilePreferences,
+  deleteProfile
+}
