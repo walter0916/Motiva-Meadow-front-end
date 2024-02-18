@@ -1,3 +1,6 @@
+// npm services 
+import { FaTrashAlt } from 'react-icons/fa'
+
 // components 
 import HabitsCheckInput from "../HabitsCheckInput/HabitsCheckInput"
 
@@ -21,12 +24,12 @@ const HabitsTable = (props) => {
           {props.habits.length ? (
             props.habits.map((habit) => (
               <tr key={habit._id}>
-                <td className="py-2 px-4 border border-gray-300 text-center">
+                <td className=" border border-gray-300 text-center">
                   <button
                     className="left-0 text-red-500 cursor-pointer"
                     onClick={() => props.handleDeleteHabit(habit._id)}
                   >
-                    x
+                    <FaTrashAlt />
                   </button>
                   <span className="ml-8">{habit.title}</span>
                 </td>
