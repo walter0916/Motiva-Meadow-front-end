@@ -119,8 +119,8 @@ const SideBar = ({ user, profile , handleLogout }) => {
         </ul>
       :
         <ul>
-          <li><NavLink to="/auth/login">Log In</NavLink></li>
-          <li><NavLink to="/auth/signup">Sign Up</NavLink></li>
+          <li className='w-full px-2 inline-flex space-x-2 items-center border-b border-slate-700 py-3  hover:bg-white/20 transition ease-linear duration-150'><NavLink to="/auth/login">Log In</NavLink></li>
+          <li className='w-full px-2 inline-flex space-x-2 items-center border-b border-slate-700 py-3  hover:bg-white/20 transition ease-linear duration-150'><NavLink to="/auth/signup">Sign Up</NavLink></li>
         </ul>
       }
     </nav>

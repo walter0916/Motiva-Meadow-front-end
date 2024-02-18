@@ -23,7 +23,7 @@ const Dashboard = (props) => {
     const fetchUserProfile = async () => {
       const data = await profileService.getProfileById(props.user.profile)
       setUserProfile(data)
-      const preferencesData = data.preferences
+      const preferencesData = data.preferences[0]
       setPreferences(preferencesData)
       setLoading(false)
     }
@@ -36,13 +36,15 @@ const Dashboard = (props) => {
 
   return (
     <main className='bg-white-500 h-screen flex flex-wrap justify-center items-center w-3/4'>
-      {preferences[0].showEvents && <EventsCard userProfile={userProfile} />}
-      {preferences[0].showToDoList && <ToDoListCard userProfile={userProfile} />}
-      {preferences[0].showGoals && <GoalsDashboardCard userProfile={userProfile} />}
-      {preferences[0].showQuotes && <QuotesCard userProfile={userProfile} />}
-      {preferences[0].showHabitProgress && <HabitsProgressCard userProfile={userProfile} />}
-      {preferences[0].seeStats && <StatsCard userProfile={userProfile} />}
-      < MessagesCard userProfile={userProfile}/>
+      <div className="grid grid-cols-3 gap-4 w-full">
+        {preferences.showEvents && < EventsCard userProfile={userProfile} />}
+        {preferences.showToDoList && < ToDoListCard userProfile={userProfile} />}
+        {preferences.showGoals && < GoalsDashboardCard userProfile={userProfile} />}
+        {preferences.showQuotes && < QuotesCard userProfile={userProfile} />}
+        {preferences.showHabitProgress && < HabitsProgressCard userProfile={userProfile} />}
+        {preferences.seeStats && < StatsCard userProfile={userProfile} />}
+        < MessagesCard userProfile={userProfile} />
+      </div>
     </main>
   )
 }
