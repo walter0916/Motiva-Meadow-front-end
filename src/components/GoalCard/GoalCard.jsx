@@ -11,14 +11,14 @@ const GoalCard = (props) => {
         {props.goal.description}
       </h2>
       <p className={`mb-2 ${daysLeft > 7 ? 'text-green-600' : 'text-orange-600'}`}>
-        {daysLeft > 0 ? `${daysLeft} days left` : "Due today"}
+        {daysLeft > 0 ? `${daysLeft} days left` : (daysLeft < 0 ? `past due` : "Due today")} 
       </p>
       <p className="text-sm text-gray-500">
         Due Date: {moment(props.goal.dueDate).format("MMMM D, YYYY")}
       </p>
       <div>
         <button className="mr-2" onClick={() => props.handleDeleteGoal(props.goal._id)}>
-          <FaTrash /> {/* Trash icon for delete button */}
+          <FaTrash /> 
         </button>
         {!props.goal.completed ? 
           <button onClick={() => props.handleUpdateGoalCompletion(props.goal._id, true)} className="bg-green-500 text-white px-2 py-1 rounded-md">
