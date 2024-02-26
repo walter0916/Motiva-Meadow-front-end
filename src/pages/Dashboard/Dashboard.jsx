@@ -31,6 +31,9 @@ const Dashboard = (props) => {
       const goalsData = await goalService.getUsersGoals(props.user.profile)
       const eventsData = await eventService.getUsersEvents(props.user.profile)
       const tasksData = await taskService.getUsersLists(props.user.profile)
+
+      eventsData.sort((a, b) => new Date(a.start) - new Date(b.start))
+
       setUserProfile(data)
       setUsersGoals(goalsData)
       setUsersEvents(eventsData)
@@ -49,8 +52,16 @@ const Dashboard = (props) => {
   return (
     <main className='bg-white-500 h-screen flex flex-wrap justify-center items-center w-3/4'>
       <div className="grid grid-cols-3 gap-4 w-full">
-        {preferences.showEvents && < EventsCard userProfile={userProfile} />}
-        {preferences.showToDoList && < ToDoListCard userProfile={userProfile} />}
+        {preferences.showEvents && 
+        < EventsCard 
+          userProfile={userProfile}
+          usersEvents={usersEvents}
+        />}
+        {preferences.showToDoList && 
+        < ToDoListCard 
+          userProfile={userProfile}
+          usersToDoLists={usersToDoLists}
+        />}
         {preferences.showGoals && 
         < GoalsDashboardCard 
           userProfile={userProfile} 
