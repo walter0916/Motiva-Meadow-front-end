@@ -3,6 +3,7 @@ import { useState, useEffect } from "react"
 
 // services
 import * as profileService from '../../services/profileService'
+import * as goalService from '../../services/goalService'
 
 // components 
 import ToDoListCard from "../../components/ToDoListCard/ToDoListCard"
@@ -17,12 +18,15 @@ import StatsCard from "../../components/StatsCard/StatsCard"
 const Dashboard = (props) => {
   const [userProfile, setUserProfile] = useState({})
   const [preferences, setPreferences] = useState({})
+  const [usersGoals, setUsersGoals] = useState({})
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     const fetchUserProfile = async () => {
       const data = await profileService.getProfileById(props.user.profile)
+      const goalData = await goalService.getUsersGoals(props.user.profile)
       setUserProfile(data)
+      setUsersGoals(goalData)
       const preferencesData = data.preferences[0]
       setPreferences(preferencesData)
       setLoading(false)
