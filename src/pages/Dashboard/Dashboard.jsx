@@ -5,6 +5,7 @@ import { useState, useEffect } from "react"
 import * as profileService from '../../services/profileService'
 import * as goalService from '../../services/goalService'
 import * as eventService from '../../services/eventService'
+import * as taskService from '../../services/taskService'
 
 // components 
 import ToDoListCard from "../../components/ToDoListCard/ToDoListCard"
@@ -21,6 +22,7 @@ const Dashboard = (props) => {
   const [preferences, setPreferences] = useState({})
   const [usersGoals, setUsersGoals] = useState({})
   const [usersEvents, setUsersEvents] = useState({})
+  const [usersToDoLists, setUsersToDoLists] = useState({})
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -28,9 +30,11 @@ const Dashboard = (props) => {
       const data = await profileService.getProfileById(props.user.profile)
       const goalsData = await goalService.getUsersGoals(props.user.profile)
       const eventsData = await eventService.getUsersEvents(props.user.profile)
+      const tasksData = await taskService.getUsersLists(props.user.profile)
       setUserProfile(data)
       setUsersGoals(goalsData)
       setUsersEvents(eventsData)
+      setUsersToDoLists(tasksData)
       const preferencesData = data.preferences[0]
       setPreferences(preferencesData)
       setLoading(false)
