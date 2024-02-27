@@ -14,6 +14,7 @@ const getColorClass = (color) => {
 const EventsCard = (props) => {
   return (
     <div className="bg-white rounded-lg shadow-lg overflow-y-auto h-80 p-4">
+      Upcoming Events
       <ul className="p-2">
         {props.usersEvents.map((event) => {
           const startDate = new Date(event.start)

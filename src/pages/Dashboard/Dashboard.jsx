@@ -7,6 +7,7 @@ import * as goalService from '../../services/goalService'
 import * as eventService from '../../services/eventService'
 import * as taskService from '../../services/taskService'
 import * as habitService from '../../services/habitService'
+import * as statService from '../../services/statService'
 
 // components 
 import ToDoListCard from "../../components/ToDoListCard/ToDoListCard"
@@ -25,6 +26,7 @@ const Dashboard = (props) => {
   const [usersEvents, setUsersEvents] = useState({})
   const [usersToDoLists, setUsersToDoLists] = useState({})
   const [usersHabits, setUsersHabits ] = useState({})
+  const [usersStats, setUsersStats] = useState({})
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -33,7 +35,8 @@ const Dashboard = (props) => {
       const goalsData = await goalService.getUsersGoals(props.user.profile)
       const eventsData = await eventService.getUsersEvents(props.user.profile)
       const tasksData = await taskService.getUsersLists(props.user.profile)
-      const habitData = await habitService.getUsersHabits(props.user.profile)
+      const habitsData = await habitService.getUsersHabits(props.user.profile)
+      const statsData = await statService.getUsersStats(props.user.profile)
 
       eventsData.sort((a, b) => new Date(a.start) - new Date(b.start))
 
@@ -41,7 +44,8 @@ const Dashboard = (props) => {
       setUsersGoals(goalsData)
       setUsersEvents(eventsData)
       setUsersToDoLists(tasksData)
-      setUsersHabits(habitData)
+      setUsersHabits(habitsData)
+      setUsersStats(statsData)
       const preferencesData = data.preferences[0]
       setPreferences(preferencesData)
       setLoading(false)
@@ -77,7 +81,11 @@ const Dashboard = (props) => {
           userProfile={userProfile}
           usersHabits={usersHabits}
         />}
-        {preferences.seeStats && < StatsCard userProfile={userProfile} />}
+        {preferences.seeStats && 
+        < StatsCard 
+          userProfile={userProfile}
+          usersStats={usersStats}
+        />}
         < MessagesCard userProfile={userProfile} />
       </div>
     </main>
