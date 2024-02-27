@@ -6,6 +6,7 @@ import * as profileService from '../../services/profileService'
 import * as goalService from '../../services/goalService'
 import * as eventService from '../../services/eventService'
 import * as taskService from '../../services/taskService'
+import * as habitService from '../../services/habitService'
 
 // components 
 import ToDoListCard from "../../components/ToDoListCard/ToDoListCard"
@@ -23,6 +24,7 @@ const Dashboard = (props) => {
   const [usersGoals, setUsersGoals] = useState({})
   const [usersEvents, setUsersEvents] = useState({})
   const [usersToDoLists, setUsersToDoLists] = useState({})
+  const [usersHabits, setUsersHabits ] = useState({})
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -31,6 +33,7 @@ const Dashboard = (props) => {
       const goalsData = await goalService.getUsersGoals(props.user.profile)
       const eventsData = await eventService.getUsersEvents(props.user.profile)
       const tasksData = await taskService.getUsersLists(props.user.profile)
+      const habitData = await habitService.getUsersHabits(props.user.profile)
 
       eventsData.sort((a, b) => new Date(a.start) - new Date(b.start))
 
@@ -38,6 +41,7 @@ const Dashboard = (props) => {
       setUsersGoals(goalsData)
       setUsersEvents(eventsData)
       setUsersToDoLists(tasksData)
+      setUsersHabits(habitData)
       const preferencesData = data.preferences[0]
       setPreferences(preferencesData)
       setLoading(false)
@@ -50,7 +54,7 @@ const Dashboard = (props) => {
   }
 
   return (
-    <main className='bg-white-500 h-screen flex flex-wrap justify-center items-center w-3/4'>
+    <main className='bg-white-500 h-screen flex flex-wrap justify-center w-3/4'>
       <div className="grid grid-cols-3 gap-4 w-full">
         {preferences.showEvents && 
         < EventsCard 
@@ -68,7 +72,11 @@ const Dashboard = (props) => {
           usersGoals={usersGoals} 
         />}
         {preferences.showQuotes && < QuotesCard userProfile={userProfile} />}
-        {preferences.showHabitProgress && < HabitsProgressCard userProfile={userProfile} />}
+        {preferences.showHabitProgress && 
+        < HabitsProgressCard 
+          userProfile={userProfile}
+          usersHabits={usersHabits}
+        />}
         {preferences.seeStats && < StatsCard userProfile={userProfile} />}
         < MessagesCard userProfile={userProfile} />
       </div>
