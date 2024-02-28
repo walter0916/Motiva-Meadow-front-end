@@ -9,6 +9,7 @@ import * as taskService from '../../services/taskService'
 import * as habitService from '../../services/habitService'
 import * as statService from '../../services/statService'
 import * as messageService from '../../services/messageService'
+import * as quoteService from '../../services/quoteService'
 
 // components 
 import ToDoListCard from "../../components/ToDoListCard/ToDoListCard"
@@ -29,6 +30,7 @@ const Dashboard = (props) => {
   const [usersHabits, setUsersHabits ] = useState({})
   const [usersStats, setUsersStats] = useState({})
   const [usersMessages, setUsersMessages] = useState({})
+  const [quotes, setQuotes] = useState({})
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -40,6 +42,7 @@ const Dashboard = (props) => {
       const habitsData = await habitService.getUsersHabits(props.user.profile)
       const statsData = await statService.getUsersStats(props.user.profile)
       const messagesData = await messageService.getUserMessages(props.user.profile)
+      const quotesData = await quoteService.getQuotes()
 
       eventsData.sort((a, b) => new Date(a.start) - new Date(b.start))
 
@@ -50,6 +53,7 @@ const Dashboard = (props) => {
       setUsersHabits(habitsData)
       setUsersStats(statsData)
       setUsersMessages(messagesData)
+      setQuotes(quotesData)
       const preferencesData = data.preferences[0]
       setPreferences(preferencesData)
       setLoading(false)
