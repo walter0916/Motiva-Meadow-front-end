@@ -83,7 +83,11 @@ const Dashboard = (props) => {
           userProfile={userProfile} 
           usersGoals={usersGoals} 
         />}
-        {preferences.showQuotes && < QuotesCard userProfile={userProfile} />}
+        {preferences.showQuotes && 
+        < QuotesCard 
+          userProfile={userProfile}
+          quotes={quotes}
+        />}
         {preferences.showHabitProgress && 
         < HabitsProgressCard 
           userProfile={userProfile}
