@@ -44,7 +44,7 @@ const ProfileSettings = (props) => {
   }
 
   return (
-    <div className="max-w-md mx-auto mt-8">
+    <div className="max-w-md mx-auto mt-8 w-1/2">
     <div className="space-y-1">
       <div className="bg-white shadow-md rounded-lg overflow-hidden">
         <div className="border-b border-gray-200">

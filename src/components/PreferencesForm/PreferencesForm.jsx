@@ -34,78 +34,66 @@ const PreferencesForm = (props) => {
   return (
     <form className="max-w-md mx-auto mt-8 p-6 bg-white rounded-lg shadow-md" onSubmit={handleSubmit}>
       <div className="flex flex-col">
-        <div className="mb-4">
-          <label className="inline-flex items-center">
-            <span className="mr-2">Show Events</span>
+          <label className="inline-flex items-center ">
+            <span className="w-3/4">Show Events</span>
             <input
               type="checkbox"
-              className="form-checkbox text-green-500"
+              className="form-checkbox text-green-500 w-1/4"
               name="showEvents"
               checked={formData.showEvents}
               onChange={handleChange}
             />
           </label>
-        </div>
-        <div className="mb-4">
           <label className="inline-flex items-center">
-            <span className="mr-2">Show To-Do List</span>
+            <span className="w-3/4">Show To-Do List</span>
             <input
               type="checkbox"
-              className="form-checkbox text-green-500"
+              className="form-checkbox text-green-500 w-1/4"
               name="showToDoList"
               checked={formData.showToDoList}
               onChange={handleChange}
             />
           </label>
-        </div>
-        <div className="mb-4">
           <label className="inline-flex items-center">
-            <span className="mr-2">Show Goals</span>
+            <span className="w-3/4">Show Goals</span>
             <input
               type="checkbox"
-              className="form-checkbox text-green-500"
+              className="form-checkbox text-green-500 w-1/4"
               name="showGoals"
               checked={formData.showGoals}
               onChange={handleChange}
             />
           </label>
-        </div>
-        <div className="mb-4">
           <label className="inline-flex items-center">
-            <span className="mr-2">Show Quotes</span>
+            <span className="w-3/4">Show Quotes</span>
             <input
               type="checkbox"
-              className="form-checkbox text-green-500"
+              className="form-checkbox text-green-500 w-1/4"
               name="showQuotes"
               checked={formData.showQuotes}
               onChange={handleChange}
             />
           </label>
-        </div>
-        <div className="mb-4">
           <label className="inline-flex items-center">
-            <span className="mr-2">Show Habit Progress</span>
+            <span className="w-3/4">Show Habit Progress</span>
             <input
               type="checkbox"
-              className="form-checkbox text-green-500"
+              className="form-checkbox text-green-500 w-1/4"
               name="showHabitProgress"
               checked={formData.showHabitProgress}
               onChange={handleChange}
             />
           </label>
-        </div>
-        <div className="mb-4">
           <label className="inline-flex items-center">
-            <span className="mr-2">See Stats</span>
+            <span className="w-3/4">See Stats</span>
             <input
               type="checkbox"
-              className="form-checkbox text-green-500"
+              className="form-checkbox text-green-500 w-1/4"
               name="seeStats"
               checked={formData.seeStats}
               onChange={handleChange}
             />
           </label>
-        </div>
       </div>
       <button
         type="submit"
