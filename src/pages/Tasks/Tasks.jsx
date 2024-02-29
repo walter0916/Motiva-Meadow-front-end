@@ -78,6 +78,10 @@ const Tasks = (props) => {
     setLists(updatedLists)
   }
 
+  const handleArchiveList = async (todoListId) => {
+    await taskService.archiveList(todoListId)
+  }
+
 
   return (
     <div className="w-3/4">
@@ -95,6 +99,7 @@ const Tasks = (props) => {
             handleTaskCompletion={handleTaskCompletion}
             handleDeleteTask={handleDeleteTask}
             handleDeleteList={handleDeleteList}
+            handleArchiveList={handleArchiveList}
           />
         ))
       ) : (
