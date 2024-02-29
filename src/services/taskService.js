@@ -90,11 +90,27 @@ async function deleteList(todoListId) {
   }
 }
 
+async function archiveList(todoListId) {
+  try {
+    const res = await fetch(`${BASE_URL}/${todoListId}/archive`, {
+      method: 'PUT',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`,
+        'Content-Type': 'application/json'
+      }
+    })
+    return res.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 export {
   getUsersLists,
   createToDoList,
   addTask,
   updateTaskCompletion,
   deleteTask,
-  deleteList
+  deleteList,
+  archiveList
 }
