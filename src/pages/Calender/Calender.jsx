@@ -104,9 +104,9 @@ const Calender = (props) => {
         endAccessor="end"
         eventPropGetter={eventPropGetter}
         onSelectEvent={handleSelectEvent}
-        style={{ height: '80vh', width: '70vw'}}
+        style={{ height: '50vh', width: '70vw'}}
       />
-      <div className="container mx-auto p-4">
+      <div className="container mx-auto p-4 h-1/2">
         <div className="max-w-md mx-auto bg-white p-6 rounded-md shadow-md">
           <form className="space-y-4" onSubmit={handleSubmit}>
             <div className="mb-4">
