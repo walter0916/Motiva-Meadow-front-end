@@ -66,7 +66,7 @@ const Dashboard = (props) => {
   }
 
   return (
-    <main className='bg-white-500 h-screen flex flex-wrap justify-center w-3/4'>
+    <main className='bg-white flex items-center h-screen w-3/4'>
       <div className="grid grid-cols-3 gap-4 w-full">
         {preferences.showEvents && 
         < EventsCard 

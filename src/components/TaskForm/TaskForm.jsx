@@ -49,7 +49,7 @@ const TaskForm = (props) => {
           <option value="pink">pink</option>
         </select>
         <button 
-          className="flex-no-shrink p-2 border-2 rounded text-teal border-teal hover:text-blue-600 hover:bg-teal"
+          className="bg-blue-500 text-white flex-no-shrink p-2 border-2 rounded text-teal border-teal hover:bg-blue-600 ml-2"
           type='submit'
         >
           Add

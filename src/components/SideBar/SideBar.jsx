@@ -115,12 +115,13 @@ const SideBar = ({ user, profile , handleLogout }) => {
               </div>
             </NavLink>
           </li>
-          <li className='w-full px-2 inline-flex space-x-2 items-center border-b border-slate-700 py-3  hover:bg-white/20 transition ease-linear duration-150'><NavLink className='link' to="" onClick={handleLogout}>LOG OUT</NavLink ></li>
+          <li className='w-full px-2 inline-flex space-x-2 items-center border-b border-slate-700 py-3  hover:bg-white/20 transition ease-linear duration-150'><NavLink className='link' to="" onClick={handleLogout}>LOG OUT</NavLink >
+          </li>
         </ul>
       :
         <ul>
-          <li className='w-full px-2 inline-flex space-x-2 items-center border-b border-slate-700 py-3  hover:bg-white/20 transition ease-linear duration-150'><NavLink to="/auth/login">Log In</NavLink></li>
-          <li className='w-full px-2 inline-flex space-x-2 items-center border-b border-slate-700 py-3  hover:bg-white/20 transition ease-linear duration-150'><NavLink to="/auth/signup">Sign Up</NavLink></li>
+          <li className='w-full px-2 inline-flex space-x-2 items-center border-b border-slate-700 py-3  hover:bg-white/20 transition ease-linear duration-150'><NavLink className='link' to="/auth/login">Log In</NavLink></li>
+          <li className='w-full px-2 inline-flex space-x-2 items-center border-b border-slate-700 py-3  hover:bg-white/20 transition ease-linear duration-150'><NavLink className='link' to="/auth/signup">Sign Up</NavLink></li>
         </ul>
       }
     </nav>

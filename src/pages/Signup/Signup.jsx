@@ -78,60 +78,90 @@ const Signup = ({ handleAuthEvt }) => {
   }
 
   return (
-    <main className={styles.container}>
-      <h1>Sign Up</h1>
-      <p className={styles.message}>{message}</p>
-      <form autoComplete="off" onSubmit={handleSubmit} className={styles.form}>
-        <label className={styles.label}>
-          Name
-          <input type="text" value={name} name="name" onChange={handleChange} />
-        </label>
-        <label className={styles.label}>
-          Email
-          <input
-            type="text"
-            value={email}
-            name="email"
-            onChange={handleChange}
-          />
-        </label>
-        <label className={styles.label}>
-          Password
-          <input
-            type="password"
-            value={password}
-            name="password"
-            onChange={handleChange}
-          />
-        </label>
-        <label className={styles.label}>
-          Confirm Password
-          <input
-            type="password"
-            value={passwordConf}
-            name="passwordConf"
-            onChange={handleChange}
-          />
-        </label>
-        <label className={styles.label}>
-          Upload Photo
-          <input 
-            type="file" 
-            name="photo" 
-            onChange={handleChangePhoto}
-            ref={imgInputRef}
-          />
-        </label>
-        <div>
-          <Link to="/">Cancel</Link>
-          <button
-            className={styles.button}
-            disabled={ isFormInvalid() || isSubmitted }
-          >
-            {!isSubmitted ? 'Sign Up' : '🚀 Sending...'}
-          </button>
-        </div>
-      </form>
+    <main className="flex justify-center items-center h-screen bg-white w-3/4">
+      <div className="bg-white p-8 rounded-lg shadow-md w-full md:max-w-md">
+        <h1 className="text-3xl font-semibold text-center mb-4">Sign Up</h1>
+        <p className="text-red-500 text-center mb-4">{message}</p>
+        <form autoComplete="off" onSubmit={handleSubmit}>
+          <div className="mb-4">
+            <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+              Name
+            </label>
+            <input
+              type="text"
+              id="name"
+              value={name}
+              name="name"
+              onChange={handleChange}
+              className="mt-1 p-2 block w-full border border-gray-300 rounded-md focus:outline-none focus:border-green-500"
+            />
+          </div>
+          <div className="mb-4">
+            <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+              Email
+            </label>
+            <input
+              type="text"
+              id="email"
+              value={email}
+              name="email"
+              onChange={handleChange}
+              className="mt-1 p-2 block w-full border border-gray-300 rounded-md focus:outline-none focus:border-green-500"
+            />
+          </div>
+          <div className="mb-4">
+            <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+              Password
+            </label>
+            <input
+              type="password"
+              id="password"
+              value={password}
+              name="password"
+              onChange={handleChange}
+              className="mt-1 p-2 block w-full border border-gray-300 rounded-md focus:outline-none focus:border-green-500"
+            />
+          </div>
+          <div className="mb-4">
+            <label htmlFor="passwordConf" className="block text-sm font-medium text-gray-700">
+              Confirm Password
+            </label>
+            <input
+              type="password"
+              id="passwordConf"
+              value={passwordConf}
+              name="passwordConf"
+              onChange={handleChange}
+              className="mt-1 p-2 block w-full border border-gray-300 rounded-md focus:outline-none focus:border-green-500"
+            />
+          </div>
+          <div className="mb-4">
+            <label htmlFor="photo" className="block text-sm font-medium text-gray-700">
+              Upload Photo
+            </label>
+            <input 
+              type="file" 
+              id="photo"
+              name="photo" 
+              onChange={handleChangePhoto}
+              ref={imgInputRef}
+              className="mt-1 p-2 block w-full border border-gray-300 rounded-md focus:outline-none focus:border-green-500"
+            />
+          </div>
+          <div className="flex justify-between items-center">
+            <Link to="/" className="text-green-500 hover:text-green-700">
+              Cancel
+            </Link>
+            <button
+              type="submit"
+              className="bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-600 transition duration-300 "
+              disabled={ isFormInvalid() || isSubmitted }
+            >
+              {!isSubmitted ? 'Sign Up' : '🚀 Sending...'}
+            </button>
+          </div>
+        </form>
+      </div>
     </main>
   )
 }

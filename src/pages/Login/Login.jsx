@@ -5,9 +5,6 @@ import { Link, useNavigate } from 'react-router-dom'
 // services
 import * as authService from '../../services/authService'
 
-// css
-import styles from './Login.module.css'
-
 const LoginPage = ({ handleAuthEvt }) => {
   const navigate = useNavigate()
 
@@ -44,35 +41,45 @@ const LoginPage = ({ handleAuthEvt }) => {
   }
 
   return (
-    <main className={styles.container}>
-      <h1>Log In</h1>
-      <p className={styles.message}>{message}</p>
-      <form autoComplete="off" onSubmit={handleSubmit} className={styles.form}>
-        <label className={styles.label}>
-          Email
-          <input
-            type="text"
-            value={email}
-            name="email"
-            onChange={handleChange}
-          />
-        </label>
-        <label className={styles.label}>
-          Password
-          <input
-            type="password"
-            value={password}
-            name="password"
-            onChange={handleChange}
-          />
-        </label>
-        <div>
-          <Link to="/">Cancel</Link>
-          <button className={styles.button} disabled={isFormInvalid()}>
-            Log In
-          </button>
-        </div>
-      </form>
+    <main className="flex justify-center items-center h-screen bg-white w-3/4">
+      <div className="bg-white p-8 rounded-lg shadow-md w-full md:max-w-md">
+        <h1 className="text-3xl font-semibold text-center mb-4">Log In</h1>
+        <p className="text-red-500 text-center mb-4">{message}</p>
+        <form autoComplete="off" onSubmit={handleSubmit}>
+          <label className="block mb-2">
+            Email
+            <input
+              type="text"
+              value={email}
+              name="email"
+              onChange={handleChange}
+              className="block w-full mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:border-green-500"
+            />
+          </label>
+          <label className="block mb-2">
+            Password
+            <input
+              type="password"
+              value={password}
+              name="password"
+              onChange={handleChange}
+              className="block w-full mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:border-green-500"
+            />
+          </label>
+          <div className="flex justify-between items-center">
+            <Link to="/" className="text-green-500 hover:text-green-700">
+              Cancel
+            </Link>
+            <button
+              type="submit"
+              className="bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-600 transition duration-300"
+              disabled={isFormInvalid()}
+            >
+              Log In
+            </button>
+          </div>
+        </form>
+      </div>
     </main>
   )
 }

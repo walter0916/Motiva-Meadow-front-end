@@ -26,7 +26,7 @@ const ToDoList = (props) => {
   return (
     <div>
       <div className="h-100 w-full flex items-center justify-center bg-teal-lightest font-sans">
-        <div className="bg-white rounded shadow p-6 m-4 w-full lg:w-3/4 lg:max-w-lg">
+        <div className="bg-green-100 rounded shadow p-6 m-4 w-full lg:w-3/4 lg:max-w-lg">
           <div className="mb-4">
             <h1 className="text-grey-darkest">{props.toDoList.title} {formatDate(props.toDoList.deadline)}</h1>
             <TaskForm handleAddTask={props.handleAddTask} listId={props.toDoList._id}/>
@@ -41,11 +41,11 @@ const ToDoList = (props) => {
                   handleTaskCompletion={props.handleTaskCompletion}
                   toDoListId={props.toDoList._id}
                 />
-                <button className="flex-no-shrink p-2 ml-2 border-2 rounded text-red border-red hover:text-red-500 hover:bg-red" onClick={() => props.handleDeleteTask(task._id, props.toDoList._id)}>X</button>
+                <button className="flex-no-shrink p-2 ml-2 rounded text-red border-red hover:text-red-500 hover:bg-red" onClick={() => props.handleDeleteTask(task._id, props.toDoList._id)}>X</button>
               </div>)) : ('')
             }
-            <button className="flex-no-shrink p-2 ml-2 border-2 rounded text-red border-red hover:text-red-500 hover:bg-red"onClick={() => props.handleArchiveList(props.toDoList._id)} >Archive</button>
-            <button className="flex-no-shrink p-2 ml-2 border-2 rounded text-red border-red hover:text-red-500 hover:bg-red" onClick={() => props.handleDeleteList(props.toDoList._id)}><FaTrash /></button>
+            <button className="flex-no-shrink p-2 ml-2 text-red border-red hover:text-red-500 hover:bg-red"onClick={() => props.handleArchiveList(props.toDoList._id)} >Archive</button>
+            <button className="flex-no-shrink p-2 ml-2 text-red border-red hover:text-red-500 hover:bg-red" onClick={() => props.handleDeleteList(props.toDoList._id)}><FaTrash /></button>
           </div>  
         </div>
       </div>
