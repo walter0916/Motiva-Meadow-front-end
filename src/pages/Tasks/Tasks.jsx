@@ -14,11 +14,13 @@ import ToDoList from '../../components/ToDoList/ToDoList'
 const Tasks = (props) => {
   const [lists, setLists] = useState({})
   const [showForm, setShowForm] = useState(false)
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     const fetchUsersLists = async () => {
       const data = await taskService.getUsersLists(props.user.profile)
       setLists(data)
+      setLoading(false)
     }
     fetchUsersLists()
   }, [props.user])
@@ -82,6 +84,10 @@ const Tasks = (props) => {
     await taskService.archiveList(todoListId)
   }
 
+  if (loading) {
+    return <div>Loading...</div>
+  }
+
 
   return (
     <div className="w-3/4">
@@ -103,7 +109,7 @@ const Tasks = (props) => {
           />
         ))
       ) : (
-        'Loading Lists'
+        'Add A List'
       )}
     </div>
   )

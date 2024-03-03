@@ -15,18 +15,22 @@
 
 .purple {
   background-color: violet;
+  color: black;
 }
 
 .red {
   background-color: rgb(254, 84, 84);
+  color: black;
 }
 
 .orange {
   background-color: orange;
+  color: black;
 }
 
 .pink {
   background-color: pink;
+  color: black;
 }
 
 .completed {

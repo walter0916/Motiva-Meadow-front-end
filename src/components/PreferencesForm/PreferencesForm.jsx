@@ -97,7 +97,7 @@ const PreferencesForm = (props) => {
       </div>
       <button
         type="submit"
-        className="bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600 transition duration-300"
+        className="bg-blue-500 text-white font-semibold py-2 px-4 rounded hover:bg-blue-600 transition duration-300"
       >
         Save Preferences
       </button>

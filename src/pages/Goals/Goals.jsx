@@ -10,12 +10,13 @@ import GoalCard from "../../components/GoalCard/GoalCard"
 
 const Goals = (props) => {
   const [goals, setGoals] = useState({})
-
+  const [loading, setLoading] = useState(true)
   useEffect(() => {
     const fetchGoals = async () => {
       const data = await goalService.getUsersGoals(props.user.profile)
       const sortedGoals = data.sort((a, b) => new Date(a.dueDate) - new Date(b.dueDate))
       setGoals(sortedGoals)
+      setLoading(false)
     }
     fetchGoals()
   }, [props.user])
@@ -55,6 +56,10 @@ const Goals = (props) => {
       const sortedGoals = filteredGoals.sort((a, b) => new Date(a.dueDate) - new Date(b.dueDate))
       setGoals(sortedGoals)
     }
+  }
+
+  if (loading) {
+    return <div>Loading...</div>
   }
 
   return (

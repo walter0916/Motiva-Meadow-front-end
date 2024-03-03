@@ -32,7 +32,8 @@ const TaskForm = (props) => {
           value={formData.task}
           onChange={handleChange}
         />
-        <select 
+        <select
+          className="shadow appearance-none border rounded py-2 px-3 mr-4"
           name="color"
           value={formData.color}
           onChange={handleChange}
@@ -49,7 +50,7 @@ const TaskForm = (props) => {
           <option value="pink">pink</option>
         </select>
         <button 
-          className="bg-blue-500 text-white flex-no-shrink p-2 border-2 rounded text-teal border-teal hover:bg-blue-600 ml-2"
+          className="bg-blue-500 text-white flex-no-shrink p-2 border-2 rounded font-semibold hover:bg-blue-600 ml-2"
           type='submit'
         >
           Add

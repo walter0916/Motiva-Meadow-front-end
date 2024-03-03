@@ -12,11 +12,13 @@ import * as habitService from '../../services/habitService'
 const Habits = (props) => {
   const [habits, setHabits] = useState({})
   const [showForm, setShowForm] = useState(false)
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     const fetchHabits = async () => {
       const data = await habitService.getUsersHabits(props.user.profile)
       setHabits(data)
+      setLoading(false)
     }
     fetchHabits()
   }, [props.user])
@@ -39,6 +41,10 @@ const Habits = (props) => {
 
   const handleToggleForm = () => {
     setShowForm(!showForm)
+  }
+
+  if (loading) {
+    return <div>Loading...</div>
   }
 
   return (

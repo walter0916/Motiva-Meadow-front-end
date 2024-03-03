@@ -53,7 +53,7 @@ const FriendCard = (props) => {
       <div className="buttons flex flex-col items-center mt-4">
         <button
           onClick={toggleMessageFormExpansion}
-          className="btn send-message-btn bg-blue-500 text-white px-4 py-2 rounded-md mb-2 focus:outline-none"
+          className="btn send-message-btn font-semibold bg-blue-500 text-white px-4 py-2 rounded-md mb-2 focus:outline-none hover:bg-blue-600 "
         >
           Send Message
         </button>
@@ -67,18 +67,18 @@ const FriendCard = (props) => {
             onChange={handleChange}
             className="border border-gray-300 rounded-md py-2 mb-2 w-3/4"
           />
-          <button className="bg-blue-500 text-white py-2 rounded-md focus:outline-none w-1/5">Send</button>
+          <button className="bg-blue-500 font-semibold text-white py-2 rounded-md focus:outline-none w-1/5 hover:bg-blue-600">Send</button>
         </form>
       )}
         <button
           onClick={() => props.handleRemoveFriend(props.friend._id)}
-          className="btn unfriend-btn bg-red-500 text-white px-4 py-2 rounded-md mb-2 focus:outline-none"
+          className="btn unfriend-btn font-semibold bg-red-500 text-white px-4 py-2 rounded-md mb-2 focus:outline-none hover:bg-red-600"
         >
           Unfriend
         </button>
         <button
           onClick={toggleExpansion}
-          className="btn view-stats-btn bg-green-500 text-white px-4 py-2 rounded-md focus:outline-none"
+          className="btn view-stats-btn font-semibold bg-green-500 text-white px-4 py-2 rounded-md focus:outline-none hover:bg-green-600"
         >
           {isExpanded ? "Hide Stats" : "View Stats"}
         </button>

@@ -12,7 +12,7 @@ const FriendSearch = (props) => {
         <button
           type="button"
           onClick={props.handleSearch}
-          className="bg-orange-500 p-2 rounded-md text-white focus:outline-none"
+          className="bg-orange-500 font-semibold p-2 rounded-md text-white focus:outline-none hover:bg-orange-600"
         >
           Search
         </button>
@@ -29,7 +29,7 @@ const FriendSearch = (props) => {
                 <span className="text-gray-800">{user.name}</span>
                 <button
                   onClick={() => props.handleSendFriendRequest(user._id)}
-                  className="bg-blue-500 p-2 ml-2 rounded-md text-white focus:outline-none"
+                  className="bg-blue-500 font-semibold p-2 ml-2 rounded-md text-white focus:outline-none hover:bg-blue-600"
                 >
                   Add Friend
                 </button>

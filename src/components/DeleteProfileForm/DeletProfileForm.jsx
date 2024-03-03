@@ -42,7 +42,7 @@ const DeleteProfileForm = (props) => {
             <p className="text-red-500 mb-4">{errorMessage}</p>
           )}
           <button
-            className="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-600 transition duration-300"
+            className="bg-red-500 text-white font-semibold py-2 px-4 rounded hover:bg-red-600 transition duration-300"
             onClick={handleConfirm}
           >
             Confirm Deletion
