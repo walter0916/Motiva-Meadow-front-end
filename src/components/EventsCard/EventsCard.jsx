@@ -27,7 +27,7 @@ const EventsCard = (props) => {
 
           return (
             <li key={event._id} className={`rounded-md shadow-md mb-2 px-4 py-2 ${getColorClass(event.color)}`}>
-              <strong className="text-white">{event.title}</strong> - {isSameDay ? startDateString : `${startDateString} to ${endDateString}`}
+              <strong className="text-black">{event.title}</strong> - {isSameDay ? startDateString : `${startDateString} to ${endDateString}`}
               {event.allDay ? '' : (isSameDay ? `, ${startTime} to ${endTime}` : `, ${startTime} to ${endDateString}, ${endTime}`)}
             </li>
           );
