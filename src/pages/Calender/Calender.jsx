@@ -210,7 +210,7 @@ const Calender = (props) => {
             <p>End Date: {moment(showEvent.end).format(showEvent.allDay ? 'MMMM Do YYYY' : 'MMMM Do YYYY, h:mm:ss a')}</p>
           </div>
           ) : ( 
-          'no event selected'
+          'No Event Selected'
           )}
         </div>
       </div>

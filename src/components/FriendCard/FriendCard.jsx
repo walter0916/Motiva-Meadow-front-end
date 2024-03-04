@@ -8,6 +8,7 @@ const FriendCard = (props) => {
   const [userStats, setUsersStats] = useState()
   const [isExpanded, setIsExpanded] = useState(false)
   const [isMessageFormExpanded, setIsMessageFormExpanded] = useState(false)
+  const [showConfirmation, setShowConfirmation] = useState(false)
   const [formData, setFormData] = useState({
     content: ''
   })
@@ -39,16 +40,29 @@ const FriendCard = (props) => {
       content: ''
     })
   }
+
+  const handleUnfriendClick = () => {
+    setShowConfirmation(true)
+  }
+
+  const handleUnfriendConfirm = () => {
+    setShowConfirmation(false)
+    props.handleRemoveFriend(props.friend._id)
+  }
+
+  const handleUnfriendCancel = () => {
+    setShowConfirmation(false)
+  }
   
   return (
     <div key={props.friend._id} className="friend-card bg-white rounded-lg shadow-md p-4 flex flex-col justify-between">
       <div className="friend-info text-center">
-      <img
-        src={props.friend.photo}
-        alt=""
-        className="profile-pic w-20 h-20 rounded-full mx-auto mb-2"
-      />
-      <span className="name text-lg font-semibold">{props.friend.name}</span>
+        <img
+          src={props.friend.photo}
+          alt=""
+          className="profile-pic w-20 h-20 rounded-full mx-auto mb-2"
+        />
+        <span className="name text-lg font-semibold">{props.friend.name}</span>
       </div>
       <div className="buttons flex flex-col items-center mt-4">
         <button
@@ -69,9 +83,9 @@ const FriendCard = (props) => {
           />
           <button className="bg-blue-500 font-semibold text-white py-2 rounded-md focus:outline-none w-1/5 hover:bg-blue-600">Send</button>
         </form>
-      )}
+        )}
         <button
-          onClick={() => props.handleRemoveFriend(props.friend._id)}
+          onClick={handleUnfriendClick}
           className="btn unfriend-btn font-semibold bg-red-500 text-white px-4 py-2 rounded-md mb-2 focus:outline-none hover:bg-red-600"
         >
           Unfriend
@@ -83,6 +97,15 @@ const FriendCard = (props) => {
           {isExpanded ? "Hide Stats" : "View Stats"}
         </button>
       </div>
+      {showConfirmation && (
+        <div className="confirmation-dialog bg-white border border-gray-300 rounded-lg p-4 mt-4">
+          <p className="text-center mb-4">Are you sure you want to unfriend {props.friend.name}?</p>
+          <div className="flex justify-center">
+            <button onClick={handleUnfriendConfirm} className="bg-red-500 text-white font-semibold py-2 px-4 rounded-md mr-2 hover:bg-red-600">Yes</button>
+            <button onClick={handleUnfriendCancel} className="bg-gray-300 text-gray-800 font-semibold py-2 px-4 rounded-md ml-2 hover:bg-gray-400">Cancel</button>
+          </div>
+        </div>
+      )}
       {isExpanded && (
         <div className="stats-container bg-white border border-gray-300 rounded-lg p-4 mt-4">
           {userStats && Object.keys(userStats).length > 0 ? (
