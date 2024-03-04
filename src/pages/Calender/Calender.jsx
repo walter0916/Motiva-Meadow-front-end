@@ -106,10 +106,10 @@ const Calender = (props) => {
         onSelectEvent={handleSelectEvent}
         style={{ height: '50vh', width: '70vw'}}
       />
-      <div className="container mx-auto p-4 h-1/2 flex items-center content-between">
-        <div className="max-w-md mx-auto bg-white p-6 rounded-md shadow-md">
-          <form className="space-y-4" onSubmit={handleSubmit}>
-            <div className="mb-4">
+      <div className="h-1/2 flex flex-row items-center justify-between w-full">
+        <div className="max-w-md bg-white rounded-md shadow-md w-1/2">
+          <form className="space-y-4 flex flex-col p-6 items-center w-full" onSubmit={handleSubmit}>
+            <div className="mb-4 w-3/4">
               <label className="block text-gray-600 text-sm font-semibold mb-2">
                 Event Title:
               </label>
@@ -196,14 +196,14 @@ const Calender = (props) => {
               </div>
               <button
                 type="submit"
-                className="bg-blue-500 font-semibold text-white py-2 px-4 rounded-md hover:bg-blue-600"
+                className="bg-blue-500 mb-4 font-semibold text-white py-2 px-4 rounded-md hover:bg-blue-600"
               >
                 Create Event
               </button>
           </form>
         </div>
-        <div className="max-w-md bg-white p-6 rounded-md shadow-md w-1/2">
-          {showEvent ? (
+        <div className="max-w-md bg-white p-6 rounded-md shadow-md w-1/3">
+          {showEvent && Object.keys(showEvent).length > 0  ? (
           <div>
             <h2>{showEvent.title}</h2>
             <p>Start Date: {moment(showEvent.start).format(showEvent.allDay ? 'MMMM Do YYYY' : 'MMMM Do YYYY, h:mm:ss a')}</p>
