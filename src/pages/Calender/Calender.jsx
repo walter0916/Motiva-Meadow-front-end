@@ -93,8 +93,14 @@ const Calender = (props) => {
     })
   })
 
+  const handleDeleteEvent = async (eventId) => {
+    await eventService.deleteEvent(eventId)
+    const filteredData = events.filter(event => event._id !== eventId)
+    setEvents(filteredData)
+  }
+
   return (
-    <div className='flex flex-col w-max' >
+    <div className='flex flex-col w-max h-max' >
       <Calendar
         localizer={localizer}
         defaultDate={moment().toDate()}
@@ -204,11 +210,17 @@ const Calender = (props) => {
         </div>
         <div className="max-w-md bg-white p-6 rounded-md shadow-md w-1/3">
           {showEvent && Object.keys(showEvent).length > 0  ? (
-          <div>
-            <h2>{showEvent.title}</h2>
-            <p>Start Date: {moment(showEvent.start).format(showEvent.allDay ? 'MMMM Do YYYY' : 'MMMM Do YYYY, h:mm:ss a')}</p>
-            <p>End Date: {moment(showEvent.end).format(showEvent.allDay ? 'MMMM Do YYYY' : 'MMMM Do YYYY, h:mm:ss a')}</p>
-          </div>
+            <div className="event-details bg-gray-100 p-4 rounded-md shadow-md">
+              <h2 className="text-xl font-bold mb-2">{showEvent.title}</h2>
+              <p className="text-gray-600 mb-1">Start Date: {moment(showEvent.start).format(showEvent.allDay ? 'MMMM Do YYYY' : 'MMMM Do YYYY, h:mm:ss a')}</p>
+              <p className="text-gray-600 mb-4">End Date: {moment(showEvent.end).format(showEvent.allDay ? 'MMMM Do YYYY' : 'MMMM Do YYYY, h:mm:ss a')}</p>
+              <button 
+                className="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-md transition-colors duration-300"
+                onClick={() => handleDeleteEvent(showEvent._id)}
+              >
+                Delete
+              </button>
+            </div>
           ) : ( 
           'No Event Selected'
           )}
