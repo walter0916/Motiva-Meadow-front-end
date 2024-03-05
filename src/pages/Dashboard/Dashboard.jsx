@@ -44,11 +44,13 @@ const Dashboard = (props) => {
       const messagesData = await messageService.getUserMessages(props.user.profile)
       const quotesData = await quoteService.getQuotes()
 
-      eventsData.sort((a, b) => new Date(a.start) - new Date(b.start))
+      const filteredEvents = eventsData.filter(event => new Date(event.start) > new Date())
+
+      filteredEvents.sort((a, b) => new Date(a.start) - new Date(b.start))
 
       setUserProfile(data)
       setUsersGoals(goalsData)
-      setUsersEvents(eventsData)
+      setUsersEvents(filteredEvents)
       setUsersToDoLists(tasksData)
       setUsersHabits(habitsData)
       setUsersStats(statsData)
