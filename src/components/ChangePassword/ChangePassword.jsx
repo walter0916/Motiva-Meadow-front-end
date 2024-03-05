@@ -84,9 +84,6 @@ const ChangePassword = ({ handleAuthEvt }) => {
           />
         </div>
         <div className="flex justify-between items-center">
-          <Link to="/" className="text-sm text-blue-500 hover:underline">
-            Cancel
-          </Link>
           <button
             className="px-4 py-2 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600 "
             disabled={isFormInvalid()}

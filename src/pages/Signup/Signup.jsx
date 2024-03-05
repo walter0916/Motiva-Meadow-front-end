@@ -149,9 +149,6 @@ const Signup = ({ handleAuthEvt }) => {
             />
           </div>
           <div className="flex justify-between items-center">
-            <Link to="/" className="text-green-500 hover:text-green-700">
-              Cancel
-            </Link>
             <button
               type="submit"
               className="bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-600 transition duration-300 "
