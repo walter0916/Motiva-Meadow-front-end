@@ -1,6 +1,7 @@
 // npm services
 import { useState, useEffect } from "react"
 import { FaPlus } from 'react-icons/fa'
+import { FaMinus } from "react-icons/fa"
 
 // components 
 import HabitsForm from "../../components/HabitsForm/HabitsForm"
@@ -51,7 +52,11 @@ const Habits = (props) => {
     <div className="w-3/4">
       <div className="flex items-center mb-4">
         <h1 className="text-2xl font-bold mr-4">Habits</h1>
-        <FaPlus className="cursor-pointer text-2xl text-green-500" onClick={handleToggleForm} />
+        {showForm ? (
+          <FaMinus className="cursor-pointer text-2xl text-green-500" onClick={handleToggleForm} />
+        ) : (
+          <FaPlus className="cursor-pointer text-2xl text-green-500" onClick={handleToggleForm} />
+        )}
       </div>
       {showForm && <HabitsForm handleAddHabit={handleAddHabit}/>}
       <HabitsTable 

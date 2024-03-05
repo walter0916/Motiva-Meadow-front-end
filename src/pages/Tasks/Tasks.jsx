@@ -1,6 +1,7 @@
 // npm services 
 import { useState, useEffect } from 'react'
 import { FaPlus } from 'react-icons/fa'
+import { FaMinus } from 'react-icons/fa'
 
 // services 
 import * as taskService from '../../services/taskService'
@@ -83,6 +84,8 @@ const Tasks = (props) => {
 
   const handleArchiveList = async (todoListId) => {
     await taskService.archiveList(todoListId)
+    const data = await taskService.getUsersLists(props.user.profile)
+    setLists(data)
   }
 
   const handleToggleArchiveView = () => {
@@ -98,12 +101,19 @@ const Tasks = (props) => {
     <div className="w-3/4">
       <div className="flex items-center mb-4">
         <h1 className="text-2xl font-bold mr-4">Task Lists</h1>
-        <FaPlus className="cursor-pointer text-2xl text-green-500" onClick={handleToggleForm} />
-        <button className="ml-4" onClick={handleToggleArchiveView}>
-          {showArchived ? 'View Active Lists' : 'View Archived Lists'}
-        </button>
+        {showForm ? (
+          <FaMinus className="cursor-pointer text-2xl text-green-500" onClick={handleToggleForm} />
+        ) : (
+          <FaPlus className="cursor-pointer text-2xl text-green-500" onClick={handleToggleForm} />
+        )}
       </div>
       {showForm && <ToDoListForm user={props.user} handleAddList={handleAddList} />}
+        <button 
+          className={`text-white flex-no-shrink p-2 border-2 rounded font-semibold ml-2" ${showArchived ? 'bg-blue-500 hover:bg-blue-600' : 'bg-orange-500 hover:bg-orange-600 '}`}
+          onClick={handleToggleArchiveView}
+        >
+          {showArchived ? 'View Active Lists' : 'View Archived Lists'}
+        </button>
       {lists.length ? (
         lists
           .filter((toDoList) => (showArchived ? toDoList.archived : !toDoList.archived))
