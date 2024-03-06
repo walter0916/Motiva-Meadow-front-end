@@ -114,23 +114,25 @@ const Tasks = (props) => {
         >
           {showArchived ? 'View Active Lists' : 'View Archived Lists'}
         </button>
-      {lists.length ? (
-        lists
-          .filter((toDoList) => (showArchived ? toDoList.archived : !toDoList.archived))
-          .map((toDoList) => (
-            <ToDoList
-              key={toDoList._id}
-              toDoList={toDoList}
-              handleAddTask={handleAddTask}
-              handleTaskCompletion={handleTaskCompletion}
-              handleDeleteTask={handleDeleteTask}
-              handleDeleteList={handleDeleteList}
-              handleArchiveList={handleArchiveList}
-            />
-          ))
-      ) : (
-        'Add A List'
-      )}
+        <div className="flex justify-center mt-8 text-xl font-semibold text-gray-800">
+        {lists.length ? (
+          lists
+            .filter((toDoList) => (showArchived ? toDoList.archived : !toDoList.archived))
+            .map((toDoList) => (
+              <ToDoList
+                key={toDoList._id}
+                toDoList={toDoList}
+                handleAddTask={handleAddTask}
+                handleTaskCompletion={handleTaskCompletion}
+                handleDeleteTask={handleDeleteTask}
+                handleDeleteList={handleDeleteList}
+                handleArchiveList={handleArchiveList}
+              />
+            ))
+        ) : (
+          <div>Add A List</div>
+        )}
+      </div>
     </div>
   )
 }
