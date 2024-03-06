@@ -11,9 +11,8 @@ const SideBar = ({ user, profile , handleLogout }) => {
     <nav className='bg-gradient-to-l from-lime-400 to-lime-600 min-h-screen z-10 text-black w-64 fixed left-0 h-screen overflow-y-scroll '>
       {user ?
         <ul>
-          <li>
             <div id="profile" className="px-6 py-10">
-              <p className="text-blue-900">Welcome back,</p>
+              <p className="text-black font-semibold">Welcome back,</p>
               <div href="#" className="inline-flex space-x-2 items-center">
                 <span>
                     <img className="rounded-full w-9 h-9" src={profile.photo} alt="" />
@@ -23,9 +22,23 @@ const SideBar = ({ user, profile , handleLogout }) => {
                 </span>
               </div>
             </div>
-          </li>
           <li className='w-full px-2 inline-flex space-x-2 items-center border-b border-slate-700 py-3 hover:bg-white/20 transition ease-linear duration-150'>
             <NavLink className='link flex flex-row' to="/">                
+              <div>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6 text-black">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z" />
+                </svg>           
+              </div>
+              <div className="flex flex-col">
+                <span className="text-lg font-bold leading-5 text-black">Home</span>
+                <span className="text-sm text-white/50 hidden md:block">
+                  About Motiva Meadow
+                </span>
+              </div>
+            </NavLink>
+          </li>
+          <li className='w-full px-2 inline-flex space-x-2 items-center border-b border-slate-700 py-3 hover:bg-white/20 transition ease-linear duration-150'>
+            <NavLink className='link flex flex-row' to="/dashboard">                
               <div>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6 text-black">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z" />

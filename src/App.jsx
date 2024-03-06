@@ -5,6 +5,7 @@ import { Routes, Route, useNavigate } from 'react-router-dom'
 // pages
 import Signup from './pages/Signup/Signup'
 import Login from './pages/Login/Login'
+import Home from './pages/Home/Home'
 import Dashboard from './pages/Dashboard/Dashboard'
 import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './components/ChangePassword/ChangePassword'
@@ -55,8 +56,16 @@ function App() {
     <div className='app'>
       <SideBar user={user} profile={profile} handleLogout={handleLogout} />
       <Routes>
-        <Route 
+      <Route 
         path="/" 
+        element={
+          <ProtectedRoute user={user}>
+            <Home user={user} />
+          </ProtectedRoute>  
+          } 
+        />
+        <Route 
+        path="/dashboard" 
         element={
           <ProtectedRoute user={user}>
             <Dashboard user={user} />
