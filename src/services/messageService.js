@@ -30,7 +30,23 @@ async function createMessage(senderId, recipientId, messageFormData) {
   }
 }
 
+async function deleteMessage(messageId) {
+  try {
+    const res = await fetch(`${BASE_URL}/${messageId}/delete`, {
+      method: 'DELETE',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`,
+        'Content-Type': 'application/json'
+      },
+    })
+    return res.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 export {
   getUserMessages,
-  createMessage
+  createMessage,
+  deleteMessage
 }
