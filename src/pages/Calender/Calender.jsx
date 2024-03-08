@@ -100,7 +100,7 @@ const Calender = (props) => {
   }
 
   return (
-    <div className='flex flex-col w-max h-max' >
+    <div className='flex flex-col w-max h-max p-5' >
       <Calendar
         localizer={localizer}
         defaultDate={moment().toDate()}

@@ -98,7 +98,7 @@ const Tasks = (props) => {
 
 
   return (
-    <div className="w-3/4">
+    <div className="w-4/5 p-5">
       <div className="flex items-center mb-4">
         <h1 className="text-2xl font-bold mr-4">Task Lists</h1>
         {showForm ? (

@@ -72,7 +72,7 @@ const Friends = (props) => {
   }
 
   return (
-    <div className="bg-white p-6 rounded-md  h-full w-3/4 flex flex-col content-center items-center">
+    <div className="bg-white p-6 rounded-md  h-full w-4/5 flex flex-col content-center items-center">
       <nav className="mb-4">
         <button
           className={`mr-4 ${activeTab === 'friends' ? 'font-bold' : ''}`}

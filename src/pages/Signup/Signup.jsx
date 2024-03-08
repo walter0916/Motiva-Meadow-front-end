@@ -78,7 +78,7 @@ const Signup = ({ handleAuthEvt }) => {
   }
 
   return (
-    <main className="flex justify-center items-center h-screen bg-white w-3/4">
+    <main className="flex justify-center items-center h-screen bg-white w-4/5">
       <div className="bg-white p-8 rounded-lg shadow-md w-full md:max-w-md">
         <h1 className="text-3xl font-semibold text-center mb-4">Sign Up</h1>
         <p className="text-red-500 text-center mb-4">{message}</p>

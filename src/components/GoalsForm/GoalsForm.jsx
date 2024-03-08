@@ -72,7 +72,7 @@ const GoalsForm = (props) => {
 
         <button 
           type="submit"
-          className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none"
+          className="bg-blue-500 text-white py-2 px-4 font-semibold rounded-md hover:bg-blue-600 focus:outline-none"
         >
           Add Goal
         </button>
