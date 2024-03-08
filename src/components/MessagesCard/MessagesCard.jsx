@@ -7,7 +7,7 @@ const MessagesCard = (props) => {
       ) : (
         <ul className="space-y-2">
           {props.usersMessages.map((message) => 
-            <li key={message._id} className="text-black rounded-md shadow-md mb-2 px-4 py-2 bg-green-400">
+            <li key={message._id} onClick={() => props.handleDeleteMessage(message._id)} className="text-black rounded-md shadow-md mb-2 px-4 py-2 bg-green-400">
               {message.content} - {message.sender.name}
             </li>
           )}

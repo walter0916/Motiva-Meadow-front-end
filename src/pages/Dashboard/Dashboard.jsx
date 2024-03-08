@@ -63,6 +63,12 @@ const Dashboard = (props) => {
     fetchUserProfile()
   }, [props.user.profile])
 
+  const handleDeleteMessage = async (messageId) => {
+    await messageService.deleteMessage(messageId)
+    const filteredData = usersMessages.filter((message) => message._id !== messageId)
+    setUsersMessages(filteredData)
+  }
+
   if (loading) {
     return <div>Loading...</div>
   }
@@ -103,6 +109,7 @@ const Dashboard = (props) => {
         < MessagesCard 
           userProfile={userProfile}
           usersMessages={ usersMessages }
+          handleDeleteMessage={ handleDeleteMessage }
         />
       </div>
     </main>
