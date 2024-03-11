@@ -151,7 +151,7 @@ const Signup = ({ handleAuthEvt }) => {
           <div className="flex justify-between items-center">
             <button
               type="submit"
-              className="bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-600 transition duration-300 "
+              className="bg-green-500 font-semibold text-white py-2 px-4 rounded-md hover:bg-green-600 transition duration-300 "
               disabled={ isFormInvalid() || isSubmitted }
             >
               {!isSubmitted ? 'Sign Up' : '🚀 Sending...'}
