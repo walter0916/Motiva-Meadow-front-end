@@ -31,7 +31,7 @@ const SideBar = ({ user, profile , handleLogout }) => {
               </div>
               <div className="flex flex-col">
                 <span className="text-lg font-bold leading-5 text-black">Home</span>
-                <span className="text-sm text-white/50 hidden md:block">
+                <span className="text-sm font-semibold text-gray-600 hidden md:block">
                   About Motiva Meadow
                 </span>
               </div>
@@ -46,7 +46,7 @@ const SideBar = ({ user, profile , handleLogout }) => {
               </div>
               <div className="flex flex-col">
                 <span className="text-lg font-bold leading-5 text-black">Dashboard</span>
-                <span className="text-sm text-white/50 hidden md:block">Data Overview</span>
+                <span className="text-sm font-semibold text-gray-600 hidden md:block">Data Overview</span>
               </div>
             </NavLink>
           </li>
@@ -59,7 +59,7 @@ const SideBar = ({ user, profile , handleLogout }) => {
               </div>
               <div className="flex flex-col">
                 <span className="text-lg font-bold leading-5 text-black">Calender</span>
-                <span className="text-sm text-white/50 hidden md:block">Manage Events</span>
+                <span className="text-sm font-semibold text-gray-600 hidden md:block">Manage Events</span>
               </div>
             </NavLink>
           </li>
@@ -72,7 +72,7 @@ const SideBar = ({ user, profile , handleLogout }) => {
               </div>
               <div className="flex flex-col">
                 <span className="text-lg font-bold leading-5 text-black">Habits</span>
-                <span className="text-sm text-white/50 hidden md:block">Manage and Track Habits</span>
+                <span className="text-sm font-semibold text-gray-600 hidden md:block">Manage and Track Habits</span>
               </div>
             </NavLink>
           </li>
@@ -85,7 +85,7 @@ const SideBar = ({ user, profile , handleLogout }) => {
               </div>
               <div className="flex flex-col">
                 <span className="text-lg font-bold leading-5 text-black">Goals</span>
-                <span className="text-sm text-white/50 hidden md:block">Manage and Track Goals</span>
+                <span className="text-sm font-semibold text-gray-600 hidden md:block">Manage and Track Goals</span>
               </div>
             </NavLink>
           </li>
@@ -98,7 +98,7 @@ const SideBar = ({ user, profile , handleLogout }) => {
               </div>
               <div className="flex flex-col">
                 <span className="text-lg font-bold leading-5 text-black">Tasks</span>
-                <span className="text-sm text-white/50 hidden md:block">Manage and Track Tasks</span>
+                <span className="text-sm font-semibold text-gray-600 hidden md:block">Manage and Track Tasks</span>
               </div>
             </NavLink>
           </li>
@@ -111,7 +111,7 @@ const SideBar = ({ user, profile , handleLogout }) => {
               </div>
               <div className="flex flex-col">
                 <span className="text-lg font-bold leading-5 text-black">Friends</span>
-                <span className="text-sm text-white/50 hidden md:block">Add/Remove Friends and Send Messages</span>
+                <span className="text-sm font-semibold text-gray-600 hidden md:block">Add/Remove Friends and Send Messages</span>
               </div>
             </NavLink>
           </li>
@@ -124,7 +124,7 @@ const SideBar = ({ user, profile , handleLogout }) => {
               </div>
               <div className="flex flex-col">
                 <span className="text-lg font-bold leading-5 text-black" >Settings</span>
-                <span className="text-sm text-white/50 hidden md:block">Edit Profile and Change Password</span>
+                <span className="text-sm font-semibold text-gray-600 hidden md:block">Edit Profile and Change Password</span>
               </div>
             </NavLink>
           </li>

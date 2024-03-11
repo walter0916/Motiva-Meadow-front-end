@@ -21,8 +21,8 @@ const Home = () => {
   }, [])
 
   return (
-    <div className="px-4 py-8 w-4/5 flex flex-col justify-center bg-gradient-to-r from-lime-400 to-lime-600">
-      <h1 id='text' className="text-6xl font-bold text-center text-black mb-4" >
+    <div className="px-4 py-8 w-4/5 flex flex-col justify-center bg-white">
+      <h1 id='text' className="text-6xl font-bold text-center text-lime-500 mb-4" >
         Welcome to Motiva Meadow
       </h1>
       <TypeAnimation
@@ -33,10 +33,18 @@ const Home = () => {
         ]}
       />
 
-      <div className="mb-8 border border-green-600 rounded-lg shadow-lg p-4">
+      <div className="mb-8 border border-green-600 rounded-lg shadow-lg shadow-lime-500/50 p-4 bg-lime-200">
         <h2 className="text-2xl font-semibold text-black mb-2">How to Use Motiva Meadow</h2>
           <ul className="list-disc pl-6 text-black animate-fadeIn font-semibold">
-          <li>
+            <li>Change your preferences in settings to update what you want to see on your dashboard</li>
+            <li>Add events to see them on the calendar</li>
+            <li>Add habits, goals, and to-do lists to track your progress</li>
+            <li>Archive to-do lists for better organization</li>
+            <li>Set deadlines for goals to see how many days are left</li>
+            <li>View automatically updated stats like habit streaks and to-do list streaks</li>
+            <li>Add friends to check their stats and send them motivational messages</li>
+            <li>Get inspired with motivational quotes on the dashboard</li>
+          {/* <li>
             <TypeAnimation
               className="mb-2"
               sequence={[4000, "Change your preferences in settings to update what you want to see on your dashboard"]}
@@ -83,7 +91,7 @@ const Home = () => {
               className="mb-2"
               sequence={[31000,"Get inspired with motivational quotes on the dashboard"]}
             />
-          </li>
+          </li> */}
           </ul>
       </div>
 
