@@ -4,6 +4,7 @@ import { useEffect } from "react"
 import SplitType from "split-type"
 import { gsap } from "gsap"
 import { TypeAnimation } from "react-type-animation"
+import logo from '../../../public/motiva-meadow-logo.png'
 
 const Home = () => {
 
@@ -21,10 +22,18 @@ const Home = () => {
   }, [])
 
   return (
-    <div className="px-4 py-8 w-4/5 flex flex-col justify-center bg-white">
-      <h1 id='text' className="text-6xl font-bold text-center text-lime-500 mb-4" >
-        Welcome to Motiva Meadow
-      </h1>
+    <div className="px-4 py-8 w-4/5 flex flex-col justify-center items-center bg-gradient-to-r from-green-400 to-green-600 relative">
+      <div className="size-32 bg-white border rounded-full mb-6">
+        <img src={logo} alt="" />
+      </div>
+      <div className="relative z-10">
+        <h1
+          id="text"
+          className="text-6xl font-bold text-center text-white mb-4"
+        >
+          Welcome to Motiva Meadow
+        </h1>
+      </div>
       <TypeAnimation
         className="text-lg text-center font-semibold text-black mb-6"
         sequence={[
