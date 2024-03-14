@@ -100,7 +100,7 @@ const Calender = (props) => {
   }
 
   return (
-    <div className='flex flex-col w-max h-max p-5' >
+    <div className='flex flex-col justify-center items-center w-4/5 h-max min-h-full p-5 bg-gradient-to-r from-[#29bf12] via-[#abff4f] to-[#29bf12]' >
       <Calendar
         localizer={localizer}
         defaultDate={moment().toDate()}
@@ -110,9 +110,9 @@ const Calender = (props) => {
         endAccessor="end"
         eventPropGetter={eventPropGetter}
         onSelectEvent={handleSelectEvent}
-        style={{ height: '50vh', width: '70vw'}}
+        style={{ height: '50vh', width: '70vw', background:'white'}}
       />
-      <div className="h-1/2 flex flex-row items-center justify-between w-full">
+      <div className="h-1/2 mt-6 flex flex-row items-center justify-around w-full">
         <div className="max-w-md bg-white rounded-md shadow-md w-1/2">
           <form className="space-y-4 flex flex-col p-6 items-center w-full" onSubmit={handleSubmit}>
             <div className="mb-4 w-3/4">

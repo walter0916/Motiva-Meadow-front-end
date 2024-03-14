@@ -5,6 +5,8 @@ import SplitType from "split-type"
 import { gsap } from "gsap"
 import { TypeAnimation } from "react-type-animation"
 import logo from '../../../public/motiva-meadow-logo.png'
+import Lottie from "react-lottie"
+import * as animationData from '../../../public/tree-animation.json'
 
 const Home = () => {
 
@@ -21,15 +23,24 @@ const Home = () => {
     textAnimation()
   }, [])
 
+  const defaultOptions = {
+    loop:true,
+    autoplay:true,
+    animationData:animationData,
+    renderSettings: {
+      preserveAspectRatio: 'xMidYMid slice'
+    }
+  }
+
   return (
-    <div className="px-4 py-8 w-4/5 flex flex-col justify-center items-center bg-gradient-to-r from-green-400 to-green-600 relative">
-      <div className="size-32 bg-white border rounded-full mb-6">
+    <div className="px-4 py-8 w-4/5 flex flex-col justify-center items-center bg-gradient-to-r from-[#29bf12] via-[#abff4f] to-[#29bf12] relative">
+      <div className="size-32 bg-white border rounded-full mb-6 shadow-lg">
         <img src={logo} alt="" />
       </div>
       <div className="relative z-10">
         <h1
           id="text"
-          className="text-6xl font-bold text-center text-white mb-4"
+          className="text-7xl font-black font-kalam text-center text-white mb-4 font-outline-2"
         >
           Welcome to Motiva Meadow
         </h1>
@@ -118,6 +129,11 @@ const Home = () => {
           Settings
         </Link>
       </div>
+      {/* <Lottie
+        options={defaultOptions}
+        height={400}
+        width={400}
+      /> */}
     </div>
   )
 }

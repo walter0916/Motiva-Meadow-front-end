@@ -63,7 +63,7 @@ const Goals = (props) => {
   }
 
   return (
-    <div className="w-4/5 p-5">
+    <div className="w-4/5 p-5 bg-gradient-to-r from-[#29bf12] via-[#abff4f] to-[#29bf12]">
       <GoalsForm handleAddGoal={handleAddGoal}/>
       <select name="type" id="type3" onChange={handleTypeChange}>
         <option value="all">All Types</option>

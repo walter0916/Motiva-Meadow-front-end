@@ -74,7 +74,7 @@ const Dashboard = (props) => {
   }
 
   return (
-    <main className='bg-white p-8 flex items-center h-max w-4/5'>
+    <main className='bg-gradient-to-r from-[#29bf12] via-[#abff4f] to-[#29bf12] p-8 flex items-center h-screen w-4/5'>
       <div className="grid grid-cols-3 gap-4 w-full">
         {preferences.showEvents && 
         < EventsCard 

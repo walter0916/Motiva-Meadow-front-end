@@ -7,7 +7,6 @@ import Signup from './pages/Signup/Signup'
 import Login from './pages/Login/Login'
 import Home from './pages/Home/Home'
 import Dashboard from './pages/Dashboard/Dashboard'
-import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './components/ChangePassword/ChangePassword'
 import Calender from './pages/Calender/Calender'
 import Tasks from './pages/Tasks/Tasks'
@@ -71,14 +70,6 @@ function App() {
             <Dashboard user={user} />
           </ProtectedRoute>  
           } 
-        />
-        <Route
-          path="/profiles"
-          element={
-            <ProtectedRoute user={user}>
-              <Profiles />
-            </ProtectedRoute>
-          }
         />
         <Route
           path="/auth/signup"

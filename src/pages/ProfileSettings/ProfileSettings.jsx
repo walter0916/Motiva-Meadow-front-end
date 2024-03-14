@@ -44,12 +44,12 @@ const ProfileSettings = (props) => {
   }
 
   return (
-    <div className="max-w-md mx-auto mt-8 w-1/2">
+    <div className="h-screen w-4/5 bg-gradient-to-r from-[#29bf12] via-[#abff4f] to-[#29bf12]">
     <div className="space-y-1">
       <div className="bg-white shadow-md rounded-lg overflow-hidden">
         <div className="border-b border-gray-200">
           <div
-            className="cursor-pointer px-4 py-5 flex items-center justify-between bg-green-500 text-white"
+            className="cursor-pointer px-4 py-5 flex items-center justify-between bg-green-600 hover:bg-green-700 text-white"
             onClick={() => handleToggleSetting('changePassword')}
           >
             <div className="flex items-center">
@@ -90,7 +90,7 @@ const ProfileSettings = (props) => {
         </div>
         <div className="border-b border-gray-200">
           <div
-            className="cursor-pointer px-4 py-5 flex items-center justify-between bg-blue-500 text-white"
+            className="cursor-pointer px-4 py-5 flex items-center justify-between bg-blue-500 hover:bg-blue-600 text-white"
             onClick={() => handleToggleSetting('editProfile')}
           >
             <div className="flex items-center">
@@ -146,7 +146,7 @@ const ProfileSettings = (props) => {
         </div>
         <div className="border-b border-gray-200">
           <div
-            className="cursor-pointer px-4 py-5 flex items-center justify-between bg-sky-500 text-white"
+            className="cursor-pointer px-4 py-5 flex items-center justify-between bg-sky-500 hover:bg-sky-600 text-white"
             onClick={() => handleToggleSetting('changePreferences')}
           >
             <div className="flex items-center">
@@ -202,7 +202,7 @@ const ProfileSettings = (props) => {
         </div>
         <div className="border-b border-gray-200">
           <div
-            className="cursor-pointer px-4 py-5 flex items-center justify-between bg-orange-500 text-white"
+            className="cursor-pointer px-4 py-5 flex items-center justify-between bg-orange-500 hover:bg-orange-600 text-white"
             onClick={() => handleToggleSetting('deleteProfile')}
           >
             <div className="flex items-center">

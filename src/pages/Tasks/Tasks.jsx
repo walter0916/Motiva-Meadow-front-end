@@ -98,13 +98,13 @@ const Tasks = (props) => {
 
 
   return (
-    <div className="w-4/5 p-5">
+    <div className="w-4/5 p-5 bg-gradient-to-r from-[#29bf12] via-[#abff4f] to-[#29bf12]">
       <div className="flex items-center mb-4">
         <h1 className="text-2xl font-bold mr-4">Task Lists</h1>
         {showForm ? (
-          <FaMinus className="cursor-pointer text-2xl text-green-500" onClick={handleToggleForm} />
+          <FaMinus className="cursor-pointer text-2xl text-white hover:text-black" onClick={handleToggleForm} />
         ) : (
-          <FaPlus className="cursor-pointer text-2xl text-green-500" onClick={handleToggleForm} />
+          <FaPlus className="cursor-pointer text-2xl text-white hover:text-black" onClick={handleToggleForm} />
         )}
       </div>
       {showForm && <ToDoListForm user={props.user} handleAddList={handleAddList} />}

@@ -55,7 +55,7 @@ const FriendCard = (props) => {
   }
   
   return (
-    <div key={props.friend._id} className="friend-card bg-white rounded-lg shadow-md p-4 flex flex-col justify-between">
+    <div key={props.friend._id} className="friend-card bg-white rounded-lg shadow-md p-4 flex flex-col justify-between mt-6">
       <div className="friend-info text-center">
         <img
           src={props.friend.photo}
