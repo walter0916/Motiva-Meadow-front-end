@@ -4,9 +4,14 @@ import { useEffect } from "react"
 import SplitType from "split-type"
 import { gsap } from "gsap"
 import { TypeAnimation } from "react-type-animation"
-import logo from '../../../public/motiva-meadow-logo.png'
 import Lottie from "react-lottie"
-import * as animationData from '../../../public/tree-animation.json'
+
+// animation json
+import animationData from '../../../public/tree-animation.json'
+
+// images
+import logo from '../../../public/motiva-meadow-logo.png'
+
 
 const Home = () => {
 
@@ -64,54 +69,6 @@ const Home = () => {
             <li>View automatically updated stats like habit streaks and to-do list streaks</li>
             <li>Add friends to check their stats and send them motivational messages</li>
             <li>Get inspired with motivational quotes on the dashboard</li>
-          {/* <li>
-            <TypeAnimation
-              className="mb-2"
-              sequence={[4000, "Change your preferences in settings to update what you want to see on your dashboard"]}
-            />
-          </li>
-          <li>
-            <TypeAnimation
-              className="mb-2"
-              sequence={[9000, "Add events to see them on the calendar"]}
-            />
-          </li>
-          <li>
-            <TypeAnimation
-              className="mb-2"
-              sequence={[11500, "Add habits, goals, and to-do lists to track your progress"]}
-            />
-          </li>
-          <li>
-            <TypeAnimation
-              className="mb-2"
-              sequence={[15000,"Archive to-do lists for better organization"]}
-            />
-          </li>
-          <li>
-            <TypeAnimation
-              className="mb-2"
-              sequence={[18000,"Set deadlines for goals to see how many days are left"]}
-            />
-          </li>
-          <li>
-            <TypeAnimation
-              className="mb-2"
-              sequence={[21500, "View automatically updated stats like habit streaks and to-do list streaks"]}
-            />
-          </li>
-          <li>
-            <TypeAnimation
-              className="mb-2"
-              sequence={[26500,"Add friends to check their stats and send them motivational messages"]}
-            />
-          </li>
-          <li>
-            <TypeAnimation
-              className="mb-2"
-              sequence={[31000,"Get inspired with motivational quotes on the dashboard"]}
-            />
-          </li> */}
           </ul>
       </div>
 
@@ -129,11 +86,11 @@ const Home = () => {
           Settings
         </Link>
       </div>
-      {/* <Lottie
+      <Lottie
         options={defaultOptions}
         height={400}
         width={400}
-      /> */}
+      />
     </div>
   )
 }
