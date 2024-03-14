@@ -1,5 +1,6 @@
 // npm services
 import { useState, useEffect } from "react"
+import Lottie from "react-lottie"
 
 // services
 import * as profileService from '../../services/profileService'
@@ -19,6 +20,9 @@ import GoalsDashboardCard from "../../components/GoalsDashboardCard/GoalsDashboa
 import EventsCard from "../../components/EventsCard/EventsCard"
 import QuotesCard from "../../components/QuotesCard/QuotesCard"
 import StatsCard from "../../components/StatsCard/StatsCard"
+
+//animation
+import animationData from '../../../public/loading-animation.json'
 
 
 const Dashboard = (props) => {
@@ -69,8 +73,25 @@ const Dashboard = (props) => {
     setUsersMessages(filteredData)
   }
 
+  const defaultOptions = {
+    loop:true,
+    autoplay:true,
+    animationData:animationData,
+    renderSettings: {
+      preserveAspectRatio: 'xMidYMid slice'
+    }
+  }
+
   if (loading) {
-    return <div>Loading...</div>
+    return (
+      <div className="px-4 py-8 w-4/5 flex flex-col justify-center items-center bg-gradient-to-r from-[#29bf12] via-[#abff4f] to-[#29bf12]">
+        <Lottie
+          options={defaultOptions}
+          height={400}
+          width={400}
+        />
+      </div>
+    )
   }
 
   return (
