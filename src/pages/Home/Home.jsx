@@ -51,16 +51,16 @@ const Home = () => {
         </h1>
       </div>
       <TypeAnimation
-        className="text-lg text-center font-semibold text-black mb-6"
+        className="text-xl text-center font-black font-poppins text-black mb-6"
         sequence={[
           "Where Growth Blossoms: Cultivate Your Potential at Motiva Meadow",
           1000,
         ]}
       />
 
-      <div className="mb-8 border border-green-600 rounded-lg shadow-lg shadow-lime-500/50 p-4 bg-lime-200">
-        <h2 className="text-2xl font-semibold text-black mb-2">How to Use Motiva Meadow</h2>
-          <ul className="list-disc pl-6 text-black animate-fadeIn font-semibold">
+      <div className="mb-8 border border-green-600 rounded-lg shadow-lg shadow-lime-500 p-4 bg-lime-200">
+        <h2 className="text-2xl font-semibold font-poppins text-black mb-2">How to Use Motiva Meadow</h2>
+          <ul className="list-disc pl-6 font-poppins text-black animate-fadeIn font-semibold">
             <li>Change your preferences in settings to update what you want to see on your dashboard</li>
             <li>Add events to see them on the calendar</li>
             <li>Add habits, goals, and to-do lists to track your progress</li>

@@ -1,5 +1,6 @@
 // npm services 
 import { useState, useEffect } from "react"
+import Lottie from "react-lottie"
 
 // services 
 import * as goalService from '../../services/goalService'
@@ -7,6 +8,9 @@ import * as goalService from '../../services/goalService'
 // components 
 import GoalsForm from "../../components/GoalsForm/GoalsForm"
 import GoalCard from "../../components/GoalCard/GoalCard"
+
+//animation
+import animationData from '../../../public/loading-animation.json'
 
 const Goals = (props) => {
   const [goals, setGoals] = useState({})
@@ -58,8 +62,25 @@ const Goals = (props) => {
     }
   }
 
+  const defaultOptions = {
+    loop:true,
+    autoplay:true,
+    animationData:animationData,
+    renderSettings: {
+      preserveAspectRatio: 'xMidYMid slice'
+    }
+  }
+
   if (loading) {
-    return <div>Loading...</div>
+    return (
+      <div className="px-4 py-8 w-4/5 flex flex-col justify-center items-center bg-gradient-to-r from-[#29bf12] via-[#abff4f] to-[#29bf12]">
+        <Lottie
+          options={defaultOptions}
+          height={400}
+          width={400}
+        />
+      </div>
+    )
   }
 
   return (

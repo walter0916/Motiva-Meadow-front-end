@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react"
 import { FaPlus } from 'react-icons/fa'
 import { FaMinus } from "react-icons/fa"
+import Lottie from "react-lottie"
 
 // components 
 import HabitsForm from "../../components/HabitsForm/HabitsForm"
@@ -9,6 +10,9 @@ import HabitsTable from "../../components/HabitsTable/HabitsTable"
 
 // services
 import * as habitService from '../../services/habitService'
+
+//animation
+import animationData from '../../../public/loading-animation.json'
 
 const Habits = (props) => {
   const [habits, setHabits] = useState({})
@@ -44,8 +48,25 @@ const Habits = (props) => {
     setShowForm(!showForm)
   }
 
+  const defaultOptions = {
+    loop:true,
+    autoplay:true,
+    animationData:animationData,
+    renderSettings: {
+      preserveAspectRatio: 'xMidYMid slice'
+    }
+  }
+
   if (loading) {
-    return <div>Loading...</div>
+    return (
+      <div className="px-4 py-8 w-4/5 flex flex-col justify-center items-center bg-gradient-to-r from-[#29bf12] via-[#abff4f] to-[#29bf12]">
+        <Lottie
+          options={defaultOptions}
+          height={400}
+          width={400}
+        />
+      </div>
+    )
   }
 
   return (

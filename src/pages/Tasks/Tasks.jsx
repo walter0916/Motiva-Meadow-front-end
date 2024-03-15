@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react'
 import { FaPlus } from 'react-icons/fa'
 import { FaMinus } from 'react-icons/fa'
+import Lottie from 'react-lottie'
 
 // services 
 import * as taskService from '../../services/taskService'
@@ -10,7 +11,8 @@ import * as taskService from '../../services/taskService'
 import ToDoListForm from "../../components/ToDoListForm/ToDoListForm"
 import ToDoList from '../../components/ToDoList/ToDoList'
 
-// css
+// animation
+import animationData from '../../../public/loading-animation.json'
 
 const Tasks = (props) => {
   const [lists, setLists] = useState({})
@@ -92,8 +94,25 @@ const Tasks = (props) => {
     setShowArchived(!showArchived);
   }
 
+  const defaultOptions = {
+    loop:true,
+    autoplay:true,
+    animationData:animationData,
+    renderSettings: {
+      preserveAspectRatio: 'xMidYMid slice'
+    }
+  }
+
   if (loading) {
-    return <div>Loading...</div>
+    return (
+      <div className="px-4 py-8 w-4/5 flex flex-col justify-center items-center bg-gradient-to-r from-[#29bf12] via-[#abff4f] to-[#29bf12]">
+        <Lottie
+          options={defaultOptions}
+          height={400}
+          width={400}
+        />
+      </div>
+    )
   }
 
 

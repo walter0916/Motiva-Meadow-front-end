@@ -7,7 +7,9 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        kalam: ["Kalam", "cursive"]
+        kalam: ["Kalam", "cursive"],
+        poppins: ["Poppins", "san-serif"],
+        handlee: ["Handlee", "cursive"]
       }
     },
   },
