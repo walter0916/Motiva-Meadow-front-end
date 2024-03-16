@@ -1,10 +1,12 @@
 // npm modules
 import { NavLink } from 'react-router-dom'
+import { FiLogIn, FiLogOut, FiUserPlus } from 'react-icons/fi'
 
 //css
 import './SideBar.css'
 
 const SideBar = ({ user, profile , handleLogout }) => {
+  const iconClass = 'w-6 h-6 mr-2'
 
   return (
     <div className='w-1/5'>
@@ -128,13 +130,28 @@ const SideBar = ({ user, profile , handleLogout }) => {
               </div>
             </NavLink>
           </li>
-          <li className='w-full px-2 inline-flex space-x-2 items-center border-b border-slate-700 py-3  hover:bg-white/20 transition ease-linear duration-150'><NavLink className='link' to="" onClick={handleLogout}>LOG OUT</NavLink >
+          <li className='w-full px-2 inline-flex space-x-2 items-center border-b border-slate-700 py-3  hover:bg-white/20 transition ease-linear duration-150'><NavLink className='link flex' to="" onClick={handleLogout}><FiLogOut className={iconClass} /> LOG OUT</NavLink >
           </li>
         </ul>
       :
         <ul>
-          <li className='w-full px-2 inline-flex space-x-2 items-center border-b border-slate-700 py-3  hover:bg-white/20 transition ease-linear duration-150'><NavLink className='link' to="/auth/login">Log In</NavLink></li>
-          <li className='w-full px-2 inline-flex space-x-2 items-center border-b border-slate-700 py-3  hover:bg-white/20 transition ease-linear duration-150'><NavLink className='link' to="/auth/signup">Sign Up</NavLink></li>
+          <li className='w-full px-2 inline-flex space-x-2 items-center border-b border-slate-700 py-3 hover:bg-white/20 transition ease-linear duration-150'>
+            <NavLink className='link flex flex-row' to="/">                
+              <div>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6 text-black">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z" />
+                </svg>           
+              </div>
+              <div className="flex flex-col">
+                <span className="text-lg font-bold leading-5 text-black">Home</span>
+                <span className="text-sm font-semibold text-black/80 hidden md:block">
+                  About Motiva Meadow
+                </span>
+              </div>
+            </NavLink>
+          </li>
+          <li className='w-full px-2 inline-flex space-x-2 items-center border-b border-slate-700 py-3  hover:bg-white/20 transition ease-linear duration-150'><NavLink className='link flex' to="/auth/login"><FiLogIn className={iconClass} /> Log In</NavLink></li>
+          <li className='w-full px-2 inline-flex space-x-2 items-center border-b border-slate-700 py-3  hover:bg-white/20 transition ease-linear duration-150'><NavLink className='link flex' to="/auth/signup"><FiUserPlus className={iconClass} /> Sign Up</NavLink></li>
         </ul>
       }
     </nav>

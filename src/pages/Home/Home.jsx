@@ -13,7 +13,7 @@ import animationData from '../../../public/tree-animation.json'
 import logo from '../../../public/motiva-meadow-logo.png'
 
 
-const Home = () => {
+const Home = (props) => {
 
   useEffect(() => {
     const textAnimation = () => {
@@ -72,19 +72,32 @@ const Home = () => {
           </ul>
       </div>
 
-      <div className="text-center">
-        <Link
-          to="/dashboard"
-          className="visited:text-white bg-blue-500 text-white px-6 py-3 rounded-md font-semibold shadow-md hover:bg-blue-600 hover:text-white mr-4"
-        >
-          Get Started
-        </Link>
-        <Link
-          to="/settings"
-          className="visited:text-white bg-orange-500 text-white px-6 py-3 rounded-md font-semibold shadow-md hover:bg-orange-600 hover:text-white"
-        >
-          Settings
-        </Link>
+      <div>
+        {!props.user ? (
+          <div className="text-center">
+            <Link
+            to="/auth/signup"
+            className="visited:text-white bg-blue-500 text-white px-6 py-3 rounded-md font-semibold shadow-md hover:bg-blue-600 hover:text-white mr-4"
+          >
+            Get Started
+            </Link>
+          </div>
+        ) : (
+          <div className="text-center" >
+            <Link
+              to="/dashboard"
+              className="visited:text-white bg-blue-500 text-white px-6 py-3 rounded-md font-semibold shadow-md hover:bg-blue-600 hover:text-white mr-4"
+            >
+              Dashboard
+            </Link>
+            <Link
+              to="/settings"
+              className="visited:text-white bg-orange-500 text-white px-6 py-3 rounded-md font-semibold shadow-md hover:bg-orange-600 hover:text-white"
+            >
+              Settings
+            </Link>
+          </div>
+        )}
       </div>
       <Lottie
         options={defaultOptions}
