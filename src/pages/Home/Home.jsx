@@ -12,6 +12,9 @@ import animationData from '../../../public/tree-animation.json'
 // images
 import logo from '../../../public/motiva-meadow-logo.png'
 
+//css
+import "./Home.css"
+
 
 const Home = (props) => {
 
@@ -57,19 +60,30 @@ const Home = (props) => {
           1000,
         ]}
       />
-
-      <div className="mb-8 border border-green-600 rounded-lg shadow-lg shadow-lime-500 p-4 bg-lime-200">
+      <div className="w-full flex flex-row justify-around">
+      <Lottie
+        options={defaultOptions}
+        height={400}
+        width={400}
+      />
+      <div className="mb-8 border border-green-600 rounded-lg shadow-lg p-4 sticky-note">
         <h2 className="text-2xl font-semibold font-poppins text-black mb-2">How to Use Motiva Meadow</h2>
-          <ul className="list-disc pl-6 font-poppins text-black animate-fadeIn font-semibold">
-            <li>Change your preferences in settings to update what you want to see on your dashboard</li>
-            <li>Add events to see them on the calendar</li>
-            <li>Add habits, goals, and to-do lists to track your progress</li>
-            <li>Archive to-do lists for better organization</li>
-            <li>Set deadlines for goals to see how many days are left</li>
-            <li>View automatically updated stats like habit streaks and to-do list streaks</li>
-            <li>Add friends to check their stats and send them motivational messages</li>
-            <li>Get inspired with motivational quotes on the dashboard</li>
-          </ul>
+        <ul className="font-poppins font-semibold">
+          <li>Change your preferences in settings to update what you want to see on your dashboard</li>
+          <li>Add events to see them on the calendar</li>
+          <li>Add habits, goals, and to-do lists to track your progress</li>
+          <li>Archive to-do lists for better organization</li>
+          <li>Set deadlines for goals to see how many days are left</li>
+          <li>View automatically updated stats like habit streaks and to-do list streaks</li>
+          <li>Add friends to check their stats and send them motivational messages</li>
+          <li>Get inspired with motivational quotes on the dashboard</li>
+        </ul>
+      </div>
+      <Lottie
+        options={defaultOptions}
+        height={400}
+        width={400}
+      />
       </div>
 
       <div>
@@ -99,11 +113,6 @@ const Home = (props) => {
           </div>
         )}
       </div>
-      <Lottie
-        options={defaultOptions}
-        height={400}
-        width={400}
-      />
     </div>
   )
 }

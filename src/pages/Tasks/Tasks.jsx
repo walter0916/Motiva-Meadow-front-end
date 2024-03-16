@@ -118,7 +118,7 @@ const Tasks = (props) => {
 
   return (
     <div className="w-4/5 p-5 bg-gradient-to-r from-[#29bf12] via-[#abff4f] to-[#29bf12]">
-      <div className="flex items-center mb-4">
+      <div className="flex items-center mb-4 font-poppins">
         <h1 className="text-2xl font-bold mr-4">Task Lists</h1>
         {showForm ? (
           <FaMinus className="cursor-pointer text-2xl text-white hover:text-black" onClick={handleToggleForm} />
@@ -128,7 +128,7 @@ const Tasks = (props) => {
       </div>
       {showForm && <ToDoListForm user={props.user} handleAddList={handleAddList} />}
         <button 
-          className={`text-white flex-no-shrink p-2 border-2 rounded font-semibold ml-2" ${showArchived ? 'bg-blue-500 hover:bg-blue-600' : 'bg-orange-500 hover:bg-orange-600 '}`}
+          className={`text-white font-poppins flex-no-shrink p-2 border-2 rounded font-semibold ml-2" ${showArchived ? 'bg-blue-500 hover:bg-blue-600' : 'bg-orange-500 hover:bg-orange-600 '}`}
           onClick={handleToggleArchiveView}
         >
           {showArchived ? 'View Active Lists' : 'View Archived Lists'}

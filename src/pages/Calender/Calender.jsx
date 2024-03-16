@@ -100,7 +100,7 @@ const Calender = (props) => {
   }
 
   return (
-    <div className='flex flex-col justify-center items-center w-4/5 h-max min-h-full p-5 bg-gradient-to-r from-[#29bf12] via-[#abff4f] to-[#29bf12]' >
+    <div className='flex flex-col justify-center items-center w-4/5 h-max min-h-full p-5 bg-gradient-to-r from-[#29bf12] via-[#abff4f] to-[#29bf12] font-poppins' >
       <Calendar
         localizer={localizer}
         defaultDate={moment().toDate()}

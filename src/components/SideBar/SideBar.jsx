@@ -10,7 +10,7 @@ const SideBar = ({ user, profile , handleLogout }) => {
 
   return (
     <div className='w-1/5'>
-    <nav className='bg-gradient-to-r from-[#ffc300] from-5% to-[#ffff3f] to-70%  min-h-screen z-10 text-black w-1/5 fixed left-0 h-screen'>
+    <nav className='bg-[#ffffc8]  min-h-screen z-10 text-black w-1/5 fixed left-0 h-screen font-poppins'>
       {user ?
         <ul>
             <div id="profile" className="px-6 py-10">

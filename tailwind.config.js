@@ -9,7 +9,8 @@ export default {
       fontFamily: {
         kalam: ["Kalam", "cursive"],
         poppins: ["Poppins", "san-serif"],
-        handlee: ["Handlee", "cursive"]
+        neucha: ["Neucha", "cursive"],
+        gloriaHallelujah: ["Gloria Hallelujah", "cursive"],
       }
     },
   },

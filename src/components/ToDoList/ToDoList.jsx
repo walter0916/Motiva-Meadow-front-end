@@ -25,8 +25,8 @@ const ToDoList = (props) => {
 
   return (
     <div>
-      <div className="h-100 w-full flex items-center justify-center bg-teal-lightest font-sans">
-        <div className="bg-green-100 rounded shadow p-6 m-4 w-full lg:w-3/4 lg:max-w-lg">
+      <div className="h-100 w-full flex items-center justify-center bg-teal-lightest font-kalam">
+        <div className="bg-[#ffffc8] rounded shadow p-6 m-4 w-full lg:w-3/4 lg:max-w-lg">
           <div className="mb-4">
             <h1 className="text-grey-darkest">{props.toDoList.title} {formatDate(props.toDoList.deadline)}</h1>
             <TaskForm handleAddTask={props.handleAddTask} listId={props.toDoList._id}/>

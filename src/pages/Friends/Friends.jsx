@@ -72,7 +72,7 @@ const Friends = (props) => {
   }
 
   return (
-    <div className="bg-gradient-to-r from-[#29bf12] via-[#abff4f] to-[#29bf12] p-6 rounded-md  h-full w-4/5 flex flex-col content-center items-center overflow-y-auto">
+    <div className="bg-gradient-to-r from-[#29bf12] via-[#abff4f] to-[#29bf12] p-6 rounded-md  h-full w-4/5 flex flex-col content-center items-center overflow-y-auto font-poppins">
       <nav className="mb-4">
         <button
           className={`mr-4 ${activeTab === 'friends' ? 'font-bold' : ''}`}
