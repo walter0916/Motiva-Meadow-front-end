@@ -48,7 +48,7 @@ const ProfileForm = (props) => {
 
 
   return (
-    <form className="max-w-md mx-auto mt-8 p-6 bg-white rounded-lg shadow-md space-y-4" onSubmit={handleSubmit}>
+    <form className="max-w-md mx-auto mt-8 p-6 bg-white rounded-lg bg- shadow-md space-y-4" onSubmit={handleSubmit}>
       <div className="flex justify-center relative">
         <label htmlFor="photo" className="cursor-pointer">
           <img

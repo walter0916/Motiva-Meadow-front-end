@@ -83,7 +83,7 @@ const ProfileSettings = (props) => {
             </svg>
           </div>
           {expandedSetting === 'changePassword' && (
-            <div className="px-4 py-5">
+            <div className="px-4 py-5 bg-[#ffffc8]">
               {<ChangePassword />}
             </div>
           )}
@@ -136,7 +136,7 @@ const ProfileSettings = (props) => {
             </svg>
           </div>
           {expandedSetting === 'editProfile' && (
-            <div className="px-4 py-5">
+            <div className="px-4 py-5 bg-[#ffffc8]">
               {<ProfileForm 
                 userProfile={userProfile}
                 handleEditProfile={handleEditProfile}
@@ -192,7 +192,7 @@ const ProfileSettings = (props) => {
             </svg>
           </div>
           {expandedSetting === 'changePreferences' && (
-            <div className="px-4 py-5">
+            <div className="px-4 py-5 bg-[#ffffc8]">
               {<PreferencesForm
                   userProfile={userProfile}
                   handleEditProfilePreferences={handleEditProfilePreferences}
@@ -248,7 +248,7 @@ const ProfileSettings = (props) => {
             </svg>
           </div>
           {expandedSetting === 'deleteProfile' && (
-            <div className="px-4 py-5">
+            <div className="px-4 py-5 bg-[#ffffc8]">
               {<DeleteProfileForm 
                   user={props.user}
                   handleDeleteProfile={handleDeleteProfile}
