@@ -20,13 +20,6 @@ const Calender = (props) => {
   const [usersFriends, setUsersFriends] = useState({})
   const [showEvent, setShowEvent] = useState({})
   const [selectedFriends, setSelectedFriends] = useState([])
-  const [formData, setFormData] = useState({
-    title: '',
-    start: '',
-    end: '',
-    invitedParticipants: [],
-    allDay: false,
-  })
 
   useEffect(() => {
     const fetchEvents = async () => {
@@ -43,33 +36,9 @@ const Calender = (props) => {
     }
     fetchEvents()
   }, [props.user])
-
-
-  const handleAllDayChange = (e) => {
-    const allDayChecked = e.target.checked
-    setFormData({
-      ...formData,
-      allDay: allDayChecked,
-    })
-  }
   
   const handleSelectEvent = (event) => {
     setShowEvent(event)
-  }
-
-  const handleChange = (evt) => {
-    setFormData({...formData, [evt.target.name]: evt.target.value })
-  }
-
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-    handleAddEvent(formData)
-    setFormData({
-      title: '',
-      start: '',
-      end: '',
-      participants: [],
-    })
   }
 
   const handleAddEvent = async (eventFormData) => {
@@ -111,14 +80,11 @@ const Calender = (props) => {
   const handleFriendSelect = (friendId) => {
     const friendData = usersFriends.filter(friend => friend._id === friendId)
     setSelectedFriends([...selectedFriends, friendData])
-    setFormData({ ...formData, invitedParticipants: [...formData.invitedParticipants, friendId] })
   }
 
   const handleFriendRemove = (friendId) => {
     const updatedSelectedFriends = selectedFriends[0].filter(friend => friend._id !== friendId)
     setSelectedFriends(updatedSelectedFriends)
-    const updatedInvitedParticipants = formData.invitedParticipants.filter(id => id !== friendId)
-    setFormData({ ...formData, invitedParticipants: updatedInvitedParticipants })
   }
 
   return (

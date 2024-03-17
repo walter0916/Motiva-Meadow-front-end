@@ -11,6 +11,7 @@ import * as habitService from '../../services/habitService'
 import * as statService from '../../services/statService'
 import * as messageService from '../../services/messageService'
 import * as quoteService from '../../services/quoteService'
+import * as invitationService from '../../services/invitationService'
 
 // components 
 import ToDoListCard from "../../components/ToDoListCard/ToDoListCard"
@@ -35,6 +36,7 @@ const Dashboard = (props) => {
   const [usersHabits, setUsersHabits ] = useState({})
   const [usersStats, setUsersStats] = useState({})
   const [usersMessages, setUsersMessages] = useState({})
+  const [usersInvitations, setUsersInvitations] = useState({})
   const [quotes, setQuotes] = useState({})
   const [loading, setLoading] = useState(true)
 
@@ -47,6 +49,7 @@ const Dashboard = (props) => {
       const habitsData = await habitService.getUsersHabits(props.user.profile)
       const statsData = await statService.getUsersStats(props.user.profile)
       const messagesData = await messageService.getUserMessages(props.user.profile)
+      const invitationData = await invitationService.getUsersInvitations(props.user.profile)
       const quotesData = await quoteService.getQuotes()
 
       const filteredEvents = eventsData.filter(event => new Date(event.start) > new Date())
@@ -63,6 +66,7 @@ const Dashboard = (props) => {
       setQuotes(quotesData)
       const preferencesData = data.preferences[0]
       setPreferences(preferencesData)
+      setUsersInvitations(invitationData)
       setLoading(false)
     }
     fetchUserProfile()
@@ -133,7 +137,9 @@ const Dashboard = (props) => {
             usersMessages={ usersMessages }
             handleDeleteMessage={ handleDeleteMessage }
           />
-          < InvitationsCard />
+          < InvitationsCard
+            usersInvitations={usersInvitations}
+          />
         </div>
     </div>
   )

@@ -29,9 +29,23 @@ const EventForm = (props) => {
       title: '',
       start: '',
       end: '',
-      participants: [],
+      invitedParticipants: [],
+      allDay: false
     })
   }
+
+  const handleAddFriendInvitation = (friendId) => {
+    setFormData({ ...formData, invitedParticipants: [...formData.invitedParticipants, friendId] })
+    props.handleFriendSelect(friendId)
+  }
+
+  const handleRemoveFriendInvitation = (friendId) => {
+    const updatedInvitedParticipants = formData.invitedParticipants.filter(id => id !== friendId)
+    setFormData({ ...formData, invitedParticipants: updatedInvitedParticipants })
+    props.handleFriendRemove(friendId)
+  }
+
+
 
   return (
     <div className="max-w-md bg-white rounded-md shadow-md w-1/2">
@@ -118,7 +132,7 @@ const EventForm = (props) => {
             <select
               className="w-1/2 px-3 py-2 border border-gray-300 rounded-md h-10 overflow-y-auto"
               name="invitedParticipants"
-              onChange={(e) => props.handleFriendSelect(e.target.value)}
+              onChange={(e) => handleAddFriendInvitation(e.target.value)}
               value={formData.invitedParticipants}
               multiple 
             >
@@ -147,7 +161,7 @@ const EventForm = (props) => {
               {props.selectedFriends[0].map(friend => (
                 <div key={friend._id} className="bg-gray-200 px-2 py-1 rounded-md mr-2 mb-2 flex items-center">
                   <span className="mr-2">{friend.name}</span>
-                  <button type="button" onClick={() => props.handleFriendRemove(friend._id)} className="text-red-600 focus:outline-none">
+                  <button type="button" onClick={() => handleRemoveFriendInvitation(friend._id)} className="text-red-600 focus:outline-none">
                     <svg className="h-4 w-4 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                       <path fillRule="evenodd" d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm0-2a6 6 0 1 1 0-12 6 6 0 0 1 0 12zm2-9a1 1 0 0 1 1 1v.01a1 1 0 1 1-2 .01V8a1 1 0 0 1 1-1zM8 8a1 1 0 1 1 2 0v.01a1 1 0 1 1-2-.01V8z"/>
                     </svg>
