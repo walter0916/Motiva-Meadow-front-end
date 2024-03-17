@@ -11,6 +11,11 @@ export default {
         poppins: ["Poppins", "san-serif"],
         neucha: ["Neucha", "cursive"],
         gloriaHallelujah: ["Gloria Hallelujah", "cursive"],
+      },
+      backgroundImage: {
+        'meadow-main': "url(./public/meadow.jpeg)",
+        'meadow-2nd': "url(./public/meadow.jpg)",
+        'meadow-3rd': "url(./public/meadow2.jpg)",
       }
     },
   },

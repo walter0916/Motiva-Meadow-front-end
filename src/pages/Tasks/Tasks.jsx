@@ -14,6 +14,7 @@ import ToDoList from '../../components/ToDoList/ToDoList'
 // animation
 import animationData from '../../../public/loading-animation.json'
 
+
 const Tasks = (props) => {
   const [lists, setLists] = useState({})
   const [showForm, setShowForm] = useState(false)
@@ -105,7 +106,7 @@ const Tasks = (props) => {
 
   if (loading) {
     return (
-      <div className="px-4 py-8 w-4/5 flex flex-col justify-center items-center bg-gradient-to-r from-[#29bf12] via-[#abff4f] to-[#29bf12]">
+      <div className="px-4 py-8 w-4/5 flex flex-col justify-center items-center bg-meadow-3rd bg-fixed bg-cover bg-center">
         <Lottie
           options={defaultOptions}
           height={400}
@@ -117,7 +118,7 @@ const Tasks = (props) => {
 
 
   return (
-    <div className="w-4/5 p-5 bg-gradient-to-r from-[#29bf12] via-[#abff4f] to-[#29bf12]">
+    <div className="w-4/5 p-6 bg-meadow-3rd bg-cover bg-center bg-fixed h-screen">
       <div className="flex items-center mb-4 font-poppins">
         <h1 className="text-2xl font-bold mr-4">Task Lists</h1>
         {showForm ? (

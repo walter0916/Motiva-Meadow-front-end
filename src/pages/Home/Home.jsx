@@ -41,49 +41,49 @@ const Home = (props) => {
   }
 
   return (
-    <div className="px-4 py-8 w-4/5 flex flex-col justify-center items-center bg-gradient-to-r from-[#29bf12] via-[#abff4f] to-[#29bf12] relative">
-      <div className="size-32 bg-white border rounded-full mb-6 shadow-lg">
-        <img src={logo} alt="" />
-      </div>
-      <div className="relative z-10">
+    <div className="py-8 w-4/5 flex flex-col items-center bg-meadow-3rd relative bg-fixed bg-cover bg-center overflow-y-auto">
+      <div className="relative z-10 flex flex-col items-center mb-6">
         <h1
           id="text"
-          className="text-7xl font-black font-kalam text-center text-white mb-4 font-outline-2"
+          className="text-7xl font-black font-kalam text-center text-black mb-4 font-outline-2"
         >
-          Welcome to Motiva Meadow
+          Motiva Meadow
         </h1>
       </div>
-      <TypeAnimation
-        className="text-xl text-center font-black font-poppins text-black mb-6"
-        sequence={[
-          "Where Growth Blossoms: Cultivate Your Potential at Motiva Meadow",
-          1000,
-        ]}
-      />
-      <div className="w-full flex flex-row justify-around">
-      <Lottie
-        options={defaultOptions}
-        height={400}
-        width={400}
-      />
-      <div className="mb-8 border border-green-600 rounded-lg shadow-lg p-4 sticky-note">
-        <h2 className="text-2xl font-semibold font-poppins text-black mb-2">How to Use Motiva Meadow</h2>
-        <ul className="font-poppins font-semibold">
-          <li>Change your preferences in settings to update what you want to see on your dashboard</li>
-          <li>Add events to see them on the calendar</li>
-          <li>Add habits, goals, and to-do lists to track your progress</li>
-          <li>Archive to-do lists for better organization</li>
-          <li>Set deadlines for goals to see how many days are left</li>
-          <li>View automatically updated stats like habit streaks and to-do list streaks</li>
-          <li>Add friends to check their stats and send them motivational messages</li>
-          <li>Get inspired with motivational quotes on the dashboard</li>
-        </ul>
+      <div className="mb-6 bg-[#ffffc8]/70 w-full flex justify-center items-center h-1/5 text-center ">
+        <Lottie
+          options={defaultOptions}
+          height={200}
+          width={200}
+        />
+        <TypeAnimation
+          className="font-poppins text-black "
+          sequence={[
+            "Where Growth Blossoms: Cultivate Your Potential",
+            1000,
+          ]}
+          style={{fontSize: '2em'}}
+        />
+        <Lottie
+          options={defaultOptions}
+          height={200}
+          width={200}
+        />
       </div>
-      <Lottie
-        options={defaultOptions}
-        height={400}
-        width={400}
-      />
+      <div className="w-full flex items-center justify-center">
+        <div className="mb-8 border w-4/5 border-green-600 rounded-lg shadow-lg p-4 sticky-note fade-in-element">
+          <h2 className="text-2xl font-semibold font-poppins text-black mb-2">How to Use Motiva Meadow</h2>
+          <ul className="font-poppins font-semibold">
+            <li>Change your preferences in settings to update what you want to see on your dashboard</li>
+            <li>Add events to see them on the calendar</li>
+            <li>Add habits, goals, and to-do lists to track your progress</li>
+            <li>Archive to-do lists for better organization</li>
+            <li>Set deadlines for goals to see how many days are left</li>
+            <li>View automatically updated stats like habit streaks and to-do list streaks</li>
+            <li>Add friends to check their stats and send them motivational messages</li>
+            <li>Get inspired with motivational quotes on the dashboard</li>
+          </ul>
+        </div>
       </div>
 
       <div>

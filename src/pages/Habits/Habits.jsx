@@ -59,7 +59,7 @@ const Habits = (props) => {
 
   if (loading) {
     return (
-      <div className="px-4 py-8 w-4/5 flex flex-col justify-center items-center bg-gradient-to-r from-[#29bf12] via-[#abff4f] to-[#29bf12]">
+      <div className="px-4 py-8 w-4/5 flex flex-col justify-center items-center bg-meadow-3rd bg-fixed bg-cover bg-center">
         <Lottie
           options={defaultOptions}
           height={400}
@@ -70,7 +70,7 @@ const Habits = (props) => {
   }
 
   return (
-    <div className="w-4/5 p-5 bg-gradient-to-r from-[#29bf12] via-[#abff4f] to-[#29bf12]">
+    <div className="w-4/5 p-5 bg-meadow-3rd bg-fixed bg-cover bg-center overflow-y-auto">
       <div className="flex items-center mb-4">
         <h1 className="text-2xl font-bold mr-4">Habits</h1>
         {showForm ? (

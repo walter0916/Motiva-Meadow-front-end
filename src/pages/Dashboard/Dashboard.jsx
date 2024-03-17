@@ -84,7 +84,7 @@ const Dashboard = (props) => {
 
   if (loading) {
     return (
-      <div className="px-4 py-8 w-4/5 flex flex-col justify-center items-center bg-gradient-to-r from-[#29bf12] via-[#abff4f] to-[#29bf12] ">
+      <div className="px-4 py-8 w-4/5 flex flex-col justify-center items-center bg-meadow-3rd bg-cover bg-center bg-fixed ">
         <Lottie
           options={defaultOptions}
           height={400}
@@ -95,45 +95,45 @@ const Dashboard = (props) => {
   }
 
   return (
-    <main className='bg-gradient-to-r from-[#29bf12] via-[#abff4f] to-[#29bf12] p-8 flex items-center h-screen w-4/5 font-poppins'>
-      <div className="grid grid-cols-3 gap-4 w-full">
-        {preferences.showEvents && 
-        < EventsCard 
-          userProfile={userProfile}
-          usersEvents={usersEvents}
-        />}
-        {preferences.showToDoList && 
-        < ToDoListCard 
-          userProfile={userProfile}
-          usersToDoLists={usersToDoLists}
-        />}
-        {preferences.showGoals && 
-        < GoalsDashboardCard 
-          userProfile={userProfile} 
-          usersGoals={usersGoals} 
-        />}
-        {preferences.showQuotes && 
-        < QuotesCard 
-          userProfile={userProfile}
-          quotes={quotes}
-        />}
-        {preferences.showHabitProgress && 
-        < HabitsProgressCard 
-          userProfile={userProfile}
-          usersHabits={usersHabits}
-        />}
-        {preferences.seeStats && 
-        < StatsCard 
-          userProfile={userProfile}
-          usersStats={usersStats}
-        />}
-        < MessagesCard 
-          userProfile={userProfile}
-          usersMessages={ usersMessages }
-          handleDeleteMessage={ handleDeleteMessage }
-        />
-      </div>
-    </main>
+    <div className="w-4/5 bg-meadow-3rd bg-cover bg-no-repeat bg-center flex justify-center items-center bg-fixed overflow-y-auto font-poppins p-8 h-max min-h-full">
+        <div className="grid grid-cols-3 gap-4 w-full">
+          {preferences.showEvents && 
+          < EventsCard 
+            userProfile={userProfile}
+            usersEvents={usersEvents}
+          />}
+          {preferences.showToDoList && 
+          < ToDoListCard 
+            userProfile={userProfile}
+            usersToDoLists={usersToDoLists}
+          />}
+          {preferences.showGoals && 
+          < GoalsDashboardCard 
+            userProfile={userProfile} 
+            usersGoals={usersGoals} 
+          />}
+          {preferences.showQuotes && 
+          < QuotesCard 
+            userProfile={userProfile}
+            quotes={quotes}
+          />}
+          {preferences.showHabitProgress && 
+          < HabitsProgressCard 
+            userProfile={userProfile}
+            usersHabits={usersHabits}
+          />}
+          {preferences.seeStats && 
+          < StatsCard 
+            userProfile={userProfile}
+            usersStats={usersStats}
+          />}
+          < MessagesCard 
+            userProfile={userProfile}
+            usersMessages={ usersMessages }
+            handleDeleteMessage={ handleDeleteMessage }
+          />
+        </div>
+    </div>
   )
 }
 

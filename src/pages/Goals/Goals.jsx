@@ -73,7 +73,7 @@ const Goals = (props) => {
 
   if (loading) {
     return (
-      <div className="px-4 py-8 w-4/5 flex flex-col justify-center items-center bg-gradient-to-r from-[#29bf12] via-[#abff4f] to-[#29bf12]">
+      <div className="px-4 py-8 w-4/5 flex flex-col justify-center items-center bg-meadow-3rd bg-cover bg-fixed bg-center">
         <Lottie
           options={defaultOptions}
           height={400}
@@ -84,7 +84,7 @@ const Goals = (props) => {
   }
 
   return (
-    <div className="w-4/5 p-5 bg-gradient-to-r from-[#29bf12] via-[#abff4f] to-[#29bf12]">
+    <div className="w-4/5 bg-meadow-3rd bg-cover bg-center bg-no-repeat bg-fixed overflow-y-auto p-5 h-max min-h-full">
       <GoalsForm handleAddGoal={handleAddGoal}/>
       <select name="type" id="type3" onChange={handleTypeChange}>
         <option value="all">All Types</option>

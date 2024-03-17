@@ -5,15 +5,19 @@ import { FiLogIn, FiLogOut, FiUserPlus } from 'react-icons/fi'
 //css
 import './SideBar.css'
 
+// images
+import logo from '../../../public/motiva-meadow-logo.png'
+
 const SideBar = ({ user, profile , handleLogout }) => {
   const iconClass = 'w-6 h-6 mr-2'
 
   return (
     <div className='w-1/5'>
-    <nav className='bg-[#ffffc8]  min-h-screen z-10 text-black w-1/5 fixed left-0 h-screen font-poppins'>
+    <nav className='bg-[#ffffc8]  min-h-screen z-10 text-black w-1/5 fixed left-0 h-screen font-poppins overflow-y-auto'>
       {user ?
         <ul>
-            <div id="profile" className="px-6 py-10">
+            <div id="profile" className="px-6">
+              <img src={logo} alt="" />
               <p className="text-black font-semibold">Welcome back,</p>
               <div href="#" className="inline-flex space-x-2 items-center">
                 <span>
@@ -135,6 +139,7 @@ const SideBar = ({ user, profile , handleLogout }) => {
         </ul>
       :
         <ul>
+          <img src={logo} alt="" />
           <li className='w-full px-2 inline-flex space-x-2 items-center border-b border-slate-700 py-3 hover:bg-white/20 transition ease-linear duration-150'>
             <NavLink className='link flex flex-row' to="/">                
               <div>
@@ -150,6 +155,7 @@ const SideBar = ({ user, profile , handleLogout }) => {
               </div>
             </NavLink>
           </li>
+
           <li className='w-full px-2 inline-flex space-x-2 items-center border-b border-slate-700 py-3  hover:bg-white/20 transition ease-linear duration-150'><NavLink className='link flex' to="/auth/login"><FiLogIn className={iconClass} /> Log In</NavLink></li>
           <li className='w-full px-2 inline-flex space-x-2 items-center border-b border-slate-700 py-3  hover:bg-white/20 transition ease-linear duration-150'><NavLink className='link flex' to="/auth/signup"><FiUserPlus className={iconClass} /> Sign Up</NavLink></li>
         </ul>
