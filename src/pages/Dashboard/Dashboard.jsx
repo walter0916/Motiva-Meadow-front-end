@@ -20,6 +20,7 @@ import GoalsDashboardCard from "../../components/GoalsDashboardCard/GoalsDashboa
 import EventsCard from "../../components/EventsCard/EventsCard"
 import QuotesCard from "../../components/QuotesCard/QuotesCard"
 import StatsCard from "../../components/StatsCard/StatsCard"
+import InvitationsCard from "../../components/InvitationsCard/InvitationsCard"
 
 //animation
 import animationData from '../../../public/loading-animation.json'
@@ -132,6 +133,7 @@ const Dashboard = (props) => {
             usersMessages={ usersMessages }
             handleDeleteMessage={ handleDeleteMessage }
           />
+          < InvitationsCard />
         </div>
     </div>
   )
