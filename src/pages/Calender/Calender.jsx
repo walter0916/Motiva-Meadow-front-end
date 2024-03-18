@@ -12,7 +12,6 @@ import EventForm from '../../components/EventForm/EventForm'
 
 // css
 import 'react-big-calendar/lib/sass/styles.scss'
-import { Await } from 'react-router-dom'
 
 const localizer = momentLocalizer(moment)
 
@@ -115,6 +114,12 @@ const Calender = (props) => {
               <h2 className="text-xl font-bold mb-2">{showEvent.title}</h2>
               <p className="text-gray-600 mb-1">Start Date: {moment(showEvent.start).format(showEvent.allDay ? 'MMMM Do YYYY' : 'MMMM Do YYYY, h:mm:ss a')}</p>
               <p className="text-gray-600 mb-4">End Date: {moment(showEvent.end).format(showEvent.allDay ? 'MMMM Do YYYY' : 'MMMM Do YYYY, h:mm:ss a')}</p>
+              {props.user.profile === showEvent.author._id && (
+                <>
+                  <p className="text-gray-600 mb-1">Invited Participants: {showEvent.invitedParticipants.map(participant => participant.name).join(', ')}</p>
+                  <p className="text-gray-600 mb-4">Accepted Participants: {showEvent.acceptedParticipants.map(participant => participant.name).join(', ')}</p>
+                </>
+              )}
               <button 
                 className="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-md transition-colors duration-300"
                 onClick={() => handleDeleteEvent(showEvent._id)}
