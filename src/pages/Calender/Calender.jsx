@@ -75,6 +75,7 @@ const Calender = (props) => {
     await eventService.deleteEvent(eventId)
     const filteredData = events.filter(event => event._id !== eventId)
     setEvents(filteredData)
+    setShowEvent({})
   }
 
   const handleFriendSelect = (friendId) => {

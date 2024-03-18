@@ -15,7 +15,7 @@ export default {
       backgroundImage: {
         'meadow-main': "url(./public/meadow.jpeg)",
         'meadow-2nd': "url(./public/meadow.jpg)",
-        'meadow-3rd': "url(./public/meadow2.jpg)",
+        'meadow-3rd': "url(https://i.imgur.com/skf9okk.jpg)",
       }
     },
   },
