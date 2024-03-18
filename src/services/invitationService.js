@@ -14,6 +14,38 @@ async function getUsersInvitations(profileId) {
   }
 }
 
+async function acceptInvitation(profileId, invitationId) {
+  try {
+    const res = await fetch(`${BASE_URL}/${profileId}/${invitationId}/accept`, {
+      method: 'PUT',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`,
+        'Content-Type': 'application/json'
+      },
+    })
+    return res.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+async function declineInvitation(profileId, invitationId) {
+  try {
+    const res = await fetch(`${BASE_URL}/${profileId}/${invitationId}/decline`, {
+      method: 'PUT',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`,
+        'Content-Type': 'application/json'
+      },
+    })
+    return res.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 export {
-  getUsersInvitations
+  getUsersInvitations,
+  acceptInvitation,
+  declineInvitation
 }
