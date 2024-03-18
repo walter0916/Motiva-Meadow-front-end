@@ -12,6 +12,7 @@ import EventForm from '../../components/EventForm/EventForm'
 
 // css
 import 'react-big-calendar/lib/sass/styles.scss'
+import { Await } from 'react-router-dom'
 
 const localizer = momentLocalizer(moment)
 

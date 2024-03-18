@@ -87,6 +87,16 @@ const Dashboard = (props) => {
     }
   }
 
+  const handleAcceptInvitation = async (invitationId) => {
+    await invitationService.acceptInvitation(props.user.profile, invitationId)
+    const filteredData = usersInvitations.filter(invitation => invitation._id !== invitationId)
+    setUsersInvitations (filteredData)
+  }
+
+  const handleDeclineInvitation = async (invitationId) => {
+    await invitationService.declineInvitation(props.user.profile, invitationId)
+  }
+
   if (loading) {
     return (
       <div className="px-4 py-8 w-4/5 flex flex-col justify-center items-center bg-meadow-3rd bg-cover bg-center bg-fixed ">
@@ -139,6 +149,8 @@ const Dashboard = (props) => {
           />
           < InvitationsCard
             usersInvitations={usersInvitations}
+            handleAcceptInvitation={ handleAcceptInvitation }
+            handleDeclineInvitation={ handleDeclineInvitation }
           />
         </div>
     </div>

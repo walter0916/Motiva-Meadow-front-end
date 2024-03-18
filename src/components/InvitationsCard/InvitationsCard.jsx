@@ -13,14 +13,6 @@ const InvitationsCard = (props) => {
     }
   }
 
-  const handleAcceptInvitation = (invitationId) => {
-
-  }
-
-  const handleDeclineInvitation = (invitationId) => {
-  
-  }
-
 
   return (
     <div className="bg-white rounded-lg shadow-lg overflow-y-auto h-80 p-4">
@@ -34,10 +26,10 @@ const InvitationsCard = (props) => {
               <span>{invitation.sender.name} - {invitation.event.title} </span> <br />
               <span>{formatDate(invitation.event.start, invitation.event.allDay)} - {formatDate(invitation.event.end, invitation.event.allDay)}</span>
               <div className="flex justify-between mt-2">
-              <button onClick={() => handleAcceptInvitation(invitation._id)} className="bg-green-500 text-white font-semibold py-2 px-4 rounded-md hover:bg-green-600">
+              <button onClick={() => props.handleAcceptInvitation(invitation._id)} className="bg-green-500 text-white font-semibold py-2 px-4 rounded-md hover:bg-green-600">
                 Accept
               </button>
-              <button onClick={() => handleDeclineInvitation(invitation._id)} className="bg-red-500 text-white font-semibold py-2 px-4 rounded-md hover:bg-red-600">
+              <button onClick={() => props.handleDeclineInvitation(invitation._id)} className="bg-red-500 text-white font-semibold py-2 px-4 rounded-md hover:bg-red-600">
                 Decline
               </button>
               </div>

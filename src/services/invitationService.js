@@ -22,12 +22,15 @@ async function acceptInvitation(profileId, invitationId) {
         'Authorization': `Bearer ${tokenService.getToken()}`,
         'Content-Type': 'application/json'
       },
-    })
-    return res.json()
+    });
+    const data = await res.json();
+    console.log('Response data:', data); // Log response data
+    return data;
   } catch (error) {
-    console.log(error)
+    console.error('Error accepting invitation:', error); // Log error
   }
 }
+
 
 async function declineInvitation(profileId, invitationId) {
   try {
