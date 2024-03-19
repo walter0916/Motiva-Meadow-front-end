@@ -24,7 +24,7 @@ import StatsCard from "../../components/StatsCard/StatsCard"
 import InvitationsCard from "../../components/InvitationsCard/InvitationsCard"
 
 //animation
-import animationData from '../../../public/loading-animation.json'
+import animationData from '../../assets/loading-animation.json'
 
 
 const Dashboard = (props) => {

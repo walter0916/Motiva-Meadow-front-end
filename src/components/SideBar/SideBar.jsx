@@ -6,7 +6,7 @@ import { FiLogIn, FiLogOut, FiUserPlus } from 'react-icons/fi'
 import './SideBar.css'
 
 // images
-import logo from '../../../public/motiva-meadow-logo.png'
+import logo from '../../assets/motiva-meadow-logo.png'
 
 const SideBar = ({ user, profile , handleLogout }) => {
   const iconClass = 'w-6 h-6 mr-2'

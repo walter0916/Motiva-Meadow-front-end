@@ -10,7 +10,7 @@ import GoalsForm from "../../components/GoalsForm/GoalsForm"
 import GoalCard from "../../components/GoalCard/GoalCard"
 
 //animation
-import animationData from '../../../public/loading-animation.json'
+import animationData from '../../assets/loading-animation.json'
 
 const Goals = (props) => {
   const [goals, setGoals] = useState({})

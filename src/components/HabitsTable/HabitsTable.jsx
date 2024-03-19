@@ -12,7 +12,7 @@ const HabitsTable = (props) => {
 
   return (
     <div className="w-full overflow-x-auto">
-      <table className="w-full border-collapse border border-gray-300 bg-white shadow-md font-kalam">
+      <table className="w-full border-collapse border border-gray-300 bg-white shadow-md font-poppins">
         <thead>
           <tr>
             <th className="py-2 px-4 border border-gray-300 bg-blue-500 text-white">Habit</th>

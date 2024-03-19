@@ -12,7 +12,7 @@ import ToDoListForm from "../../components/ToDoListForm/ToDoListForm"
 import ToDoList from '../../components/ToDoList/ToDoList'
 
 // animation
-import animationData from '../../../public/loading-animation.json'
+import animationData from '../../assets/loading-animation.json'
 
 
 const Tasks = (props) => {

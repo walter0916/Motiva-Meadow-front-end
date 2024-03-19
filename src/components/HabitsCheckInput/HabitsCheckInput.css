@@ -83,12 +83,12 @@
   content: attr(data-tg-on);
   background: rgb(34, 197, 94 );
   transform: rotateY(-180deg);
-  font-family: "Kalam", cursive;
+  font-family: "Poppins", sans-serif;
 }
 .checkbox-wrapper-10 .tgl-flip + .tgl-btn:before {
   background: #FF3A19;
   content: attr(data-tg-off);
-  font-family: "Kalam", cursive;
+  font-family: "Poppins", sans-serif;
 }
 .checkbox-wrapper-10 .tgl-flip + .tgl-btn:active:before {
   transform: rotateY(-20deg);

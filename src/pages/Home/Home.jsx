@@ -7,10 +7,7 @@ import { TypeAnimation } from "react-type-animation"
 import Lottie from "react-lottie"
 
 // animation json
-import animationData from '../../../public/tree-animation.json'
-
-// images
-import logo from '../../../public/motiva-meadow-logo.png'
+import animationData from '../../assets/tree-animation.json'
 
 //css
 import "./Home.css"
@@ -45,7 +42,7 @@ const Home = (props) => {
       <div className="relative z-10 flex flex-col items-center mb-6">
         <h1
           id="text"
-          className="text-7xl font-black font-kalam text-center text-black mb-4 font-outline-2"
+          className="text-7xl font-black font-pacifico text-center text-black mb-4 font-outline-2"
         >
           Motiva Meadow
         </h1>
@@ -57,12 +54,12 @@ const Home = (props) => {
           width={200}
         />
         <TypeAnimation
-          className="font-poppins text-black "
+          className=" text-black "
           sequence={[
             "Where Growth Blossoms: Cultivate Your Potential",
             1000,
           ]}
-          style={{fontSize: '2em'}}
+          style={{fontSize: '2em', fontFamily: 'Poppins'}}
         />
         <Lottie
           options={defaultOptions}

@@ -129,7 +129,7 @@ const Calender = (props) => {
               </button>
             </div>
           ) : ( 
-            'No Event Selected'
+            <span>No Event Selected<br />Click event on calender to see more </span>
           )}
         </div>
       </div>

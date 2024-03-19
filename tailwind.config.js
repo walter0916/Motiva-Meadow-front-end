@@ -10,7 +10,8 @@ export default {
         kalam: ["Kalam", "cursive"],
         poppins: ["Poppins", "san-serif"],
         neucha: ["Neucha", "cursive"],
-        gloriaHallelujah: ["Gloria Hallelujah", "cursive"],
+        pacifico: ["Pacifico", "cursive"],
+        quicksand: ["Quicksand", "sans-serif"],
       },
       backgroundImage: {
         'meadow-main': "url(./public/meadow.jpeg)",
