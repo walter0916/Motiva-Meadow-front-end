@@ -33,7 +33,7 @@ const HabitsTable = (props) => {
                 onMouseLeave={() => setHoveredRowIndex(null)}
               >
                 <td className=" border border-gray-300">
-                  <div className=''>
+                  <div className='flex'>
                   <button
                     className=" text-red-500 cursor-pointer"
                     onClick={() => props.handleDeleteHabit(habit._id)}

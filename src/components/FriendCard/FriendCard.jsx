@@ -79,7 +79,7 @@ const FriendCard = (props) => {
             placeholder="Send Some Inspiration..."
             value={formData.content}
             onChange={handleChange}
-            className="border border-gray-300 rounded-md py-2 mb-2 w-3/4"
+            className="border border-gray-300 rounded-md py-2 mb-2 laptop:w-3/4 iphone:w-8/12 iphone:mr-2 iphone:text-sm"
           />
           <button className="bg-blue-500 font-semibold text-white py-2 rounded-md focus:outline-none w-1/5 hover:bg-blue-600">Send</button>
         </form>

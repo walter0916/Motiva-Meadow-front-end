@@ -47,7 +47,7 @@ const Home = (props) => {
           Motiva Meadow
         </h1>
       </div>
-      <div className="mb-6 bg-[#ffffc8]/70 w-full flex justify-center items-center h-1/5 text-center ">
+      <div className="mb-6 bg-[#ffffc8]/70 w-full flex justify-center items-center laptop:h-1/5 iphone:h-2/6 text-center ">
         <Lottie
           options={defaultOptions}
           height={200}

@@ -24,16 +24,16 @@ const TaskForm = (props) => {
 
   return (
     <>
-      <form className="flex mt-4" onSubmit={handleSubmit}>
+      <form className="flex mt-4 iphone:w-full" onSubmit={handleSubmit}>
         <input 
-          className="shadow appearance-none border rounded w-full py-2 px-3 mr-4 text-grey-darker"
+          className="shadow appearance-none border rounded laptop:w-full iphone:w-40 py-2 px-3 laptop:mr-4 text-grey-darker"
           name="task" 
           placeholder="Add Todo"
           value={formData.task}
           onChange={handleChange}
         />
         <select
-          className="shadow appearance-none border rounded py-2 px-3 mr-4"
+          className="shadow appearance-none border rounded py-2 laptop:px-3 text-center laptop:mr-4"
           name="color"
           value={formData.color}
           onChange={handleChange}

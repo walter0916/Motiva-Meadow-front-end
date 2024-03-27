@@ -72,16 +72,16 @@ const Friends = (props) => {
   }
 
   return (
-    <div className="w-4/5 flex flex-col items-center bg-meadow-3rd bg-cover bg-center bg-fixed p-6 overflow-y-auto">
-      <nav className="mb-4">
+    <div className="laptop:w-4/5 iphone:w-full flex flex-col items-center bg-meadow-3rd bg-cover bg-center bg-fixed p-6 overflow-y-auto">
+      <nav className="mb-4 iphone:w-full">
         <button
-          className={`mr-4 ${activeTab === 'friends' ? 'font-bold' : ''}`}
+          className={`laptop:mr-4 iphone:mr-2 ${activeTab === 'friends' ? 'font-bold' : ''}`}
           onClick={() => setActiveTab('friends')}
         >
           Friends
         </button>
         <button
-          className={`mr-4 ${activeTab === 'sentRequests' ? 'font-bold' : ''}`}
+          className={`laptop:mr-4 iphone:mr-2 ${activeTab === 'sentRequests' ? 'font-bold' : ''}`}
           onClick={() => setActiveTab('sentRequests')}
         >
           Sent Requests

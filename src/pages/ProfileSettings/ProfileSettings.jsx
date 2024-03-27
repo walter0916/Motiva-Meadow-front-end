@@ -44,7 +44,7 @@ const ProfileSettings = (props) => {
   }
 
   return (
-    <div className="h-screen w-4/5 bg-meadow-3rd bg-fixed bg-cover bg-center">
+    <div className="h-screen laptop:w-4/5 iphone:w-full bg-meadow-3rd bg-fixed bg-cover bg-center">
     <div className="space-y-1 font-poppins">
       <div className="bg-white shadow-md rounded-lg overflow-hidden">
         <div className="border-b border-gray-200">

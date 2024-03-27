@@ -7,7 +7,7 @@ const FriendSearch = (props) => {
           placeholder="Search by name"
           value={props.searchTerm}
           onChange={(e) => props.setSearchTerm(e.target.value)}
-          className="p-2 mr-2 rounded-md border border-gray-300 focus:outline-none focus:border-blue-500"
+          className="p-2 mr-2 rounded-md border border-gray-300 focus:outline-none focus:border-blue-500 iphone:w-3/5"
         />
         <button
           type="button"
