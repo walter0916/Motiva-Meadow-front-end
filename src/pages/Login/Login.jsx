@@ -41,12 +41,12 @@ const LoginPage = ({ handleAuthEvt }) => {
   }
 
   return (
-    <main className="flex justify-center items-center h-screen bg-meadow-3rd bg-fixed bg-cover bg-center w-4/5 font-poppins">
-      <div className="bg-white p-8 rounded-lg shadow-md w-full md:max-w-md">
+    <main className="flex justify-center items-center h-screen bg-meadow-3rd bg-fixed bg-cover bg-center laptop:w-4/5 iphone:w-full font-poppins">
+      <div className="bg-white p-8 rounded-lg shadow-md laptop:w-full iphone:w-3/4 md:max-w-md">
         <h1 className="text-3xl font-semibold text-center mb-4">Log In</h1>
         <p className="text-red-500 text-center mb-4">{message}</p>
-        <form autoComplete="off" onSubmit={handleSubmit}>
-          <label className="block mb-2">
+        <form autoComplete="off" onSubmit={handleSubmit} className=' w-full flex flex-col items-center'>
+          <label className="block mb-2 w-full">
             Email
             <input
               type="text"
@@ -56,7 +56,7 @@ const LoginPage = ({ handleAuthEvt }) => {
               className="block w-full mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:border-green-500"
             />
           </label>
-          <label className="block mb-2">
+          <label className="block mb-2 w-full">
             Password
             <input
               type="password"

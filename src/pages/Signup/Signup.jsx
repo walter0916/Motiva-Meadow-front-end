@@ -78,12 +78,12 @@ const Signup = ({ handleAuthEvt }) => {
   }
 
   return (
-    <main className="flex justify-center items-center h-screen bg-meadow-3rd bg-fixed bg-cover bg-center w-4/5 font-poppins">
-      <div className="bg-white p-8 rounded-lg shadow-md w-full md:max-w-md">
+    <main className="flex justify-center items-center h-screen bg-meadow-3rd bg-fixed bg-cover bg-center laptop:w-4/5 iphone:w-full font-poppins">
+      <div className="bg-white p-8 rounded-lg shadow-md laptop:w-full iphone:w-3/4 md:max-w-md">
         <h1 className="text-3xl font-semibold text-center mb-4">Sign Up</h1>
         <p className="text-red-500 text-center mb-4">{message}</p>
-        <form autoComplete="off" onSubmit={handleSubmit}>
-          <div className="mb-4">
+        <form autoComplete="off" onSubmit={handleSubmit} className='w-full flex flex-col items-center'>
+          <div className="mb-4 w-full">
             <label htmlFor="name" className="block text-sm font-medium text-gray-700">
               Name
             </label>
@@ -96,7 +96,7 @@ const Signup = ({ handleAuthEvt }) => {
               className="mt-1 p-2 block w-full border border-gray-300 rounded-md focus:outline-none focus:border-green-500"
             />
           </div>
-          <div className="mb-4">
+          <div className="mb-4 w-full">
             <label htmlFor="email" className="block text-sm font-medium text-gray-700">
               Email
             </label>
@@ -109,7 +109,7 @@ const Signup = ({ handleAuthEvt }) => {
               className="mt-1 p-2 block w-full border border-gray-300 rounded-md focus:outline-none focus:border-green-500"
             />
           </div>
-          <div className="mb-4">
+          <div className="mb-4 w-full">
             <label htmlFor="password" className="block text-sm font-medium text-gray-700">
               Password
             </label>
@@ -122,7 +122,7 @@ const Signup = ({ handleAuthEvt }) => {
               className="mt-1 p-2 block w-full border border-gray-300 rounded-md focus:outline-none focus:border-green-500"
             />
           </div>
-          <div className="mb-4">
+          <div className="mb-4 w-full">
             <label htmlFor="passwordConf" className="block text-sm font-medium text-gray-700">
               Confirm Password
             </label>
