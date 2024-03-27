@@ -17,7 +17,11 @@ export default {
         'meadow-main': "url(./public/meadow.jpeg)",
         'meadow-2nd': "url(./public/meadow.jpg)",
         'meadow-3rd': "url(https://i.imgur.com/skf9okk.jpg)",
-      }
+      },
+      screens: {
+        'iphone': {'raw' : '(max-height: 950px)'},
+        'laptop': {'raw' : '(min-height: 951px)'}
+      },
     },
   },
   plugins: [],

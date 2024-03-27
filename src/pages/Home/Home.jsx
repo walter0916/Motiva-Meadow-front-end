@@ -38,7 +38,7 @@ const Home = (props) => {
   }
 
   return (
-    <div className="py-8 w-4/5 flex flex-col items-center bg-meadow-3rd relative bg-fixed bg-cover bg-center overflow-y-auto">
+    <div className="py-8 laptop:w-4/5 iphone:w-full flex flex-col items-center bg-meadow-3rd relative bg-fixed bg-cover bg-center overflow-y-auto">
       <div className="relative z-10 flex flex-col items-center mb-6">
         <h1
           id="text"
