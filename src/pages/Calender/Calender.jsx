@@ -89,7 +89,7 @@ const Calender = (props) => {
   }
 
   return (
-    <div className='flex flex-col justify-center items-center w-4/5 h-max min-h-full p-5 bg-meadow-3rd font-poppins bg-cover bg-no-repeat bg-center bg-fixed overflow-y-auto' >
+    <div className='flex flex-col justify-center items-center laptop:w-4/5 iphone:w-full h-max min-h-full p-5 bg-meadow-3rd font-poppins bg-cover bg-no-repeat bg-center bg-fixed overflow-y-auto' >
       <Calendar
           localizer={localizer}
           defaultDate={moment().toDate()}
@@ -99,9 +99,9 @@ const Calender = (props) => {
           endAccessor="end"
           eventPropGetter={eventPropGetter}
           onSelectEvent={handleSelectEvent}
-          style={{ height: '50vh', width: '70vw', background:'white'}}
+          style={{ height: '50vh', width: '95%', background:'white'}}
       />
-      <div className="h-1/2 mt-6 flex flex-row items-center justify-around w-full">
+      <div className="h-1/2 mt-6 flex laptop:flex-row iphone:flex-col items-center justify-around w-full">
         <EventForm
           selectedFriends={selectedFriends}
           handleFriendSelect={handleFriendSelect}
@@ -109,7 +109,7 @@ const Calender = (props) => {
           usersFriends={usersFriends}
           handleAddEvent={handleAddEvent}
         />
-        <div className="max-w-md bg-white p-6 rounded-md shadow-md w-1/3">
+        <div className="max-w-md bg-white p-6 rounded-md shadow-md laptop:w-1/3 iphone:w-full">
           {showEvent && Object.keys(showEvent).length > 0  ? (
             <div className="event-details bg-gray-100 p-4 rounded-md shadow-md">
               <h2 className="text-xl font-bold mb-2">{showEvent.title}</h2>

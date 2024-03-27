@@ -99,7 +99,7 @@ const Dashboard = (props) => {
 
   if (loading) {
     return (
-      <div className="px-4 py-8 w-4/5 flex flex-col justify-center items-center bg-meadow-3rd bg-cover bg-center bg-fixed ">
+      <div className="px-4 py-8 laptop:w-4/5 iphone:w-full flex flex-col justify-center items-center bg-meadow-3rd bg-cover bg-center bg-fixed ">
         <Lottie
           options={defaultOptions}
           height={400}
@@ -110,8 +110,8 @@ const Dashboard = (props) => {
   }
 
   return (
-    <div className="w-4/5 bg-meadow-3rd bg-cover bg-no-repeat bg-center flex justify-center items-center bg-fixed overflow-y-auto font-poppins p-8 h-max min-h-full">
-        <div className="grid grid-cols-3 gap-4 w-full">
+    <div className="laptop:w-4/5 iphone:w-full bg-meadow-3rd bg-cover bg-no-repeat bg-center flex justify-center items-center bg-fixed overflow-y-auto font-poppins p-8 h-max min-h-full">
+        <div className="grid laptop:grid-cols-3 gap-4 w-full">
           {preferences.showEvents && 
           < EventsCard 
             userProfile={userProfile}

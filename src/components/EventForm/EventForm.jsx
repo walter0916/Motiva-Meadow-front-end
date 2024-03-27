@@ -48,7 +48,7 @@ const EventForm = (props) => {
 
 
   return (
-    <div className="max-w-md bg-white rounded-md shadow-md w-1/2">
+    <div className="max-w-md bg-white rounded-md shadow-md laptop:w-1/2 iphone:w-full iphone:mb-5">
       <form className="space-y-4 flex flex-col p-6 w-full" onSubmit={handleSubmit}>
         <div className="flex flex-wrap justify-between items-center mb-4 w-full">
           <label className="w-1/4 text-left text-gray-600 text-sm font-semibold mb-2">
