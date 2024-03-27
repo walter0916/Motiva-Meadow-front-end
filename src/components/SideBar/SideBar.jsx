@@ -38,15 +38,15 @@ const SideBar = ({ user, profile , handleLogout }) => {
     {isToggleable && (
         <button className="bg-gray-600 p-2 text-white absolute z-30 top-0 right-0" onClick={toggleSidebar}><FiMenu /></button>
     )}
-      <nav className={`bg-[#ffffc8]  min-h-screen z-20 text-black laptop:w-1/5 iphone:fixed left-0 h-screen font-poppins overflow-y-auto ${isOpen || !isToggleable ? 'w-full' : 'hidden'}`}>
+      <nav className={`bg-[#ffffc8]  min-h-screen z-20 text-black w-1/4 ipad:w-3/12  iphone:fixed left-0 h-screen font-poppins overflow-y-auto ${isOpen || !isToggleable ? 'w-full' : 'hidden'}`}>
         {user ?
           <ul>
-              <div id="profile" className="px-6">
-                <img src={logo} alt="" />
+              <div id="profile" className="px-2">
+                <img src={logo} alt=""/>
                 <p className="text-black font-semibold">Welcome back,</p>
-                <div href="#" className="inline-flex space-x-2 items-center">
+                <div href="#" className="inline-flex space-x-2 items-center w-full">
                   <span>
-                      <img className="rounded-full w-9 h-9" src={profile.photo} alt="" />
+                      <img className="rounded-full w-9 h-9 " src={profile.photo} alt="" />
                   </span>
                   <span className="text-sm md:text-base font-bold text-black">
                       {user.name}

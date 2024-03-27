@@ -20,7 +20,8 @@ export default {
       },
       screens: {
         'iphone': {'raw' : '(max-height: 950px)'},
-        'laptop': {'raw' : '(min-height: 951px)'}
+        'laptop': {'raw' : '(min-height: 951px)'},
+        'ipad': {'raw': '(min-height: 951px) and (max-height: 1369px)'},
       },
     },
   },
