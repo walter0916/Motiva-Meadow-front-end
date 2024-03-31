@@ -20,6 +20,7 @@ const Calender = (props) => {
   const [usersFriends, setUsersFriends] = useState({})
   const [showEvent, setShowEvent] = useState({})
   const [selectedFriends, setSelectedFriends] = useState([])
+  const [screenHeight, setScreenHeight] = useState(window.innerHeight)
 
   useEffect(() => {
     const fetchEvents = async () => {
@@ -36,6 +37,18 @@ const Calender = (props) => {
     }
     fetchEvents()
   }, [props.user])
+
+  useEffect(() => {
+    const handleResize = () => {
+      setScreenHeight(window.innerHeight)
+    }
+
+    window.addEventListener('resize', handleResize)
+
+    return () => {
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [])
   
   const handleSelectEvent = (event) => {
     setShowEvent(event)
@@ -99,7 +112,11 @@ const Calender = (props) => {
           endAccessor="end"
           eventPropGetter={eventPropGetter}
           onSelectEvent={handleSelectEvent}
-          style={{ height: '50vh', width: '95%', background:'white'}}
+          style={{
+            height: screenHeight < 950 ? '70vh' : '50vh', 
+            width: screenHeight < 950 ?  '99vw' : '95%', 
+            background:'white'
+          }}
       />
       <div className="h-1/2 mt-6 flex laptop:flex-row iphone:flex-col items-center justify-around w-full">
         <EventForm
