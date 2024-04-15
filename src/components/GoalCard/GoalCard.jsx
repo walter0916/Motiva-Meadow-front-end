@@ -20,7 +20,8 @@ const GoalCard = (props) => {
         <button className="mr-2" onClick={() => props.handleDeleteGoal(props.goal._id)}>
           <FaTrash /> 
         </button>
-        {!props.goal.completed ? 
+        {daysLeft > 0 ? 
+        (!props.goal.completed ? 
           <button onClick={() => props.handleUpdateGoalCompletion(props.goal._id, true)} className="bg-green-500 font-semibold text-white px-2 py-1 rounded-md hover:bg-green-600">
             Complete
           </button> 
@@ -28,7 +29,7 @@ const GoalCard = (props) => {
           <button onClick={() => props.handleUpdateGoalCompletion(props.goal._id, false)} className="bg-orange-500 font-semibold text-white px-2 py-1 rounded-md hover:bg-orange-600">
             Uncomplete
           </button>
-        }
+        ) : ''} 
       </div>
     </div>
   )
