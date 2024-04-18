@@ -33,14 +33,15 @@ const HabitsTable = (props) => {
                 onMouseLeave={() => setHoveredRowIndex(null)}
               >
                 <td className=" border border-gray-300">
-                  <div className='flex'>
+                  <div className='w-full'>
                   <button
                     className=" text-red-500 cursor-pointer"
                     onClick={() => props.handleDeleteHabit(habit._id)}
                   >
                     <FaTrashAlt />
                   </button>
-                  <span className="w-2/3 ml-2">{habit.title}</span>
+                  <span className="w-3/4 ml-2 ">{habit.title} </span>
+                  <span className={` ${habit.currentNumber >= habit.weeklyGoal ? 'text-green-500' : 'text-red-500'}`}>{habit.currentNumber} / {habit.weeklyGoal}</span>
                   </div>
                 </td>
                 {daysOfWeek.map((day, index) => (
