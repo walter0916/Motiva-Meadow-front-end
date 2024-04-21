@@ -84,7 +84,7 @@ const Signup = ({ handleAuthEvt }) => {
         <p className="text-red-500 text-center mb-4">{message}</p>
         <form autoComplete="off" onSubmit={handleSubmit} className='w-full flex flex-col items-center'>
           <div className="mb-4 w-full">
-            <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+            <label htmlFor="name" className="block text-sm font-medium ">
               Name
             </label>
             <input
@@ -97,7 +97,7 @@ const Signup = ({ handleAuthEvt }) => {
             />
           </div>
           <div className="mb-4 w-full">
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+            <label htmlFor="email" className="block text-sm font-medium ">
               Email
             </label>
             <input
@@ -110,7 +110,7 @@ const Signup = ({ handleAuthEvt }) => {
             />
           </div>
           <div className="mb-4 w-full">
-            <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+            <label htmlFor="password" className="block text-sm font-medium ">
               Password
             </label>
             <input
@@ -123,7 +123,7 @@ const Signup = ({ handleAuthEvt }) => {
             />
           </div>
           <div className="mb-4 w-full">
-            <label htmlFor="passwordConf" className="block text-sm font-medium text-gray-700">
+            <label htmlFor="passwordConf" className="block text-sm font-medium ">
               Confirm Password
             </label>
             <input
@@ -136,7 +136,7 @@ const Signup = ({ handleAuthEvt }) => {
             />
           </div>
           <div className="mb-4">
-            <label htmlFor="photo" className="block text-sm font-medium text-gray-700">
+            <label htmlFor="photo" className="block text-sm font-medium ">
               Upload Photo
             </label>
             <input 
