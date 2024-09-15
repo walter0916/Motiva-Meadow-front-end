@@ -1,6 +1,6 @@
 .sticky-note {
   position: relative;
-  height: auto; /* Adjusted height to fit content */
+  height: auto; 
   padding: 16px;
   background-color: #ffffc8;
   border: 2px solid #6abf69;

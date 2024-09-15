@@ -20,7 +20,7 @@ const Calender = (props) => {
   const [usersFriends, setUsersFriends] = useState({})
   const [showEvent, setShowEvent] = useState({})
   const [selectedFriends, setSelectedFriends] = useState([])
-  const [screenHeight, setScreenHeight] = useState(window.innerHeight)
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth)
 
   useEffect(() => {
     const fetchEvents = async () => {
@@ -40,7 +40,7 @@ const Calender = (props) => {
 
   useEffect(() => {
     const handleResize = () => {
-      setScreenHeight(window.innerHeight)
+      setScreenWidth(window.innerWidth)
     }
 
     window.addEventListener('resize', handleResize)
@@ -102,7 +102,8 @@ const Calender = (props) => {
   }
 
   return (
-    <div className='flex flex-col justify-center items-center laptop:w-4/5 iphone:w-full h-max min-h-full p-5 bg-meadow-3rd font-poppins bg-cover bg-no-repeat bg-center bg-fixed overflow-y-auto' >
+    <div className='flex flex-col justify-start items-center laptop:w-4/5 iphone:w-full  p-5 bg-meadow-3rd font-poppins bg-cover bg-no-repeat bg-center bg-fixed min-h-screen overflow-y-auto' >
+      <div className='w-full flex justify-center'>
       <Calendar
           localizer={localizer}
           defaultDate={moment().toDate()}
@@ -113,12 +114,13 @@ const Calender = (props) => {
           eventPropGetter={eventPropGetter}
           onSelectEvent={handleSelectEvent}
           style={{
-            height: screenHeight < 950 ? '70vh' : '50vh', 
-            width: screenHeight < 950 ?  '99vw' : '95%', 
+            height: screenWidth < 950 ? '70vh' : '50vh', 
+            width: screenWidth < 950 ?  '99vw' : '95%', 
             background:'white'
           }}
       />
-      <div className="h-1/2 mt-6 flex laptop:flex-row iphone:flex-col items-center justify-around w-full">
+      </div>
+      <div className="h-fit mt-6 flex laptop:flex-row iphone:flex-col items-center justify-around w-full">
         <EventForm
           selectedFriends={selectedFriends}
           handleFriendSelect={handleFriendSelect}

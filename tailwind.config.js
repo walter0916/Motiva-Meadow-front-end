@@ -19,9 +19,9 @@ export default {
         'meadow-3rd': "url(https://i.imgur.com/skf9okk.jpg)",
       },
       screens: {
-        'iphone': {'raw' : '(max-height: 950px)'},
-        'laptop': {'raw' : '(min-height: 951px)'},
-        'ipad': {'raw': '(min-height: 951px) and (max-height: 1369px)'},
+        'iphone': {'raw' : '(max-width: 900px)'},
+        'laptop': {'raw' : '(min-width: 950px)'},
+        'ipad': {'raw': '(min-width: 900px) and (max-width: 950px)'},
       },
     },
   },

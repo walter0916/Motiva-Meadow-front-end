@@ -16,7 +16,7 @@ const SideBar = ({ user, profile , handleLogout }) => {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsToggleable(window.innerHeight < 950)
+      setIsToggleable(window.innerWidth < 1000)
     }
     handleResize()
     window.addEventListener('resize', handleResize)
@@ -38,7 +38,7 @@ const SideBar = ({ user, profile , handleLogout }) => {
     {isToggleable && (
         <button className="bg-gray-600 p-2 text-white absolute z-30 top-0 right-0" onClick={toggleSidebar}><FiMenu /></button>
     )}
-      <nav className={`bg-[#ffffc8]  min-h-screen z-20 text-black w-1/4 ipad:w-3/12  iphone:fixed left-0 h-screen font-poppins overflow-y-auto ${isOpen || !isToggleable ? 'w-full' : 'hidden'}`}>
+      <nav className={`bg-[#ffffc8] z-20 text-black font-poppins overflow-y-auto ${isToggleable ? (isOpen ? 'w-full' : 'hidden') : 'w-1/4'} iphone:fixed left-0`}>
         {user ?
           <ul>
               <div id="profile" className="px-2">

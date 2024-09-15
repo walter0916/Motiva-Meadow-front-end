@@ -50,7 +50,7 @@ const Dashboard = (props) => {
       const statsData = await statService.getUsersStats(props.user.profile)
       const messagesData = await messageService.getUserMessages(props.user.profile)
       const invitationData = await invitationService.getUsersInvitations(props.user.profile)
-      const quotesData = await quoteService.getQuotes()
+      // const quotesData = await quoteService.getQuotes()
 
       const filteredEvents = eventsData.filter(event => new Date(event.start) > new Date())
 
@@ -63,7 +63,7 @@ const Dashboard = (props) => {
       setUsersHabits(habitsData)
       setUsersStats(statsData)
       setUsersMessages(messagesData)
-      setQuotes(quotesData)
+      // setQuotes(quotesData)
       const preferencesData = data.preferences[0]
       setPreferences(preferencesData)
       setUsersInvitations(invitationData)
@@ -110,7 +110,7 @@ const Dashboard = (props) => {
   }
 
   return (
-    <div className="laptop:w-4/5 iphone:w-full bg-meadow-3rd bg-cover bg-no-repeat bg-center flex justify-center items-center bg-fixed overflow-y-auto font-poppins p-8 h-max min-h-full">
+    <div className="laptop:w-4/5 iphone:w-full bg-meadow-3rd bg-cover bg-no-repeat bg-center flex justify-start bg-fixed overflow-y-auto font-poppins p-8 h-full">
         <div className="grid laptop:grid-cols-3 gap-4 w-full">
           {preferences.showEvents && 
           < EventsCard 
@@ -127,11 +127,11 @@ const Dashboard = (props) => {
             userProfile={userProfile} 
             usersGoals={usersGoals} 
           />}
-          {preferences.showQuotes && 
+          {/* {preferences.showQuotes && 
           < QuotesCard 
             userProfile={userProfile}
             quotes={quotes}
-          />}
+          />} */}
           {preferences.showHabitProgress && 
           < HabitsProgressCard 
             userProfile={userProfile}
