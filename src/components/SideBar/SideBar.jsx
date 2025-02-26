@@ -38,12 +38,11 @@ const SideBar = ({ user, profile , handleLogout }) => {
     {isToggleable && (
         <button className="bg-gray-600 p-2 text-white absolute z-30 top-0 right-0" onClick={toggleSidebar}><FiMenu /></button>
     )}
-      <nav className={`bg-[#ffffc8] z-20 text-black font-poppins overflow-y-auto ${isToggleable ? (isOpen ? 'w-full' : 'hidden') : 'w-1/4'} iphone:fixed left-0`}>
+      <nav className={`bg-green-100 z-20 text-black font-poppins overflow-y-auto ${isToggleable ? (isOpen ? 'w-full' : 'hidden') : 'w-1/4'} iphone:fixed left-0`}>
         {user ?
           <ul>
               <div id="profile" className="px-2">
                 <img src={logo} alt=""/>
-                <p className="text-black font-semibold">Welcome back,</p>
                 <div href="#" className="inline-flex space-x-2 items-center w-full">
                   <span>
                       <img className="rounded-full w-9 h-9 " src={profile.photo} alt="" />
