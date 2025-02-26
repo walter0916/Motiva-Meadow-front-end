@@ -1,7 +1,7 @@
 const MessagesCard = (props) => {
   return (
     <div className="bg-white rounded-lg shadow-lg overflow-y-auto h-80 p-4">
-      <h2 className="text-xl font-semibold mb-4">Inbox</h2>
+      <h2 className="text-2xl font-semibold mb-4">Inbox</h2>
       {props.usersMessages.length === 0 ? (
         <p className="text-gray-500">No messages</p>
       ) : (
