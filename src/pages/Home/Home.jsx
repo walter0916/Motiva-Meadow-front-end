@@ -38,29 +38,32 @@ const Home = (props) => {
   }
 
   return (
-    <div className="py-8 laptop:w-4/5 iphone:w-full flex flex-col items-center bg-meadow-3rd relative bg-fixed bg-cover bg-center overflow-y-auto">
+    <div className="py-8 laptop:w-4/5 iphone:w-full flex flex-col items-center  relative bg-fixed bg-green-100 overflow-y-auto">
       <div className="relative z-10 flex flex-col items-center mb-6">
         <h1
           id="text"
-          className="text-7xl font-black font-pacifico text-center text-black mb-4 font-outline-2"
+          className="text-9xl font-pacifico text-center text-lime-800 mb-4 font-outline-2"
         >
           Motiva Meadow
         </h1>
       </div>
-      <div className="mb-6 bg-[#ffffc8]/70 w-full flex justify-center items-center laptop:h-1/5 iphone:h-2/6 text-center ">
+      <div className="mb-6 w-full flex justify-center items-center laptop:h-1/5 iphone:h-2/6 text-center ">
         <Lottie
           options={defaultOptions}
           height={200}
           width={200}
         />
-        <TypeAnimation
+        {/* <TypeAnimation
           className=" text-black "
           sequence={[
             "Where Growth Blossoms: Cultivate Your Potential",
             1000,
           ]}
           style={{fontSize: '2em', fontFamily: 'Poppins'}}
-        />
+        /> */}
+        <h2 className="font-poppins text-2em text-3xl">
+          Where Growth Blossoms: Cultivate Your Potential
+        </h2>
         <Lottie
           options={defaultOptions}
           height={200}
@@ -68,7 +71,7 @@ const Home = (props) => {
         />
       </div>
       <div className="w-full flex items-center justify-center">
-        <div className="mb-8 border w-4/5 border-green-600 rounded-lg shadow-lg p-4 sticky-note fade-in-element">
+        <div className="mb-8 border w-4/5 border-green-600 rounded-lg shadow-lg p-4 sticky-note bg-white fade-in-element">
           <h2 className="text-2xl font-semibold font-poppins text-black mb-2">How to Use Motiva Meadow</h2>
           <ul className="font-poppins font-semibold">
             <li>Change your preferences in settings to update what you want to see on your dashboard</li>
